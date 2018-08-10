@@ -23,6 +23,9 @@ namespace UpdateOneLine
         public Form1()
         {
             InitializeComponent();
+            //获取焦点
+            txt1.TabIndex = 0;
+           
         }
 
         private void btn1_Click(object sender, EventArgs e)
