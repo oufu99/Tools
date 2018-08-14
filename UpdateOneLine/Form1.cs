@@ -54,7 +54,7 @@ namespace UpdateOneLine
             nameNode.InnerText = text;
             var newText = ConvertXmlToString(doc);
             File.WriteAllText(targetFileName, newText);
-
+            MessageBox.Show("修改成功");
         }
 
         /// <summary>
