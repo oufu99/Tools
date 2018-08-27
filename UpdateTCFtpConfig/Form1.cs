@@ -21,14 +21,14 @@ namespace UpdateTCFtpConfig
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string path = @"C:\MyLove\TotalCommand\wcx_ftp.ini";
+            string path = @"D:\MyLove\TotalCommand\wcx_ftp.ini";
 
             List<string> lines = new List<string>(File.ReadAllLines(path, Encoding.Default));
             string newManuName = this.txt1.Text;
             for (int i = 0; i < lines.Count; i++)
             {
                 var item = lines[i];
-                if (item.StartsWith("directory"))
+                if (item.StartsWith("directory")|| item.StartsWith("localdir"))
                 {
                     if (!item.Contains("/bin"))
                     {
@@ -77,7 +77,7 @@ namespace UpdateTCFtpConfig
 
         private void button2_Click(object sender, EventArgs e)
         {
-            string path = @"C:\MyLove\TotalCommand\wcx_ftp.ini";
+            string path = @"D:\MyLove\TotalCommand\wcx_ftp.ini";
 
             List<string> lines = new List<string>(File.ReadAllLines(path, Encoding.Default));
             string newManuName = this.txt1.Text;
