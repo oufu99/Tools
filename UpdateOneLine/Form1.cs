@@ -32,7 +32,7 @@ namespace UpdateOneLine
         {
             var name = txt1.Text;
             name = string.IsNullOrEmpty(name) ? "scust" : name;
-            string path = @"C:\Users\Administrator\AppData\Local\Red Gate\SQL Prompt 7\Snippets";
+            string path = @"C:\Users\123\AppData\Local\Red Gate\SQL Prompt 7\Snippets";
             var files = Directory.GetFiles(path, "*.sqlpromptsnippet");
             targetFileName = files.First(c => c.Contains(name));
             if (string.IsNullOrEmpty(targetFileName))

@@ -15,7 +15,7 @@ namespace UpdateShortCode
             string manuId = Console.ReadLine();
             Console.WriteLine("请输入新厂商Id");
             string newManuId = Console.ReadLine();
-            string path = @"C:\Users\Administrator\AppData\Local\Red Gate\SQL Prompt 7\Snippets";
+            string path = @"C:\Users\123\AppData\Local\Red Gate\SQL Prompt 7\Snippets";
             var files = Directory.GetFiles(path, "*.sqlpromptsnippet");
             foreach (var file in files)
             {
