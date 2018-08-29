@@ -24,7 +24,7 @@ namespace UpdateShortCode
                 File.WriteAllText(file, newText, Encoding.UTF8);
             }
             Console.WriteLine("修改完毕");
-            Console.ReadLine();
+          
         }
     }
 }
