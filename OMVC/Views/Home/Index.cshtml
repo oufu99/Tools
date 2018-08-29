@@ -1,0 +1,48 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+
+
+    <script src="~/JS2/test.js"></script>
+
+    <script src="/Views/Home/js/jquery.min.js"></script>
+
+
+    <script id="test1" type="text/html">
+        <h1>{{Name}}</h1>
+    </script>
+    <script>
+        var obj = { Name: "aaron" }
+
+        var clickObj = {
+            func: function () {
+                var html = template('test1', obj);
+                document.getElementById('content').innerHTML = html;
+            }
+        }
+
+        var func = function () {
+            var html = template("test", obj);
+            document.getElementById('content').innerHTML = html;
+        }
+
+    </script>
+</head>
+<body>
+    <div>
+        <input onclick="clickObj.func()" type="button" value="点我" />
+
+    </div>
+    <div id="content">
+
+    </div>
+</body>
+</html>
