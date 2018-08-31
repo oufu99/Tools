@@ -35,7 +35,7 @@ namespace AddNewManu
 
             }
             string name = this.txt1.Text;
-            string path = @"C:\MyConfig\我做过的项目\" + name;
+            string path = @"D:\MyConfig\我做过的项目\" + name;
             if (!Directory.Exists(path))
             {
                 Directory.CreateDirectory(path);
