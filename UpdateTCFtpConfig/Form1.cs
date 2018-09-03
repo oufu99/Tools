@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Common;
 
 namespace UpdateTCFtpConfig
 {
@@ -21,8 +22,8 @@ namespace UpdateTCFtpConfig
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string path = @"D:\MyLove\TotalCommand\wcx_ftp.ini";
-
+            string path = XmlHelper.ReadText(XMLPath.Ftp);
+            
             List<string> lines = new List<string>(File.ReadAllLines(path, Encoding.Default));
             string newManuName = this.txt1.Text;
             for (int i = 0; i < lines.Count; i++)

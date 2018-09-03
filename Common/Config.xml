@@ -1,13 +1,24 @@
 ﻿<?xml version="1.0"?>
 
 <configuration>
-  <CSharpShortCut>
-    <Peron>
-      <Age>18</Age>
-    </Peron>
-  </CSharpShortCut>
+  <Ftp>
+    <![CDATA[D:\MyLove\TotalCommand\wcx_ftp.ini]]>
+  </Ftp>
 
   <SQLShortCut>
     <![CDATA[C:\Users\123\AppData\Local\Red Gate\SQL Prompt 7\Snippets]]>
   </SQLShortCut>
+
+  <SQLConnection>
+    <![CDATA[server=10.1.20.120,5388;Uid=serp;Pwd=PTDSe/XycOhQWQ8Cu5tIZg;DataBase=serp3;Connection Timeout=120;Application Name=serp3_test1]]>
+  </SQLConnection>
+
+  <CompanyProject>
+    <![CDATA[D:\MyConfig\我做过的项目\]]>
+  </CompanyProject>
+
+  <Host>
+    <![CDATA[C:\Windows\System32\drivers\etc\hosts]]>
+  </Host>
+
 </configuration>

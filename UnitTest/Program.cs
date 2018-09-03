@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Tools;
+using Common;
 
 namespace UnitTest
 {
@@ -11,7 +11,7 @@ namespace UnitTest
     {
         static void Main(string[] args)
         {
-           var noteList= XmlHelper.ReadNodes(@"configuration/CSharpShortCut");
+           
 
             Console.ReadLine(); 
         }

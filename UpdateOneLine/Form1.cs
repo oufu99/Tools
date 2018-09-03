@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml;
 using System.Xml.Linq;
+using Common;
 
 namespace UpdateOneLine
 {
@@ -32,7 +33,7 @@ namespace UpdateOneLine
         {
             var name = txt1.Text;
             name = string.IsNullOrEmpty(name) ? "scust" : name;
-            string path = @"C:\Users\123\AppData\Local\Red Gate\SQL Prompt 7\Snippets";
+            string path = XmlHelper.ReadText(XMLPath.SQLShortCut);
             var files = Directory.GetFiles(path, "*.sqlpromptsnippet");
             targetFileName = files.First(c => c.Contains(name));
             if (string.IsNullOrEmpty(targetFileName))

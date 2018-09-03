@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Common;
 
 namespace UpdateShortCode
 {
@@ -15,7 +16,7 @@ namespace UpdateShortCode
             string manuId = Console.ReadLine();
             Console.WriteLine("请输入新厂商Id");
             string newManuId = Console.ReadLine();
-            string path = @"C:\Users\123\AppData\Local\Red Gate\SQL Prompt 7\Snippets";
+            string path = XmlHelper.ReadText(XMLPath.SQLShortCut);
             var files = Directory.GetFiles(path, "*.sqlpromptsnippet");
             foreach (var file in files)
             {

@@ -29,7 +29,8 @@
         private void InitializeComponent()
         {
             this.btn1 = new System.Windows.Forms.Button();
-            this.txt1 = new System.Windows.Forms.TextBox();
+            this.txtId = new System.Windows.Forms.TextBox();
+            this.txtName = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // btn1
@@ -42,19 +43,29 @@
             this.btn1.UseVisualStyleBackColor = true;
             this.btn1.Click += new System.EventHandler(this.btn1_Click);
             // 
-            // txt1
+            // txtId
             // 
-            this.txt1.Location = new System.Drawing.Point(83, 66);
-            this.txt1.Name = "txt1";
-            this.txt1.Size = new System.Drawing.Size(100, 21);
-            this.txt1.TabIndex = 1;
+            this.txtId.Location = new System.Drawing.Point(83, 66);
+            this.txtId.Name = "txtId";
+            this.txtId.Size = new System.Drawing.Size(100, 21);
+            this.txtId.TabIndex = 1;
+            this.txtId.TextChanged += new System.EventHandler(this.txt1_TextChanged);
+            // 
+            // txtName
+            // 
+            this.txtName.Location = new System.Drawing.Point(83, 143);
+            this.txtName.Name = "txtName";
+            this.txtName.Size = new System.Drawing.Size(100, 21);
+            this.txtName.TabIndex = 2;
+            this.txtName.Text = "请输入厂商名";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(278, 264);
-            this.Controls.Add(this.txt1);
+            this.Controls.Add(this.txtName);
+            this.Controls.Add(this.txtId);
             this.Controls.Add(this.btn1);
             this.Name = "Form1";
             this.Text = "新建厂商";
@@ -66,7 +77,8 @@
         #endregion
 
         private System.Windows.Forms.Button btn1;
-        private System.Windows.Forms.TextBox txt1;
+        private System.Windows.Forms.TextBox txtId;
+        private System.Windows.Forms.TextBox txtName;
     }
 }
 

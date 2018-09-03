@@ -3,12 +3,35 @@ using System.Collections.Generic;
 using System.Text;
 using System.Xml;
 
-namespace Tools
+namespace Common
 {
     public class XmlHelper
     {
 
-        private static  string filePath = @"D:\Tools\Common\config.xml";
+        private static string filePath = @"D:\Tools\Common\config.xml";
+
+
+        /// <summary>
+        /// 读取XML的所有子节点
+        /// </summary>
+        /// <param name="xPath">遵循xPath规则可以一路查下去  范例: @"Skill/First/SkillItem"</param>
+        /// <returns></returns>
+        public static string ReadText(string xPath)
+        {
+            try
+            {
+                XmlDocument doc = new XmlDocument();
+                doc.Load(filePath);
+                XmlNode xn = doc.SelectSingleNode(xPath);
+                return xn.FirstChild.InnerText; //得到该节点的子节点
+
+            }
+            catch
+            {
+                return null;
+            }
+        }
+
 
         /// <summary>
         /// 读取XML的所有子节点
@@ -58,7 +81,7 @@ namespace Tools
             }
         }
 
-    
+
 
         /// <summary>
         /// 修改节点的InnerText的值
@@ -103,9 +126,9 @@ namespace Tools
                 return null;
             }
         }
-        
-     
 
- 
+
+
+
     }
 }

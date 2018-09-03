@@ -5,10 +5,32 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Tools
+namespace Common
 {
     public class IISHelp
     {
+
+        ///// <summary>
+        ///// 添加绑定
+        ///// </summary>
+        ///// <param name="siteid"></param>
+        ///// <param name="ip"></param>
+        ///// <param name="port"></param>
+        ///// <param name="domain"></param>
+        //public static void AddHostHeader(int siteid, string ip, int port, string domain)//增加主机头（站点编号.ip.端口.域名）
+        //{
+        //    DirectoryEntry site = new DirectoryEntry("IIS://localhost/W3SVC/" + siteid);
+        //    PropertyValueCollection serverBindings = site.Properties["ServerBindings"];
+        //    string headerStr = string.Format("{0}:{1}:{2}", ip, port, domain);
+
+        //    if (!serverBindings.Contains(headerStr))
+        //    {
+        //        serverBindings.Add(headerStr);
+        //    }
+        //    site.CommitChanges();
+        //}
+
+
         /// <summary> 
         /// 创建一个新的站点
         /// </summary> 
