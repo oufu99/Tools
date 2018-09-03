@@ -1,0 +1,13 @@
+﻿<?xml version="1.0"?>
+
+<configuration>
+  <CSharpShortCut>
+    <Peron>
+      <Age>18</Age>
+    </Peron>
+  </CSharpShortCut>
+
+  <SQLShortCut>
+    <![CDATA[C:\Users\123\AppData\Local\Red Gate\SQL Prompt 7\Snippets]]>
+  </SQLShortCut>
+</configuration>
