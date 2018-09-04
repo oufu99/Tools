@@ -21,4 +21,23 @@
     <![CDATA[C:\Windows\System32\drivers\etc\hosts]]>
   </Host>
 
+  <HostIp>
+    <![CDATA[127.0.0.1]]>
+  </HostIp>
+
+  <IISWebUrl>
+    <![CDATA[.web.cn]]>
+  </IISWebUrl>
+
+  <IISMobileUrl>
+    <![CDATA[.mobile.cn]]>
+  </IISMobileUrl>
+
+  <IISWebIp>
+    <![CDATA[1]]>
+  </IISWebIp>
+
+  <IISMobileIp>
+    <![CDATA[2]]>
+  </IISMobileIp>
 </configuration>

@@ -10,25 +10,27 @@ namespace Common
     public class IISHelp
     {
 
-        ///// <summary>
-        ///// 添加绑定
-        ///// </summary>
-        ///// <param name="siteid"></param>
-        ///// <param name="ip"></param>
-        ///// <param name="port"></param>
-        ///// <param name="domain"></param>
-        //public static void AddHostHeader(int siteid, string ip, int port, string domain)//增加主机头（站点编号.ip.端口.域名）
-        //{
-        //    DirectoryEntry site = new DirectoryEntry("IIS://localhost/W3SVC/" + siteid);
-        //    PropertyValueCollection serverBindings = site.Properties["ServerBindings"];
-        //    string headerStr = string.Format("{0}:{1}:{2}", ip, port, domain);
-
-        //    if (!serverBindings.Contains(headerStr))
-        //    {
-        //        serverBindings.Add(headerStr);
-        //    }
-        //    site.CommitChanges();
-        //}
+        /// <summary>
+        /// IIS添加网站绑定
+        /// </summary>
+        /// <param name="siteid"></param>
+        /// <param name="ip"></param>
+        /// <param name="port"></param>
+        /// <param name="domain"></param>
+        public static void AddHostHeader(string domain, string port = "80", string type = "http")//增加主机头（站点编号.ip.端口.域名）
+        {
+            ServerManager sm = new ServerManager();
+            var webbing = sm.Sites.First(c => c.Id == 1).Bindings;
+            //"*:80:test2.web.cn"
+            //后面改成用枚举
+            string bindingInformation = string.Format("{0}:{1}:{2}", "", port, domain + XmlHelper.ReadText(XMLPath.IISWebUrl));
+            webbing.Add(bindingInformation, "http");
+            var mobilebing = sm.Sites.First(c => c.Id == 2).Bindings;
+            //"*:80:test2.mobile.cn"
+            bindingInformation = string.Format("{0}:{1}:{2}", "", port, domain + XmlHelper.ReadText(XMLPath.IISMobileUrl));
+            mobilebing.Add(bindingInformation, "http");
+            sm.CommitChanges();
+        }
 
 
         /// <summary> 

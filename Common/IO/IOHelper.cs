@@ -21,10 +21,10 @@ namespace Common
                 {
                     //127.0.0.1       shulunduo.web.cn
                     StringBuilder sb = new StringBuilder();
-                    sb.Append("\r\n\t" + ip);
-                    sb.Append("\t" + domain + ".web.cn\r\n");
-                    sb.Append("\t" + ip);
-                    sb.Append("\t" + domain + ".mobile.cn\r\n");
+                    sb.Append("\r\n" + ip);
+                    sb.Append("\t\t" + domain + XmlHelper.ReadText(XMLPath.IISWebUrl));
+                    sb.Append("\r\n" + ip);
+                    sb.Append("\t\t" + domain + XmlHelper.ReadText(XMLPath.IISMobileUrl));
                     sw.WriteLine(sb.ToString());
                 }
             }

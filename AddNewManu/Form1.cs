@@ -63,9 +63,9 @@ namespace AddNewManu
 
             //添加IIS的绑定
             string domain = model.Domain;
-
-
-
+            IISHelp.AddHostHeader(domain);
+            //写入host
+            IOHelper.AddHost(XmlHelper.ReadText(XMLPath.HostIp), domain);
             MessageBox.Show("创建成功");
             this.Close();
         }
