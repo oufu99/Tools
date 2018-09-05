@@ -9,7 +9,7 @@ namespace Common
     public class XMLPath
     {
 
-        public static string SQLShortCut = "configuration/CSharpShortCut";
+        public static string SQLShortCut = "configuration/SQLShortCut";
         public static string Ftp = "configuration/Ftp";
         public static string SQLConnection = "configuration/SQLConnection";
         public static string CompanyProject = "configuration/CompanyProject";
