@@ -20,16 +20,26 @@ namespace Common
         public static void AddHostHeader(string domain, string port = "80", string type = "http")//增加主机头（站点编号.ip.端口.域名）
         {
             ServerManager sm = new ServerManager();
-            var webbing = sm.Sites.First(c => c.Id == 1).Bindings;
-            //"*:80:test2.web.cn"
             //后面改成用枚举
+            var bindings = sm.Sites.First(c => c.Id == (long)IISEnums.WebSitId).Bindings;
+            //"*:80:test2.web.cn"
             string bindingInformation = string.Format("{0}:{1}:{2}", "", port, domain + XmlHelper.ReadText(XMLPath.IISWebUrl));
-            webbing.Add(bindingInformation, "http");
-            var mobilebing = sm.Sites.First(c => c.Id == 2).Bindings;
+            AddBingding(bindings, bindingInformation);
+            bindings = sm.Sites.First(c => c.Id == (long)IISEnums.MobileSitId).Bindings;
             //"*:80:test2.mobile.cn"
             bindingInformation = string.Format("{0}:{1}:{2}", "", port, domain + XmlHelper.ReadText(XMLPath.IISMobileUrl));
-            mobilebing.Add(bindingInformation, "http");
+            AddBingding(bindings, bindingInformation);
             sm.CommitChanges();
+        }
+
+        public static void AddBingding(BindingCollection bindings, string bindingInformation)//增加主机头（站点编号.ip.端口.域名）
+        {
+            //判断此绑定是否存在
+            if (bindings.Any(c => c.BindingInformation.Contains(bindingInformation)))
+            {
+                return;
+            }
+            bindings.Add(bindingInformation, "http");
         }
 
 

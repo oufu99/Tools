@@ -26,6 +26,8 @@ namespace Common
                     sb.Append("\r\n" + ip);
                     sb.Append("\t\t" + domain + XmlHelper.ReadText(XMLPath.IISMobileUrl));
                     sw.WriteLine(sb.ToString());
+                    //如果报redirection.config 错误
+                    //到C:\inetpub\history中找到最近一次的【CFGHISTORY_00000000XX】文件，点击进去找到applicationHost.config文件，用其覆盖C:\Windows\system32\inetsrv\config\applicationHost.config。
                 }
             }
         }

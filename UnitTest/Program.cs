@@ -12,8 +12,9 @@ namespace UnitTest
         static void Main(string[] args)
         {
 
-          
-            Console.ReadLine(); 
+            var name = (int)IISEnums.MobileSitId;
+            var type = name.GetType();
+            Console.ReadLine();
         }
     }
 }

@@ -45,6 +45,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Enums\IISEnums.cs" />
     <Compile Include="IIS\IISHelp.cs" />
     <Compile Include="IO\IOHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -58,8 +59,6 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Eumb\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

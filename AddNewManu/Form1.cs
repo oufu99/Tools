@@ -36,13 +36,11 @@ namespace AddNewManu
                 filePath = fileDialog.FileName;//返回文件的完整路径     
                 fileName = fileDialog.SafeFileName;
             }
-
             string manuId = this.txtId.Text.Trim();
             string name = this.txtName.Text.Trim();
 
             string sql = string.Format($@"SELECT a.name,b.name AS domain FROM dbo.tb_manufacturer a LEFT JOIN tb_user b ON a.tb_manufacturerID=b.manufacturer_id WHERE tb_manufacturerID={manuId} AND b.system_role_id=-10");
             var model = SQLHelper.Query<tb_manu>(sql);
-
             if (name == "请输入厂商名" || string.IsNullOrEmpty(name))
             {
                 name = model.Name;
