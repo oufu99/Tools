@@ -7,8 +7,8 @@ namespace Common
 {
     public class XmlHelper
     {
-
-        private static string filePath = @"D:\Tools\Common\config.xml";
+        //xml格式前面没有勾看着不爽...改成config后缀一样能被读取只要格式一样就可以了
+        private static string filePath = @"D:\Tools\Common\config.config";
 
 
         /// <summary>
