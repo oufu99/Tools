@@ -5,17 +5,33 @@ using System.Xml;
 
 namespace Common
 {
-    public class XmlHelper
+    public class XMLHelper
     {
         //xml格式前面没有勾看着不爽...改成config后缀一样能被读取只要格式一样就可以了
         private static string filePath = @"D:\Tools\Common\config.config";
 
-
+     
+       
         /// <summary>
-        /// 读取XML的所有子节点
+        /// 根据传入路径读取出XML的值
         /// </summary>
         /// <param name="xPath">遵循xPath规则可以一路查下去  范例: @"Skill/First/SkillItem"</param>
         /// <returns></returns>
+        public static string GetPath(string xPath)
+        {
+            try
+            {
+                XmlDocument doc = new XmlDocument();
+                doc.Load(filePath);
+                XmlNode xn = doc.SelectSingleNode(xPath);
+                return xn.FirstChild.InnerText; //得到该节点的子节点
+
+            }
+            catch
+            {
+                return null;
+            }
+        }
         public static string ReadText(string xPath)
         {
             try
@@ -31,7 +47,19 @@ namespace Common
                 return null;
             }
         }
-
+        /// <summary>
+        /// 如果要自己写又出现了解耦不完全的境界,脱裤子放屁
+        /// </summary>
+        /// <param name="name"></param>
+        /// <returns></returns>
+        public static string GetPathTest(string name)
+        {
+            var t = typeof(XMLPath);
+            var ass = Activator.CreateInstance(t);
+            var prop = t.GetField(name);
+            var xmlpath = prop.GetValue(ass).ToString();
+            return XMLHelper.GetPath(xmlpath);
+        }
 
         /// <summary>
         /// 读取XML的所有子节点

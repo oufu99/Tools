@@ -16,7 +16,7 @@ namespace UpdateShortCode
             string manuId = Console.ReadLine();
             Console.WriteLine("请输入新厂商Id");
             string newManuId = Console.ReadLine();
-            string path = XmlHelper.ReadText(XMLPath.SQLShortCut);
+            string path = XMLHelper.GetPath(XMLPath.SQLShortCut);
             var files = Directory.GetFiles(path, "*.sqlpromptsnippet");
             foreach (var file in files)
             {

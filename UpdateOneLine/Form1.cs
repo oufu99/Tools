@@ -39,7 +39,7 @@ namespace UpdateOneLine
         {
             var name = txt1.Text;
             name = string.IsNullOrEmpty(name) ? "scust" : name;
-            string path = XmlHelper.ReadText(XMLPath.SQLShortCut);
+            string path = XMLHelper.GetPath(XMLPath.SQLShortCut);
             var files = Directory.GetFiles(path, "*.sqlpromptsnippet");
             targetFileName = files.First(c => c.Contains(name));
             if (string.IsNullOrEmpty(targetFileName))

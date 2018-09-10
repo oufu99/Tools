@@ -19,7 +19,9 @@ namespace Common
         public static string IISMobileUrl = "configuration/IISMobileUrl";
         public static string IISWebIp = "configuration/IISWebIp";
         public static string IISMobileIp = "configuration/IISMobileIp";
-        
+
+
+       
 
     }
 }

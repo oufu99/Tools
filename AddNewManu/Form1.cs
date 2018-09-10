@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Common;
+using Models;
 
 namespace AddNewManu
 {
@@ -46,7 +47,7 @@ namespace AddNewManu
                 name = model.Name;
             }
 
-            string projectPath = XmlHelper.ReadText(XMLPath.CompanyProject);
+            string projectPath = XMLHelper.GetPath(XMLPath.CompanyProject);
             string path = projectPath + name;
             if (!Directory.Exists(path))
             {
@@ -63,7 +64,7 @@ namespace AddNewManu
             string domain = model.Domain;
             IISHelp.AddHostHeader(domain);
             //写入host
-            IOHelper.AddHost(XmlHelper.ReadText(XMLPath.HostIp), domain);
+            IOHelper.AddHost(XMLHelper.GetPath(XMLPath.HostIp), domain);
             MessageBox.Show("创建成功");
             this.Close();
         }
@@ -74,10 +75,5 @@ namespace AddNewManu
         }
     }
 
-    class tb_manu
-    {
-        public string Domain { get; set; }
-        public string Name { get; set; }
-
-    }
+   
 }

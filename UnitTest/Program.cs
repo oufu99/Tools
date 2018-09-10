@@ -12,8 +12,7 @@ namespace UnitTest
         static void Main(string[] args)
         {
 
-            var name = (int)IISEnums.MobileSitId;
-            var type = name.GetType();
+            var path = XMLHelper.GetPath(XMLPath.Ftp);
             Console.ReadLine();
         }
     }
