@@ -43,6 +43,8 @@
             this.btn1.Text = "读取内容";
             this.btn1.UseVisualStyleBackColor = true;
             this.btn1.Click += new System.EventHandler(this.btn1_Click);
+            this.btn1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.btn1_KeyDown);
+      
             // 
             // txt1
             // 

@@ -16,7 +16,7 @@ namespace UpdateOneLine
 {
     public partial class Form1 : Form
     {
-
+        public static Action methodCall;
         public static string targetFileName;
         public static XmlDocument doc;
 
@@ -26,10 +26,16 @@ namespace UpdateOneLine
             InitializeComponent();
             //获取焦点
             txt1.TabIndex = 0;
-           
+
         }
 
         private void btn1_Click(object sender, EventArgs e)
+        {
+            SelctClick();
+        }
+
+
+        private void SelctClick()
         {
             var name = txt1.Text;
             name = string.IsNullOrEmpty(name) ? "scust" : name;
@@ -46,10 +52,14 @@ namespace UpdateOneLine
             nameNode = rootElem.GetElementsByTagName("Code")[0]; //获取person子节点集合
             string text = nameNode.InnerText;
             textArea1.Text = text;
-
         }
 
         private void button1_Click(object sender, EventArgs e)
+        {
+            ModifyClick();
+        }
+
+        private void ModifyClick()
         {
             var text = textArea1.Text;
             nameNode.InnerText = text;
@@ -75,6 +85,22 @@ namespace UpdateOneLine
             sr.Close();
             stream.Close();
             return xmlString;
+        }
+
+
+        /// <summary>
+        /// 判断回车
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+        {
+            if (keyData == Keys.Enter)//判断回车键
+            {
+                SelctClick();//触发按钮事件
+                return true;
+            }
+            return false;
         }
 
     }
