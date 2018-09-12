@@ -13,7 +13,7 @@ namespace Common
      
        
         /// <summary>
-        /// 根据传入路径读取出XML的值
+        /// 根据传入路径读取出XML的值  我加的
         /// </summary>
         /// <param name="xPath">遵循xPath规则可以一路查下去  范例: @"Skill/First/SkillItem"</param>
         /// <returns></returns>
@@ -32,6 +32,32 @@ namespace Common
                 return null;
             }
         }
+
+        /// <summary>
+        /// 修改节点的InnerText的值
+        /// </summary>
+        /// <param name="filePath">XML文件绝对路径</param>
+        /// <param name="xPath">范例: @"Skill/First/SkillItem"</param>
+        /// <param name="value">节点的值</param>
+        /// <returns></returns>
+        public static bool UpdateNodeInnerText(string xPath, string value)
+        {
+            try
+            {
+                XmlDocument doc = new XmlDocument();
+                doc.Load(filePath);
+                XmlNode xn = doc.SelectSingleNode(xPath);
+                XmlElement xe = (XmlElement)xn;
+                xe.InnerText = value;
+                doc.Save(filePath);
+            }
+            catch
+            {
+                return false;
+            }
+            return true;
+        }
+
         public static string ReadText(string xPath)
         {
             try
@@ -70,7 +96,6 @@ namespace Common
         {
             try
             {
-
                 XmlDocument doc = new XmlDocument();
                 doc.Load(filePath);
                 XmlNode xn = doc.SelectSingleNode(xPath);
@@ -111,30 +136,6 @@ namespace Common
 
 
 
-        /// <summary>
-        /// 修改节点的InnerText的值
-        /// </summary>
-        /// <param name="filePath">XML文件绝对路径</param>
-        /// <param name="xPath">范例: @"Skill/First/SkillItem"</param>
-        /// <param name="value">节点的值</param>
-        /// <returns></returns>
-        public static bool UpdateNodeInnerText(string xPath, string value)
-        {
-            try
-            {
-                XmlDocument doc = new XmlDocument();
-                doc.Load(filePath);
-                XmlNode xn = doc.SelectSingleNode(xPath);
-                XmlElement xe = (XmlElement)xn;
-                xe.InnerText = value;
-                doc.Save(filePath);
-            }
-            catch
-            {
-                return false;
-            }
-            return true;
-        }
 
         /// <summary>
         /// 读取XML文档

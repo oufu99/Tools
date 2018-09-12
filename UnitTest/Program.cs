@@ -12,7 +12,9 @@ namespace UnitTest
         static void Main(string[] args)
         {
 
-            var path = XMLHelper.GetPath(XMLPath.Ftp);
+            Dictionary<string, string> dic = new Dictionary<string, string>(); ;
+            dic.Add("Name","Aaron");
+            dic.ToString();
             Console.ReadLine();
         }
     }

@@ -12,10 +12,15 @@ namespace UpdateShortCode
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("请输入旧厂商Id");
-            string manuId = Console.ReadLine();
-            Console.WriteLine("请输入新厂商Id");
+            string manuId = XMLHelper.GetPath(XMLPath.OldMadnuId);
+            Console.WriteLine($"上一次修改的厂商{manuId}");
+            Console.WriteLine("请输入新厂商Id,如果要改变上一次的请输入 old ");
             string newManuId = Console.ReadLine();
+            if (newManuId == "old")
+            {
+                Console.WriteLine("请输入旧厂商Id");
+                manuId = Console.ReadLine();
+            }
             string path = XMLHelper.GetPath(XMLPath.SQLShortCut);
             var files = Directory.GetFiles(path, "*.sqlpromptsnippet");
             foreach (var file in files)
@@ -24,8 +29,9 @@ namespace UpdateShortCode
                 string newText = text.Replace(manuId, newManuId);
                 File.WriteAllText(file, newText, Encoding.UTF8);
             }
+            XMLHelper.UpdateNodeInnerText(XMLPath.OldMadnuId, newManuId);
             Console.WriteLine("修改完毕");
-          
+
         }
     }
 }

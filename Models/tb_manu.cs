@@ -10,6 +10,5 @@ namespace Models
     {
         public string Domain { get; set; }
         public string Name { get; set; }
-
     }
 }
