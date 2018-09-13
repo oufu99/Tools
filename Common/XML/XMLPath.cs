@@ -20,7 +20,7 @@ namespace Common
         public static string IISWebIp = "configuration/IISWebIp";
         public static string IISMobileIp = "configuration/IISMobileIp";
         public static string OldMadnuId = "configuration/OldMadnuId";
-        
+        public static string ErWeiMaPath = "configuration/ErWeiMaPath";
 
 
     }
