@@ -24,6 +24,8 @@ namespace UpdateOneLine
 
         //用来标记是修改还是新增  不点击那个读取按钮就是0
         public static int changeFlag = 0;
+
+        RichTextBox richTextBox = null;
         public Form1()
         {
             InitializeComponent();
@@ -32,12 +34,55 @@ namespace UpdateOneLine
 
         }
 
-        private void btn1_Click(object sender, EventArgs e)
+
+
+        #region 文本框改变事件
+        private void txt1_TextChanged(object sender, EventArgs e)
         {
-          
-            SelctClick();
+            //测试的时候直接new  后面改的时候再把这句话注释掉
+            richTextBox = new RichTextBox();
+            //根据输入查出来类似的然后每一行添加到这个TextBox中去
+            if (richTextBox != null)
+            {
+
+            }
+            else
+            {
+                richTextBox = new RichTextBox();
+                richTextBox.Name = "richTextBox";
+
+                var pointX = txt1.Location.X;
+                var pointY = txt1.Location.Y;
+                var height = txt1.Height;
+                richTextBox.Location = new Point(pointX, pointY + height);
+                richTextBox.BringToFront();
+                //将groubox添加到页面上
+                this.Controls.Add(richTextBox);
+                this.Controls.SetChildIndex(richTextBox, 0);
+            }
+
+
         }
 
+        private string GetContainStr()
+        {
+
+            return "";
+        }
+
+        private void txt1_Leave(object sender, EventArgs e)
+        {
+            //    Controls.Remove(richTextBox);
+            //    richTextBox = null;
+        }
+        #endregion
+
+
+
+        private void btn1_Click(object sender, EventArgs e)
+        {
+            SelctClick();
+        }
 
         private void SelctClick()
         {
