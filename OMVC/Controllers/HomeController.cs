@@ -11,9 +11,12 @@ namespace OMVC.Controllers
     {
       
         
-        public ActionResult Index(RequestEnum renum)
+        public ActionResult Index()
         {
-            return Content(renum.ToString()); 
+
+            string logMsg = string.Format("服务开始调度");
+            LogHelper.LogInfo("ServiceLogger", logMsg);
+            return Content(logMsg); 
         }
 
         
