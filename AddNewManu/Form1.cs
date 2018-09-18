@@ -27,7 +27,6 @@ namespace AddNewManu
             string filePath = "";
             string fileName = "";
 
-
             OpenFileDialog fileDialog = new OpenFileDialog();
             fileDialog.Multiselect = true;
             fileDialog.Title = "请选择文件";
@@ -72,6 +71,20 @@ namespace AddNewManu
         private void txt1_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+            string manuId = this.txtId.Text.Trim();
+            string sql = string.Format($@"SELECT a.name,b.name AS domain FROM dbo.tb_manufacturer a LEFT JOIN tb_user b ON a.tb_manufacturerID=b.manufacturer_id WHERE tb_manufacturerID={manuId} AND b.system_role_id=-10");
+            var model = SQLHelper.Query<tb_manu>(sql);
+            string domain = model.Domain;
+            IISHelp.AddHostHeader(domain);
+            //写入host
+            IOHelper.AddHost(XMLHelper.GetPath(XMLPath.HostIp), domain);
+            MessageBox.Show("创建成功");
+            this.Close();
         }
     }
 

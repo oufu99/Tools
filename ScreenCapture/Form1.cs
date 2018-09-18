@@ -46,7 +46,7 @@ namespace ScreenCapture
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            //能用以后再放到管理工具里用全局快捷键来调用
             Size size = Screen.PrimaryScreen.Bounds.Size;
             Bitmap bmp = new Bitmap(size.Width, size.Height);
             Graphics g = Graphics.FromImage(bmp);
@@ -150,7 +150,7 @@ namespace ScreenCapture
             }
             else
             {
-                Clipboard.SetText("未解析出地址");
+                Clipboard.SetText("未解析出地址"); 
             }
         }
 

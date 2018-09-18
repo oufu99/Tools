@@ -21,7 +21,7 @@ namespace Common
         public static string IISMobileIp = "configuration/IISMobileIp";
         public static string OldMadnuId = "configuration/OldMadnuId";
         public static string ErWeiMaPath = "configuration/ErWeiMaPath";
-
-
+        public static string StandardSQLShortCut = "configuration/StandardSQLShortCut";
+        
     }
 }
