@@ -30,7 +30,7 @@ namespace UpdateShortCode
 
             //初始化右边五个按键的字
             string sql = string.Format($@"SELECT  a.tb_manufacturerID,a.name,b.name AS domain FROM dbo.tb_manufacturer a LEFT JOIN tb_user b ON a.tb_manufacturerID=b.manufacturer_id WHERE tb_manufacturerID in({string.Join(",", list)}) AND b.system_role_id=-10");
-            var models = SQLHelper.Query<List<tb_manu>>(sql);
+            var models = SQLHelper.QueryList<tb_manu>(sql);
             for (int i = 0; i < list.Count; i++)
             {
                 bList[i].Text = list[i] + $"({models.First(c => c.tb_manufacturerID == list[i]).Name})";
@@ -44,9 +44,13 @@ namespace UpdateShortCode
         }
         private void btnUpdate_Click(object sender, EventArgs e)
         {
+            btnUpdate_Click();
+        }
+
+        private void btnUpdate_Click()
+        {
             var newManuId = this.txt1.Text;
             UpdateAllShortCut(newManuId);
-
         }
         private void UpdateXML()
         {
@@ -73,6 +77,12 @@ namespace UpdateShortCode
                 string newText = text.Replace(manuId, newManuId);
                 File.WriteAllText(file, newText, Encoding.UTF8);
             }
+            //如果已经存在
+            if (list.Contains(newManuId))
+            {
+                var indexAt = list.Remove(newManuId);
+            }
+
             if (list.Count() == max)
             {
                 list.RemoveAt(0);
@@ -82,7 +92,30 @@ namespace UpdateShortCode
             {
                 list.Add(newManuId);
             }
+            UpdateXML();
+            this.Close();
         }
 
+        /// <summary>
+        /// 判断回车
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+        {
+            if (keyData == Keys.Enter)//判断回车键
+            {
+                btnUpdate_Click();//触发按钮事件
+                return true;
+            }
+            if (keyData == Keys.Escape)//Esc退出键
+            {
+                this.Close();
+                return true;
+            }
+            return false;
+        }
+
+       
     }
 }

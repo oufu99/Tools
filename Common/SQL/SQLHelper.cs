@@ -40,13 +40,13 @@ namespace Common
             }
         }
 
-        public static IList<T> QueryList<T>(string sql, string manuId)
+        public static IList<T> QueryList<T>(string sql)
         {
             using (SqlConnection conn = new SqlConnection(Conn))
             {
                 CommandDefinition cmd = new CommandDefinition(sql, new
                 {
-                    manuId = manuId
+                 
                 }, null, 30, CommandType.Text);
                 return conn.Query<T>(cmd).ToList();
 
