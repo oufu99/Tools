@@ -49,6 +49,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Enums\IISEnums.cs" />
+    <Compile Include="Extends\ListExtends.cs" />
     <Compile Include="Extends\StringExtends.cs" />
     <Compile Include="IIS\IISHelp.cs" />
     <Compile Include="IO\IOHelper.cs" />

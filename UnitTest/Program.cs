@@ -11,11 +11,11 @@ namespace UnitTest
     {
         static void Main(string[] args)
         {
-
-            Dictionary<string, string> dic = new Dictionary<string, string>(); ;
-            dic.Add("Name","Aaron");
-            dic.ToString();
+            List<string> list = new List<string> { "12", "33", "55" };
+            string str = list.GetSQLInWhere();
             Console.ReadLine();
         }
+
+
     }
 }
