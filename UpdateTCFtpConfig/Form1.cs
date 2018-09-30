@@ -15,35 +15,88 @@ namespace UpdateTCFtpConfig
 {
     public partial class Form1 : Form
     {
+
+        public static List<string> list;
+        public static List<Button> bList;
+        IList<tb_manu> models = null;
+        private int max = 5;
         public Form1()
         {
             InitializeComponent();
             txt1.TabIndex = 0;
         }
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            //加载右边的按钮
+            string listJson = XMLHelper.GetPath(XMLPath.OldFtp);
+            list = JsonHelper.DeserializeObject<List<string>>(listJson);
+            bList = new List<Button>() { btn1, btn2, btn3, btn4, btn5 };
+
+            //初始化右边五个按键的字
+            string sql = string.Format($@"SELECT  a.tb_manufacturerID,a.name,b.name AS domain FROM dbo.tb_manufacturer a LEFT JOIN tb_user b ON a.tb_manufacturerID=b.manufacturer_id WHERE tb_manufacturerID in({string.Join(",", list)}) AND b.system_role_id=-10");
+            models = SQLHelper.QueryList<tb_manu>(sql);
+            for (int i = 0; i < list.Count; i++)
+            {
+                bList[i].Text = list[i] + $"({models.First(c => c.tb_manufacturerID == list[i]).Name})";
+            }
+        }
+        private void BtnClick(object sender, EventArgs e)
+        {
+            var btn = (Button)sender;
+            var maunId = btn.Text.GetFirstInt();
+            var domain = models.First(c => c.tb_manufacturerID == maunId).Domain;
+            SetFtp(domain);
+        }
 
         private void button1_Click(object sender, EventArgs e)
         {
+            string newManuName = this.txt1.Text;
+            SetFtp(newManuName);
 
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            ResetFtpConfig(true);
+        }
+
+
+        private void SetFtp(string newManuName)
+        {
             //先重置为原来的
             ResetFtpConfig(false);
 
             //重新设置
             string path = XMLHelper.GetPath(XMLPath.Ftp);
             List<string> lines = new List<string>(File.ReadAllLines(path, Encoding.Default));
-            string newManuName = this.txt1.Text;
             //可以传入manuId或者直接中文
-            int manuId = 0;
-            if (int.TryParse(newManuName, out manuId))
+            int outManuId = 0;
+            string manuId;
+            if (int.TryParse(newManuName, out outManuId))
             {
-                string sql = string.Format($@"SELECT a.name,b.name AS domain FROM dbo.tb_manufacturer a LEFT JOIN tb_user b ON a.tb_manufacturerID=b.manufacturer_id WHERE tb_manufacturerID={manuId} AND b.system_role_id=-10");
+                string sql = string.Format($@"SELECT a.tb_manufacturerID, a.name,b.name AS domain FROM dbo.tb_manufacturer a LEFT JOIN tb_user b ON a.tb_manufacturerID=b.manufacturer_id WHERE tb_manufacturerID='{outManuId}' AND b.system_role_id=-10");
                 var model = SQLHelper.Query<tb_manu>(sql);
                 if (model == null)
                 {
                     MessageBox.Show("厂商不存在!");
-                    return; 
+                    return;
                 }
                 newManuName = model.Domain;
+                manuId = outManuId.ToString();
             }
+            else
+            {
+                string sql = string.Format($@"SELECT a.tb_manufacturerID, a.name,b.name AS domain FROM dbo.tb_manufacturer a LEFT JOIN tb_user b ON a.tb_manufacturerID=b.manufacturer_id WHERE b.name='{newManuName}' AND b.system_role_id=-10");
+                var model = SQLHelper.Query<tb_manu>(sql);
+                if (model == null)
+                {
+                    MessageBox.Show("厂商不存在!");
+                    return;
+                }
+                manuId = model.tb_manufacturerID;
+            }
+
             for (int i = 0; i < lines.Count; i++)
             {
                 var item = lines[i];
@@ -90,13 +143,27 @@ namespace UpdateTCFtpConfig
             }
 
             File.WriteAllLines(path, lines.ToArray(), Encoding.Default);
+
+            //插入历史记录
+            //如果已经存在
+
+            if (list.Contains(manuId))
+            {
+                var indexAt = list.Remove(manuId);
+            }
+
+            if (list.Count() == max)
+            {
+                list.RemoveAt(0);
+                list.Add(manuId);
+            }
+            else
+            {
+                list.Add(manuId);
+            }
+            UpdateXML();
             MessageBox.Show("修改成功");
 
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            ResetFtpConfig(true);
         }
         private void ResetFtpConfig(bool isShow)
         {
@@ -106,7 +173,7 @@ namespace UpdateTCFtpConfig
             for (int i = 0; i < lines.Count; i++)
             {
                 var item = lines[i];
-                if (item.StartsWith("directory")||item.StartsWith("localdir"))
+                if (item.StartsWith("directory") || item.StartsWith("localdir"))
                 {
                     if (!item.Contains("/bin"))
                     {
@@ -153,5 +220,12 @@ namespace UpdateTCFtpConfig
             }
             return item;
         }
+
+        private void UpdateXML()
+        {
+            var jsonStr = JsonHelper.SerializeObject(list);
+            XMLHelper.UpdateNodeInnerText(XMLPath.OldFtp, jsonStr);
+        }
+
     }
 }
