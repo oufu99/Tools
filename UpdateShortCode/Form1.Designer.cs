@@ -46,11 +46,11 @@
             // 
             // btnUpdate
             // 
-            this.btnUpdate.Location = new System.Drawing.Point(86, 138);
+            this.btnUpdate.Location = new System.Drawing.Point(49, 131);
             this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(115, 23);
+            this.btnUpdate.Size = new System.Drawing.Size(202, 23);
             this.btnUpdate.TabIndex = 1;
-            this.btnUpdate.Text = "更新所有代码段";
+            this.btnUpdate.Text = "更新所有代码段(输入ManuId)";
             this.btnUpdate.UseVisualStyleBackColor = true;
             this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
