@@ -73,9 +73,14 @@ namespace UpdateShortCode
             var files = Directory.GetFiles(path, "*.sqlpromptsnippet");
             foreach (var file in files)
             {
+                
                 string text = File.ReadAllText(file);
-                string newText = text.Replace(manuId, newManuId);
-                File.WriteAllText(file, newText, Encoding.UTF8);
+                if (text.Contains(manuId))
+                {
+                    string newText = text.Replace(manuId, newManuId);
+                    File.WriteAllText(file, newText, Encoding.UTF8);
+                }
+              
             }
             //如果已经存在
             if (list.Contains(newManuId))
