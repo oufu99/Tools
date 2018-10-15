@@ -26,7 +26,25 @@ namespace QueryCode
             var admin = "PT_DSe/XycOhQW_Q8Cu5tIZg_sg";
             Clipboard.SetText(admin);
         }
-
+        /// <summary>
+        /// 判断回车
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+        {
+            if (keyData == Keys.Enter)//判断回车键
+            {
+                btn1_Click(null, new EventArgs());//触发按钮事件
+                return true;
+            }
+            if (keyData == Keys.Escape)//Esc退出键
+            {
+                this.Close();
+                return true;
+            }
+            return false;
+        }
         private void btn1_Click(object sender, EventArgs e)
         {
             string manuId = this.txtId.Text.Trim();

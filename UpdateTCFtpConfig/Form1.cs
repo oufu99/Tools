@@ -52,7 +52,7 @@ namespace UpdateTCFtpConfig
         {
             string newManuName = this.txt1.Text;
             SetFtp(newManuName);
-
+           
 
         }
 
@@ -163,7 +163,7 @@ namespace UpdateTCFtpConfig
             }
             UpdateXML();
             MessageBox.Show("修改成功");
-
+            this.Close();
         }
         private void ResetFtpConfig(bool isShow)
         {

@@ -11,5 +11,6 @@ namespace Models
         public string tb_manufacturerID { get; set; }
         public string Domain { get; set; }
         public string Name { get; set; }
+        public string PassWord { get; set; }
     }
 }
