@@ -33,7 +33,15 @@ namespace Common
         //代码段路径    
         public static string SQLShortCut = "configuration/SQLShortCut";
         //添加新代码段  
-        public static string StandardSQLShortCut = "configuration/StandardSQLShortCut"; 
-       
+        public static string StandardSQLShortCut = "configuration/StandardSQLShortCut";
+
+        //所有程序的路径
+        public static string UpdateTCFtpConfigExe = "configuration/UpdateTCFtpConfigExe";
+        public static string UpdateShortCodeExe = "configuration/UpdateShortCodeExe";
+        public static string UpdateOneLineExe = "configuration/UpdateOneLineExe";
+        public static string QueryCodeExe = "configuration/QueryCodeExe";
+        public static string AddNewManuExe = "configuration/AddNewManuExe";
+
+        
     }
 }
