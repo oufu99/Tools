@@ -37,9 +37,9 @@
             // 
             // addManuBtn
             // 
-            this.addManuBtn.Location = new System.Drawing.Point(422, 101);
+            this.addManuBtn.Location = new System.Drawing.Point(440, 145);
             this.addManuBtn.Name = "addManuBtn";
-            this.addManuBtn.Size = new System.Drawing.Size(80, 31);
+            this.addManuBtn.Size = new System.Drawing.Size(101, 55);
             this.addManuBtn.TabIndex = 0;
             this.addManuBtn.Text = "添加新厂商";
             this.addManuBtn.UseVisualStyleBackColor = true;
@@ -47,9 +47,9 @@
             // 
             // queryCodeBtn
             // 
-            this.queryCodeBtn.Location = new System.Drawing.Point(209, 101);
+            this.queryCodeBtn.Location = new System.Drawing.Point(186, 145);
             this.queryCodeBtn.Name = "queryCodeBtn";
-            this.queryCodeBtn.Size = new System.Drawing.Size(80, 31);
+            this.queryCodeBtn.Size = new System.Drawing.Size(91, 57);
             this.queryCodeBtn.TabIndex = 1;
             this.queryCodeBtn.Text = "查询密码";
             this.queryCodeBtn.UseVisualStyleBackColor = true;
@@ -57,9 +57,9 @@
             // 
             // updateFtpBtn
             // 
-            this.updateFtpBtn.Location = new System.Drawing.Point(320, 101);
+            this.updateFtpBtn.Location = new System.Drawing.Point(315, 145);
             this.updateFtpBtn.Name = "updateFtpBtn";
-            this.updateFtpBtn.Size = new System.Drawing.Size(80, 31);
+            this.updateFtpBtn.Size = new System.Drawing.Size(94, 57);
             this.updateFtpBtn.TabIndex = 2;
             this.updateFtpBtn.Text = "更新Ftp路径";
             this.updateFtpBtn.UseVisualStyleBackColor = true;
@@ -67,21 +67,21 @@
             // 
             // updateAllShortCodeBtn
             // 
-            this.updateAllShortCodeBtn.Location = new System.Drawing.Point(379, 170);
+            this.updateAllShortCodeBtn.Location = new System.Drawing.Point(411, 244);
             this.updateAllShortCodeBtn.Name = "updateAllShortCodeBtn";
-            this.updateAllShortCodeBtn.Size = new System.Drawing.Size(156, 31);
+            this.updateAllShortCodeBtn.Size = new System.Drawing.Size(170, 58);
             this.updateAllShortCodeBtn.TabIndex = 3;
-            this.updateAllShortCodeBtn.Text = "更新全部代码段";
+            this.updateAllShortCodeBtn.Text = "更新全部SQL";
             this.updateAllShortCodeBtn.UseVisualStyleBackColor = true;
             this.updateAllShortCodeBtn.Click += new System.EventHandler(this.updateAllShortCodeBtn_Click);
             // 
             // updateShortCodeBtn
             // 
-            this.updateShortCodeBtn.Location = new System.Drawing.Point(196, 170);
+            this.updateShortCodeBtn.Location = new System.Drawing.Point(171, 244);
             this.updateShortCodeBtn.Name = "updateShortCodeBtn";
-            this.updateShortCodeBtn.Size = new System.Drawing.Size(141, 31);
+            this.updateShortCodeBtn.Size = new System.Drawing.Size(154, 58);
             this.updateShortCodeBtn.TabIndex = 4;
-            this.updateShortCodeBtn.Text = "更新一行代码段";
+            this.updateShortCodeBtn.Text = "更新一行SQL";
             this.updateShortCodeBtn.UseVisualStyleBackColor = true;
             this.updateShortCodeBtn.Click += new System.EventHandler(this.updateShortCodeBtn_Click);
             // 

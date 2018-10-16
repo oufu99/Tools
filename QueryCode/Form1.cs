@@ -56,7 +56,7 @@ namespace QueryCode
             }
             else
             {
-                sql = string.Format($@"SELECT b.name,b.password FROM dbo.tb_manufacturer a LEFT JOIN tb_user b ON a.tb_manufacturerID=b.manufacturer_id WHERE  b.name='{manuId}' AND b.system_role_id=-10");
+                sql = string.Format($@"SELECT TOP 1 b.name,b.password FROM dbo.tb_manufacturer a LEFT JOIN tb_user b ON a.tb_manufacturerID=b.manufacturer_id WHERE  a.name like '%{manuId}%' AND b.system_role_id=-10");
             }
             var model = SQLHelper.Query<tb_manu>(sql);
             userTxt.Text = model.Name;
@@ -69,5 +69,32 @@ namespace QueryCode
             var sa = "WA@@@Wei315#@#WinGG";
             Clipboard.SetText(sa);
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            string manuId = this.txtId.Text.Trim();
+            int outManuId = 0;
+            string sql = "";
+            if (!int.TryParse(manuId, out outManuId))
+            {
+                sql = string.Format($@"SELECT TOP 1 a.tb_manufacturerID FROM dbo.tb_manufacturer a LEFT JOIN tb_user b ON a.tb_manufacturerID=b.manufacturer_id WHERE  a.name like '%{manuId}%'");
+                manuId = SQLHelper.Query<tb_manu>(sql).tb_manufacturerID;
+            }
+            sql = string.Format(@"SELECT  TOP 1  b.name,b.password
+FROM    tb_customer_10636 a
+        LEFT JOIN tb_user b ON a.tb_customerID = b.custid
+                               AND b.manufacturer_id = 10636
+							   WHERE a.audit_status=1 AND b.status=0");
+            var model = SQLHelper.Query<tb_manu>(sql);
+            userTxt.Text = model.Name;
+            pwdTxt.Text = model.PassWord;
+            Clipboard.SetText(model.Name);
+        }
+        private void GetQuerySql()
+        {
+
+
+        }
+
     }
 }
