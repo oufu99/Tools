@@ -37,11 +37,21 @@
             this.label2 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
+            this.manu5Btn = new System.Windows.Forms.Button();
+            this.manu4Btn = new System.Windows.Forms.Button();
+            this.manu3Btn = new System.Windows.Forms.Button();
+            this.manu2Btn = new System.Windows.Forms.Button();
+            this.manu1Btn = new System.Windows.Forms.Button();
+            this.pwd5Btn = new System.Windows.Forms.Button();
+            this.pwd4Btn = new System.Windows.Forms.Button();
+            this.pwd3Btn = new System.Windows.Forms.Button();
+            this.pwd2Btn = new System.Windows.Forms.Button();
+            this.pwd1Btn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(545, 118);
+            this.button1.Location = new System.Drawing.Point(545, 132);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(128, 23);
             this.button1.TabIndex = 0;
@@ -51,18 +61,18 @@
             // 
             // txtId
             // 
-            this.txtId.Location = new System.Drawing.Point(161, 97);
+            this.txtId.Location = new System.Drawing.Point(191, 95);
             this.txtId.Name = "txtId";
             this.txtId.Size = new System.Drawing.Size(100, 21);
             this.txtId.TabIndex = 3;
             // 
             // btn1
             // 
-            this.btn1.Location = new System.Drawing.Point(130, 135);
+            this.btn1.Location = new System.Drawing.Point(109, 135);
             this.btn1.Name = "btn1";
-            this.btn1.Size = new System.Drawing.Size(174, 53);
+            this.btn1.Size = new System.Drawing.Size(195, 63);
             this.btn1.TabIndex = 2;
-            this.btn1.Text = "查询密码(输入manuId)";
+            this.btn1.Text = "查询密码(输入manuId,domain)";
             this.btn1.UseVisualStyleBackColor = true;
             this.btn1.Click += new System.EventHandler(this.btn1_Click);
             // 
@@ -100,7 +110,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(545, 175);
+            this.button2.Location = new System.Drawing.Point(545, 174);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(128, 23);
             this.button2.TabIndex = 8;
@@ -112,17 +122,107 @@
             // 
             this.button3.Location = new System.Drawing.Point(323, 135);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(128, 53);
+            this.button3.Size = new System.Drawing.Size(128, 63);
             this.button3.TabIndex = 9;
             this.button3.Text = "获取一个能用的代理";
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // manu5Btn
+            // 
+            this.manu5Btn.Location = new System.Drawing.Point(451, 386);
+            this.manu5Btn.Name = "manu5Btn";
+            this.manu5Btn.Size = new System.Drawing.Size(146, 23);
+            this.manu5Btn.TabIndex = 14;
+            this.manu5Btn.UseVisualStyleBackColor = true;
+            // 
+            // manu4Btn
+            // 
+            this.manu4Btn.Location = new System.Drawing.Point(451, 343);
+            this.manu4Btn.Name = "manu4Btn";
+            this.manu4Btn.Size = new System.Drawing.Size(146, 23);
+            this.manu4Btn.TabIndex = 13;
+            this.manu4Btn.UseVisualStyleBackColor = true;
+            // 
+            // manu3Btn
+            // 
+            this.manu3Btn.Location = new System.Drawing.Point(451, 304);
+            this.manu3Btn.Name = "manu3Btn";
+            this.manu3Btn.Size = new System.Drawing.Size(146, 23);
+            this.manu3Btn.TabIndex = 12;
+            this.manu3Btn.UseVisualStyleBackColor = true;
+            // 
+            // manu2Btn
+            // 
+            this.manu2Btn.Location = new System.Drawing.Point(451, 266);
+            this.manu2Btn.Name = "manu2Btn";
+            this.manu2Btn.Size = new System.Drawing.Size(146, 23);
+            this.manu2Btn.TabIndex = 11;
+            this.manu2Btn.UseVisualStyleBackColor = true;
+            // 
+            // manu1Btn
+            // 
+            this.manu1Btn.Location = new System.Drawing.Point(451, 226);
+            this.manu1Btn.Name = "manu1Btn";
+            this.manu1Btn.Size = new System.Drawing.Size(146, 23);
+            this.manu1Btn.TabIndex = 10;
+            this.manu1Btn.UseVisualStyleBackColor = true;
+            // 
+            // pwd5Btn
+            // 
+            this.pwd5Btn.Location = new System.Drawing.Point(613, 386);
+            this.pwd5Btn.Name = "pwd5Btn";
+            this.pwd5Btn.Size = new System.Drawing.Size(144, 23);
+            this.pwd5Btn.TabIndex = 19;
+            this.pwd5Btn.UseVisualStyleBackColor = true;
+            // 
+            // pwd4Btn
+            // 
+            this.pwd4Btn.Location = new System.Drawing.Point(613, 343);
+            this.pwd4Btn.Name = "pwd4Btn";
+            this.pwd4Btn.Size = new System.Drawing.Size(144, 23);
+            this.pwd4Btn.TabIndex = 18;
+            this.pwd4Btn.UseVisualStyleBackColor = true;
+            // 
+            // pwd3Btn
+            // 
+            this.pwd3Btn.Location = new System.Drawing.Point(613, 304);
+            this.pwd3Btn.Name = "pwd3Btn";
+            this.pwd3Btn.Size = new System.Drawing.Size(144, 23);
+            this.pwd3Btn.TabIndex = 17;
+            this.pwd3Btn.UseVisualStyleBackColor = true;
+            // 
+            // pwd2Btn
+            // 
+            this.pwd2Btn.Location = new System.Drawing.Point(613, 266);
+            this.pwd2Btn.Name = "pwd2Btn";
+            this.pwd2Btn.Size = new System.Drawing.Size(144, 23);
+            this.pwd2Btn.TabIndex = 16;
+            this.pwd2Btn.UseVisualStyleBackColor = true;
+            // 
+            // pwd1Btn
+            // 
+            this.pwd1Btn.Location = new System.Drawing.Point(613, 226);
+            this.pwd1Btn.Name = "pwd1Btn";
+            this.pwd1Btn.Size = new System.Drawing.Size(144, 23);
+            this.pwd1Btn.TabIndex = 15;
+            this.pwd1Btn.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.pwd5Btn);
+            this.Controls.Add(this.pwd4Btn);
+            this.Controls.Add(this.pwd3Btn);
+            this.Controls.Add(this.pwd2Btn);
+            this.Controls.Add(this.pwd1Btn);
+            this.Controls.Add(this.manu5Btn);
+            this.Controls.Add(this.manu4Btn);
+            this.Controls.Add(this.manu3Btn);
+            this.Controls.Add(this.manu2Btn);
+            this.Controls.Add(this.manu1Btn);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.label2);
@@ -133,7 +233,8 @@
             this.Controls.Add(this.btn1);
             this.Controls.Add(this.button1);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = ";x";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -150,6 +251,16 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button manu5Btn;
+        private System.Windows.Forms.Button manu4Btn;
+        private System.Windows.Forms.Button manu3Btn;
+        private System.Windows.Forms.Button manu2Btn;
+        private System.Windows.Forms.Button manu1Btn;
+        private System.Windows.Forms.Button pwd5Btn;
+        private System.Windows.Forms.Button pwd4Btn;
+        private System.Windows.Forms.Button pwd3Btn;
+        private System.Windows.Forms.Button pwd2Btn;
+        private System.Windows.Forms.Button pwd1Btn;
     }
 }
 

@@ -33,14 +33,27 @@
             var html = template("test", obj);
             document.getElementById('content').innerHTML = html;
         }
-
+        function copyUrl2() {
+            var Url2 = document.getElementById("txtMy").value;
+            var oInput = document.createElement('input');
+            oInput.value = Url2;
+            document.body.appendChild(oInput);
+            oInput.select(); // 选择对象
+            document.execCommand("Copy"); // 执行浏览器复制命令
+            oInput.className = 'oInput';
+            oInput.style.display = 'none';
+            alert('复制成功');
+        }
     </script>
 </head>
 <body>
     <div>
-        <input onclick="clickObj.func()" type="button" value="点我" />
+        <input type="text" id="txtMy" value="123" />
+        <input onclick="copyUrl2()" type="button" value="点我" />
 
     </div>
+
+
     <div id="content">
 
     </div>

@@ -34,8 +34,12 @@ namespace UpdateShortCode
             for (int i = 0; i < list.Count; i++)
             {
                 bList[i].Text = list[i] + $"({models.First(c => c.tb_manufacturerID == list[i]).Name})";
+                bList[i].Click += BtnClick;
             }
-
+            for (int i = list.Count; i < bList.Count; i++)
+            {
+                bList[i].Hide();
+            }
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -52,11 +56,7 @@ namespace UpdateShortCode
             var newManuId = this.txt1.Text;
             UpdateAllShortCut(newManuId);
         }
-        private void UpdateXML()
-        {
-            var jsonStr = JsonHelper.SerializeObject(list);
-            XMLHelper.UpdateNodeInnerText(XMLPath.OldMadnuId, jsonStr);
-        }
+
 
         private void BtnClick(object sender, EventArgs e)
         {
@@ -73,31 +73,19 @@ namespace UpdateShortCode
             var files = Directory.GetFiles(path, "*.sqlpromptsnippet");
             foreach (var file in files)
             {
-                
+
                 string text = File.ReadAllText(file);
                 if (text.Contains(manuId))
                 {
                     string newText = text.Replace(manuId, newManuId);
                     File.WriteAllText(file, newText, Encoding.UTF8);
                 }
-              
-            }
-            //如果已经存在
-            if (list.Contains(newManuId))
-            {
-                var indexAt = list.Remove(newManuId);
-            }
 
-            if (list.Count() == max)
-            {
-                list.RemoveAt(0);
-                list.Add(newManuId);
             }
-            else
-            {
-                list.Add(newManuId);
-            }
-            UpdateXML();
+            //如果已经存在就不处理,不存在就添加
+            CommonHelper.UpdateTempList(list, newManuId, XMLPath.OldMadnuId);
+
+
             this.Close();
         }
 
@@ -121,6 +109,6 @@ namespace UpdateShortCode
             return false;
         }
 
-       
+
     }
 }

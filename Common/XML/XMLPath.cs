@@ -42,6 +42,7 @@ namespace Common
         public static string QueryCodeExe = "configuration/QueryCodeExe";
         public static string AddNewManuExe = "configuration/AddNewManuExe";
 
+        public static string OldPwdQuery = "configuration/OldPwdQuery";
         
     }
 }

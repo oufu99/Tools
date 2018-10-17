@@ -48,6 +48,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CommonHelper.cs" />
     <Compile Include="Enums\IISEnums.cs" />
     <Compile Include="Extends\ListExtends.cs" />
     <Compile Include="Extends\StringExtends.cs" />
