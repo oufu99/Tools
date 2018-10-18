@@ -81,7 +81,7 @@ namespace QueryCode
             //如果转换失败
             if (!int.TryParse(manuId, out outManuId))
             {
-                sql = string.Format($@"SELECT TOP 1 a.tb_manufacturerID FROM dbo.tb_manufacturer a LEFT JOIN tb_user b ON a.tb_manufacturerID=b.manufacturer_id WHERE  b.name='{manuId}' AND b.system_role_id=-10");
+                sql = string.Format($@"SELECT TOP 1 a.tb_manufacturerID FROM dbo.tb_manufacturer a LEFT JOIN tb_user b ON a.tb_manufacturerID=b.manufacturer_id WHERE  b.name like '%{manuId}%' AND b.system_role_id=-10");
 
             }
             var model = SQLHelper.Query<tb_manu>(sql);
@@ -103,7 +103,7 @@ namespace QueryCode
             string sql = "";
             if (!int.TryParse(manuId, out outManuId))
             {
-                sql = string.Format($@"SELECT TOP 1 a.tb_manufacturerID FROM dbo.tb_manufacturer a LEFT JOIN tb_user b ON a.tb_manufacturerID=b.manufacturer_id WHERE  b.name='{manuId}'");
+                sql = string.Format($@"SELECT TOP 1 a.tb_manufacturerID FROM dbo.tb_manufacturer a LEFT JOIN tb_user b ON a.tb_manufacturerID=b.manufacturer_id WHERE b.name like '%{manuId}%'");
                 manuId = SQLHelper.Query<tb_manu>(sql).tb_manufacturerID;
             }
             GetCustomerPwd(manuId);
@@ -123,6 +123,7 @@ namespace QueryCode
         {
             var sql = string.Format($@"SELECT b.name,b.password FROM dbo.tb_manufacturer a LEFT JOIN tb_user b ON a.tb_manufacturerID=b.manufacturer_id WHERE a.tb_manufacturerID={manuId} AND b.system_role_id=-10");
             var model = SQLHelper.Query<tb_manu>(sql);
+            txtManuId.Text = manuId;
             userTxt.Text = model.Name;
             pwdTxt.Text = model.PassWord;
             Clipboard.SetText(model.PassWord);
@@ -135,6 +136,7 @@ FROM    tb_customer_{0} a
                                AND b.manufacturer_id = {0}
 WHERE a.audit_status=1 AND b.status=0", manuId);
             var model = SQLHelper.Query<tb_manu>(sql);
+            txtManuId.Text = manuId;
             userTxt.Text = model.Name;
             pwdTxt.Text = model.PassWord;
             Clipboard.SetText(model.Name);

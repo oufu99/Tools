@@ -47,6 +47,7 @@
             this.pwd3Btn = new System.Windows.Forms.Button();
             this.pwd2Btn = new System.Windows.Forms.Button();
             this.pwd1Btn = new System.Windows.Forms.Button();
+            this.txtManuId = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // button1
@@ -208,11 +209,19 @@
             this.pwd1Btn.TabIndex = 15;
             this.pwd1Btn.UseVisualStyleBackColor = true;
             // 
+            // txtManuId
+            // 
+            this.txtManuId.Location = new System.Drawing.Point(191, 212);
+            this.txtManuId.Name = "txtManuId";
+            this.txtManuId.Size = new System.Drawing.Size(100, 21);
+            this.txtManuId.TabIndex = 20;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.txtManuId);
             this.Controls.Add(this.pwd5Btn);
             this.Controls.Add(this.pwd4Btn);
             this.Controls.Add(this.pwd3Btn);
@@ -261,6 +270,7 @@
         private System.Windows.Forms.Button pwd3Btn;
         private System.Windows.Forms.Button pwd2Btn;
         private System.Windows.Forms.Button pwd1Btn;
+        private System.Windows.Forms.TextBox txtManuId;
     }
 }
 

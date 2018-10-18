@@ -25,6 +25,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QueryCode", "QueryCode\Quer
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenMyTools", "OpenMyTools\OpenMyTools.csproj", "{A49349EA-C5C8-41EC-B63A-361B51E4CF00}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZPCode", "ZPCode\ZPCode.csproj", "{A17F9B90-BC60-4FF8-B6A4-40AAC4F13052}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -75,6 +77,10 @@ Global
 		{A49349EA-C5C8-41EC-B63A-361B51E4CF00}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A49349EA-C5C8-41EC-B63A-361B51E4CF00}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A49349EA-C5C8-41EC-B63A-361B51E4CF00}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A17F9B90-BC60-4FF8-B6A4-40AAC4F13052}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A17F9B90-BC60-4FF8-B6A4-40AAC4F13052}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A17F9B90-BC60-4FF8-B6A4-40AAC4F13052}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A17F9B90-BC60-4FF8-B6A4-40AAC4F13052}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

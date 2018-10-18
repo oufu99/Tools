@@ -37,9 +37,9 @@
             // 
             // addManuBtn
             // 
-            this.addManuBtn.Location = new System.Drawing.Point(440, 145);
+            this.addManuBtn.Location = new System.Drawing.Point(698, 413);
             this.addManuBtn.Name = "addManuBtn";
-            this.addManuBtn.Size = new System.Drawing.Size(101, 55);
+            this.addManuBtn.Size = new System.Drawing.Size(81, 25);
             this.addManuBtn.TabIndex = 0;
             this.addManuBtn.Text = "添加新厂商";
             this.addManuBtn.UseVisualStyleBackColor = true;
@@ -47,9 +47,9 @@
             // 
             // queryCodeBtn
             // 
-            this.queryCodeBtn.Location = new System.Drawing.Point(186, 145);
+            this.queryCodeBtn.Location = new System.Drawing.Point(291, 144);
             this.queryCodeBtn.Name = "queryCodeBtn";
-            this.queryCodeBtn.Size = new System.Drawing.Size(91, 57);
+            this.queryCodeBtn.Size = new System.Drawing.Size(111, 57);
             this.queryCodeBtn.TabIndex = 1;
             this.queryCodeBtn.Text = "查询密码";
             this.queryCodeBtn.UseVisualStyleBackColor = true;
@@ -57,9 +57,9 @@
             // 
             // updateFtpBtn
             // 
-            this.updateFtpBtn.Location = new System.Drawing.Point(315, 145);
+            this.updateFtpBtn.Location = new System.Drawing.Point(81, 229);
             this.updateFtpBtn.Name = "updateFtpBtn";
-            this.updateFtpBtn.Size = new System.Drawing.Size(94, 57);
+            this.updateFtpBtn.Size = new System.Drawing.Size(125, 57);
             this.updateFtpBtn.TabIndex = 2;
             this.updateFtpBtn.Text = "更新Ftp路径";
             this.updateFtpBtn.UseVisualStyleBackColor = true;
@@ -67,7 +67,7 @@
             // 
             // updateAllShortCodeBtn
             // 
-            this.updateAllShortCodeBtn.Location = new System.Drawing.Point(411, 244);
+            this.updateAllShortCodeBtn.Location = new System.Drawing.Point(460, 228);
             this.updateAllShortCodeBtn.Name = "updateAllShortCodeBtn";
             this.updateAllShortCodeBtn.Size = new System.Drawing.Size(170, 58);
             this.updateAllShortCodeBtn.TabIndex = 3;
@@ -77,7 +77,7 @@
             // 
             // updateShortCodeBtn
             // 
-            this.updateShortCodeBtn.Location = new System.Drawing.Point(171, 244);
+            this.updateShortCodeBtn.Location = new System.Drawing.Point(264, 228);
             this.updateShortCodeBtn.Name = "updateShortCodeBtn";
             this.updateShortCodeBtn.Size = new System.Drawing.Size(154, 58);
             this.updateShortCodeBtn.TabIndex = 4;
