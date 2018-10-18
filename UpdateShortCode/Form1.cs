@@ -54,7 +54,15 @@ namespace UpdateShortCode
         private void btnUpdate_Click()
         {
             var newManuId = this.txt1.Text;
-            UpdateAllShortCut(newManuId);
+            int test = 0;
+            if (int.TryParse(newManuId, out test))
+            {
+                UpdateAllShortCut(newManuId);
+            }
+            else
+            {
+                MessageBox.Show("请输入数字");
+            }
         }
 
 

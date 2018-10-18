@@ -32,9 +32,22 @@ namespace UpdateOneLine
             //获取焦点
             txt1.TabIndex = 0;
 
+            //自动生成一个按钮放在保存的下面
+            //var y = this.button1.Location.Y;
+            //var x = this.button1.Location.X;
+            //Button btn = new Button();
+            //btn.Text = "动态生成";
+            //btn.Location = new Point(x, y + 30);
+            //btn.Click += manuBtn_Click;
+            //this.Controls.Add(btn);
         }
 
 
+        private void manuBtn_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show(e.ToString());
+        }
+     
 
         #region 文本框改变事件
         private void txt1_TextChanged(object sender, EventArgs e)
@@ -110,6 +123,7 @@ namespace UpdateOneLine
             ModifyClick();
         }
 
+        
         private void ModifyClick()
         {
             if (changeFlag == 1)
