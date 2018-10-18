@@ -52,5 +52,10 @@ namespace OpenMyTools
         {
             OpenSoft(XMLHelper.GetPath(XMLPath.UpdateShortCodeExe));
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            OpenSoft(XMLHelper.GetPath(XMLPath.OpenMyTools));
+        }
     }
 }

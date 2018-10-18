@@ -41,8 +41,12 @@ namespace Common
         public static string UpdateOneLineExe = "configuration/UpdateOneLineExe";
         public static string QueryCodeExe = "configuration/QueryCodeExe";
         public static string AddNewManuExe = "configuration/AddNewManuExe";
+        public static string OpenMyTools = "configuration/OpenMyToolsExe";
+
+        //程序路径结束
 
         public static string OldPwdQuery = "configuration/OldPwdQuery";
-        
+
+
     }
 }
