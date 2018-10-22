@@ -45,6 +45,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="log4net, Version=2.0.8.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
       <HintPath>..\packages\log4net.2.0.8\lib\net45-full\log4net.dll</HintPath>
     </Reference>
@@ -151,11 +157,26 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201810220842585_InitialCreate.cs" />
+    <Compile Include="Migrations\201810220842585_InitialCreate.Designer.cs">
+      <DependentUpon>201810220842585_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201810220847594_AddStudentUrl.cs" />
+    <Compile Include="Migrations\201810220847594_AddStudentUrl.Designer.cs">
+      <DependentUpon>201810220847594_AddStudentUrl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201810220907437_AddStudentUrl1.cs" />
+    <Compile Include="Migrations\201810220907437_AddStudentUrl1.Designer.cs">
+      <DependentUpon>201810220907437_AddStudentUrl1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\LogHelper.cs" />
     <Compile Include="Models\RequestEnum.cs" />
+    <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -167,7 +188,6 @@
     <Content Include="Views\Home\js\jquery.min.js" />
     <Content Include="Views\Home\js\template.js" />
     <Content Include="JS\test.js" />
-    <Content Include="Views\HtmlPage1.html" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -183,6 +203,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\User\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="log4net.config" />
@@ -193,6 +214,17 @@
       <Project>{948e00e0-ad2d-4f36-861c-c653933872ed}</Project>
       <Name>Common</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201810220842585_InitialCreate.resx">
+      <DependentUpon>201810220842585_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201810220847594_AddStudentUrl.resx">
+      <DependentUpon>201810220847594_AddStudentUrl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201810220907437_AddStudentUrl1.resx">
+      <DependentUpon>201810220907437_AddStudentUrl1.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
