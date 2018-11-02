@@ -24,6 +24,14 @@ namespace Common
                 }
                 UpdateXML(list, path);
             }
+            else
+            {
+                //如果存在要把他移到最后
+                list.Remove(manuId);
+                list.Add(manuId);
+                UpdateXML(list, path);
+            }
+
         }
 
         public static void UpdateXML(object list, string path)

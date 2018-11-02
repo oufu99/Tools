@@ -82,10 +82,9 @@ namespace QueryCode
             if (!int.TryParse(manuId, out outManuId))
             {
                 sql = string.Format($@"SELECT TOP 1 a.tb_manufacturerID FROM dbo.tb_manufacturer a LEFT JOIN tb_user b ON a.tb_manufacturerID=b.manufacturer_id WHERE  b.name like '%{manuId}%' AND b.system_role_id=-10");
-
+                var model = SQLHelper.Query<tb_manu>(sql);
+                manuId = model.tb_manufacturerID;
             }
-            var model = SQLHelper.Query<tb_manu>(sql);
-            manuId = model.tb_manufacturerID;
             GetManuPwd(manuId);
             CommonHelper.UpdateTempList(list, manuId, XMLPath.OldPwdQuery);
         }
