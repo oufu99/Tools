@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Common;
+using Models;
 
 namespace UnitTest
 {
@@ -11,8 +12,9 @@ namespace UnitTest
     {
         static void Main(string[] args)
         {
-            List<string> list = new List<string> { "12", "33", "55" };
-            string str = list.GetSQLInWhere();
+            Factory facotry = new Factory();
+            facotry.SetName("Aaron");
+            facotry.SayHi();
             Console.ReadLine();
         }
 

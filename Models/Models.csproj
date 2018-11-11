@@ -41,6 +41,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Factory.cs" />
+    <Compile Include="InterTest.cs" />
     <Compile Include="tb_manu.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
