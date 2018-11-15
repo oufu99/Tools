@@ -43,14 +43,14 @@ namespace UpdateTCFtpConfig
         private void BtnClick(object sender, EventArgs e)
         {
             var btn = (Button)sender;
-            var maunId = btn.Text.GetFirstInt();
+            var maunId = btn.Text.GetFirstInt().Trim();
             var domain = models.First(c => c.tb_manufacturerID == maunId).Domain;
             SetFtp(domain);
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string newManuName = this.txt1.Text;
+            string newManuName = this.txt1.Text.Trim();
             SetFtp(newManuName);
            
 

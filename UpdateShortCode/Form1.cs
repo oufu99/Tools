@@ -53,7 +53,7 @@ namespace UpdateShortCode
 
         private void btnUpdate_Click()
         {
-            var newManuId = this.txt1.Text;
+            var newManuId = this.txt1.Text.Trim();
             int test = 0;
             if (int.TryParse(newManuId, out test))
             {
@@ -69,13 +69,12 @@ namespace UpdateShortCode
         private void BtnClick(object sender, EventArgs e)
         {
             var btn = (Button)sender;
-            var maunId = btn.Text.GetFirstInt();
+            var maunId = btn.Text.GetFirstInt().Trim();
             UpdateAllShortCut(maunId);
         }
 
         private void UpdateAllShortCut(string newManuId)
         {
-
             var manuId = list.Last();
             string path = XMLHelper.GetPath(XMLPath.SQLShortCut);
             var files = Directory.GetFiles(path, "*.sqlpromptsnippet");

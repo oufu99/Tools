@@ -48,6 +48,11 @@
             this.pwd2Btn = new System.Windows.Forms.Button();
             this.pwd1Btn = new System.Windows.Forms.Button();
             this.txtManuId = new System.Windows.Forms.TextBox();
+            this.open5 = new System.Windows.Forms.Button();
+            this.open4 = new System.Windows.Forms.Button();
+            this.open3 = new System.Windows.Forms.Button();
+            this.open2 = new System.Windows.Forms.Button();
+            this.open1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // button1
@@ -62,14 +67,14 @@
             // 
             // txtId
             // 
-            this.txtId.Location = new System.Drawing.Point(191, 95);
+            this.txtId.Location = new System.Drawing.Point(115, 72);
             this.txtId.Name = "txtId";
             this.txtId.Size = new System.Drawing.Size(100, 21);
             this.txtId.TabIndex = 3;
             // 
             // btn1
             // 
-            this.btn1.Location = new System.Drawing.Point(109, 135);
+            this.btn1.Location = new System.Drawing.Point(33, 112);
             this.btn1.Name = "btn1";
             this.btn1.Size = new System.Drawing.Size(195, 63);
             this.btn1.TabIndex = 2;
@@ -79,22 +84,22 @@
             // 
             // userTxt
             // 
-            this.userTxt.Location = new System.Drawing.Point(161, 242);
+            this.userTxt.Location = new System.Drawing.Point(85, 219);
             this.userTxt.Name = "userTxt";
-            this.userTxt.Size = new System.Drawing.Size(191, 21);
+            this.userTxt.Size = new System.Drawing.Size(159, 21);
             this.userTxt.TabIndex = 4;
             // 
             // pwdTxt
             // 
-            this.pwdTxt.Location = new System.Drawing.Point(148, 287);
+            this.pwdTxt.Location = new System.Drawing.Point(73, 246);
             this.pwdTxt.Name = "pwdTxt";
-            this.pwdTxt.Size = new System.Drawing.Size(225, 21);
+            this.pwdTxt.Size = new System.Drawing.Size(195, 21);
             this.pwdTxt.TabIndex = 5;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(107, 245);
+            this.label1.Location = new System.Drawing.Point(31, 222);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(35, 12);
             this.label1.TabIndex = 6;
@@ -103,7 +108,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(107, 290);
+            this.label2.Location = new System.Drawing.Point(32, 249);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(35, 12);
             this.label2.TabIndex = 7;
@@ -121,7 +126,7 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(323, 135);
+            this.button3.Location = new System.Drawing.Point(247, 112);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(128, 63);
             this.button3.TabIndex = 9;
@@ -211,16 +216,61 @@
             // 
             // txtManuId
             // 
-            this.txtManuId.Location = new System.Drawing.Point(191, 212);
+            this.txtManuId.Location = new System.Drawing.Point(100, 192);
             this.txtManuId.Name = "txtManuId";
             this.txtManuId.Size = new System.Drawing.Size(100, 21);
             this.txtManuId.TabIndex = 20;
+            // 
+            // open5
+            // 
+            this.open5.Location = new System.Drawing.Point(299, 386);
+            this.open5.Name = "open5";
+            this.open5.Size = new System.Drawing.Size(146, 23);
+            this.open5.TabIndex = 25;
+            this.open5.UseVisualStyleBackColor = true;
+            // 
+            // open4
+            // 
+            this.open4.Location = new System.Drawing.Point(299, 343);
+            this.open4.Name = "open4";
+            this.open4.Size = new System.Drawing.Size(146, 23);
+            this.open4.TabIndex = 24;
+            this.open4.UseVisualStyleBackColor = true;
+            // 
+            // open3
+            // 
+            this.open3.Location = new System.Drawing.Point(299, 304);
+            this.open3.Name = "open3";
+            this.open3.Size = new System.Drawing.Size(146, 23);
+            this.open3.TabIndex = 23;
+            this.open3.UseVisualStyleBackColor = true;
+            // 
+            // open2
+            // 
+            this.open2.Location = new System.Drawing.Point(299, 266);
+            this.open2.Name = "open2";
+            this.open2.Size = new System.Drawing.Size(146, 23);
+            this.open2.TabIndex = 22;
+            this.open2.UseVisualStyleBackColor = true;
+            // 
+            // open1
+            // 
+            this.open1.Location = new System.Drawing.Point(299, 226);
+            this.open1.Name = "open1";
+            this.open1.Size = new System.Drawing.Size(146, 23);
+            this.open1.TabIndex = 21;
+            this.open1.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.open5);
+            this.Controls.Add(this.open4);
+            this.Controls.Add(this.open3);
+            this.Controls.Add(this.open2);
+            this.Controls.Add(this.open1);
             this.Controls.Add(this.txtManuId);
             this.Controls.Add(this.pwd5Btn);
             this.Controls.Add(this.pwd4Btn);
@@ -271,6 +321,11 @@
         private System.Windows.Forms.Button pwd2Btn;
         private System.Windows.Forms.Button pwd1Btn;
         private System.Windows.Forms.TextBox txtManuId;
+        private System.Windows.Forms.Button open5;
+        private System.Windows.Forms.Button open4;
+        private System.Windows.Forms.Button open3;
+        private System.Windows.Forms.Button open2;
+        private System.Windows.Forms.Button open1;
     }
 }
 

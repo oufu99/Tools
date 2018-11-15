@@ -25,11 +25,11 @@ namespace Common
 
         //更新全部Ftp路径
         public static string Ftp = "configuration/Ftp";
-        public static string OldFtp = "configuration/OldFtp"; 
+        public static string OldFtp = "configuration/OldFtp";
 
         //解析二维码路径
-        public static string ErWeiMaPath = "configuration/ErWeiMaPath"; 
-    
+        public static string ErWeiMaPath = "configuration/ErWeiMaPath";
+
         //代码段路径    
         public static string SQLShortCut = "configuration/SQLShortCut";
         //添加新代码段  
@@ -42,10 +42,13 @@ namespace Common
         public static string QueryCodeExe = "configuration/QueryCodeExe";
         public static string AddNewManuExe = "configuration/AddNewManuExe";
         public static string OpenMyTools = "configuration/OpenMyToolsExe";
+        public static string CheckLogExe = "configuration/CheckLogExe";
 
         //程序路径结束
 
         public static string OldPwdQuery = "configuration/OldPwdQuery";
+
+        public static string ChromePath = "configuration/ChromePath";
 
 
     }

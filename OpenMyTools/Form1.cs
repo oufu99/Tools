@@ -18,15 +18,11 @@ namespace OpenMyTools
             InitializeComponent();
         }
 
-
-
         private void OpenSoft(string path)
         {
             System.Diagnostics.Process.Start(path);
             //this.Close();
         }
-
-
 
         private void updateFtpBtn_Click(object sender, EventArgs e)
         {
@@ -56,6 +52,11 @@ namespace OpenMyTools
         private void button1_Click(object sender, EventArgs e)
         {
             OpenSoft(XMLHelper.GetPath(XMLPath.OpenMyTools));
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            OpenSoft(XMLHelper.GetPath(XMLPath.CheckLogExe));
         }
     }
 }
