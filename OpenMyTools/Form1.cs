@@ -21,7 +21,7 @@ namespace OpenMyTools
         private void OpenSoft(string path)
         {
             System.Diagnostics.Process.Start(path);
-            //this.Close();
+            this.Close();
         }
 
         private void updateFtpBtn_Click(object sender, EventArgs e)

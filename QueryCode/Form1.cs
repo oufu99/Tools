@@ -140,7 +140,12 @@ namespace QueryCode
         private void openUrl_Click(object sender, EventArgs e)
         {
             var btn = (Button)sender;
-            var maunId = btn.Text.GetFirstInt();
+            var manuId = btn.Text.GetFirstInt();
+            openUrlByManuId(manuId);
+        }
+
+        private void openUrlByManuId(string maunId)
+        {
             var chromePath = XMLHelper.GetPath(XMLPath.ChromePath);
             string sql = string.Format($@"SELECT name FROM tb_user WHERE manufacturer_id={maunId} AND system_role_id=-10");
             var model = SQLHelper.Query<tb_manu>(sql);
@@ -149,10 +154,8 @@ namespace QueryCode
             ProcessStartInfo startInfo = new ProcessStartInfo(chromePath);
             startInfo.Arguments = myArgs;
             Process.Start(startInfo);
-            GetManuPwd(maunId);
         }
 
-      
         private void GetManuPwd(string manuId)
         {
             var sql = string.Format($@"SELECT b.name,b.password FROM dbo.tb_manufacturer a LEFT JOIN tb_user b ON a.tb_manufacturerID=b.manufacturer_id WHERE a.tb_manufacturerID={manuId} AND b.system_role_id=-10");
@@ -175,6 +178,19 @@ WHERE a.audit_status=1 AND b.status=0", manuId);
             userTxt.Text = model.Name;
             pwdTxt.Text = model.PassWord;
             Clipboard.SetText(model.Name);
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            string manuId = this.txtId.Text.Trim();
+            int outManuId = 0;
+            string sql = "";
+            if (!int.TryParse(manuId, out outManuId))
+            {
+                sql = string.Format($@"SELECT TOP 1 a.tb_manufacturerID FROM dbo.tb_manufacturer a LEFT JOIN tb_user b ON a.tb_manufacturerID=b.manufacturer_id WHERE b.name like '%{manuId}%'");
+                manuId = SQLHelper.Query<tb_manu>(sql).tb_manufacturerID;
+            }
+            openUrlByManuId(manuId);
         }
     }
 }
