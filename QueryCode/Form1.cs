@@ -191,6 +191,7 @@ WHERE a.audit_status=1 AND b.status=0", manuId);
                 manuId = SQLHelper.Query<tb_manu>(sql).tb_manufacturerID;
             }
             openUrlByManuId(manuId);
+            CommonHelper.UpdateTempList(list, manuId, XMLPath.OldPwdQuery);
         }
     }
 }
