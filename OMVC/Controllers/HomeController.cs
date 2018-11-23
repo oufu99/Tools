@@ -13,10 +13,24 @@ namespace OMVC.Controllers
 
         public ActionResult Index()
         {
+            TestMy.Name = "12木头人";
 
-            return View();
+            return Content(TestMy.Name);
+        }
+        public ActionResult Index2()
+        {
+            return Content(TestMy.Name);
+        }
+        public ActionResult Index3()
+        {
+            TestMy.Name = "333";
+            return Content(TestMy.Name);
         }
 
+    }
+    class TestMy
+    {
+        public static string Name { get; set; }
 
     }
 }
