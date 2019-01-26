@@ -32,6 +32,9 @@ namespace Common
 
         //代码段路径    
         public static string SQLShortCut = "configuration/SQLShortCut";
+        public static string NavicatShortPath = "configuration/NavicatShortPath";
+        public static string NavicatOldManuId = "configuration/NavicatOldManuId";
+ 
         //添加新代码段  
         public static string StandardSQLShortCut = "configuration/StandardSQLShortCut";
 
@@ -49,7 +52,5 @@ namespace Common
         public static string OldPwdQuery = "configuration/OldPwdQuery";
 
         public static string ChromePath = "configuration/ChromePath";
-
-
     }
 }

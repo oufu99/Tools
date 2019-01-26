@@ -19,6 +19,8 @@ namespace UpdateShortCode
         public static List<string> list;
         public static List<Button> bList;
 
+        //navicat列表
+        public static List<string> nlist;
         private int max = 5;
         public Form1()
         {
@@ -28,6 +30,8 @@ namespace UpdateShortCode
             list = JsonHelper.DeserializeObject<List<string>>(listJson);
             bList = new List<Button>() { btn1, btn2, btn3, btn4, btn5 };
 
+            string nListJson = XMLHelper.GetPath(XMLPath.NavicatOldManuId);
+            nlist = JsonHelper.DeserializeObject<List<string>>(nListJson);
             //初始化右边五个按键的字
             string sql = string.Format($@"SELECT  a.tb_manufacturerID,a.name,b.name AS domain FROM dbo.tb_manufacturer a LEFT JOIN tb_user b ON a.tb_manufacturerID=b.manufacturer_id WHERE tb_manufacturerID in({string.Join(",", list)}) AND b.system_role_id=-10");
             var models = SQLHelper.QueryList<tb_manu>(sql);
@@ -80,7 +84,6 @@ namespace UpdateShortCode
             var files = Directory.GetFiles(path, "*.sqlpromptsnippet");
             foreach (var file in files)
             {
-
                 string text = File.ReadAllText(file);
                 if (text.Contains(manuId))
                 {
@@ -116,6 +119,26 @@ namespace UpdateShortCode
             return false;
         }
 
-
+        private void button1_Click(object sender, EventArgs e)
+        {
+            var manuId = nlist.Last();
+            var newManuId = this.txt1.Text.Trim();
+            string path = XMLHelper.GetPath(XMLPath.NavicatShortPath);
+            var files = Directory.GetFiles(path, "*.nsnippet");
+            foreach (var file in files)
+            {
+                //改成读取Json
+                string text = File.ReadAllText(file);
+                NavicatModel model = JsonHelper.DeserializeObject<NavicatModel>(text);
+                if (model.text.Contains(manuId))
+                {
+                    model.text = model.text.Replace(manuId, newManuId);
+                    var newText = JsonHelper.SerializeObject(model);
+                    File.WriteAllText(file, newText, Encoding.UTF8);
+                }
+            }
+            //CommonHelper.UpdateTempList(nlist, newManuId, XMLPath.NavicatOldManuId);
+            MessageBox.Show("修改成功");
+        }
     }
 }
