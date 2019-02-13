@@ -46,6 +46,7 @@ namespace Common
         public static string AddNewManuExe = "configuration/AddNewManuExe";
         public static string OpenMyTools = "configuration/OpenMyToolsExe";
         public static string CheckLogExe = "configuration/CheckLogExe";
+        public static string WsBuildExe = "configuration/WsBuildExe";
 
         //程序路径结束
 

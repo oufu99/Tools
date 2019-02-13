@@ -20,6 +20,7 @@ namespace OpenMyTools
 
         private void OpenSoft(string path)
         {
+            //如果这个解决方案是重新拉取的  要先整个解决方案生成一遍
             System.Diagnostics.Process.Start(path);
             this.Close();
         }
@@ -57,6 +58,11 @@ namespace OpenMyTools
         private void button2_Click(object sender, EventArgs e)
         {
             OpenSoft(XMLHelper.GetPath(XMLPath.CheckLogExe));
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            OpenSoft(XMLHelper.GetPath(XMLPath.WsBuildExe));
         }
     }
 }
