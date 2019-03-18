@@ -46,7 +46,7 @@ namespace AddNewManu
                 name = model.Name;
             }
 
-            string projectPath = XMLHelper.GetPath(XMLPath.CompanyProject);
+            string projectPath = XMLHelper.GetNodeText(XMLPath.CompanyProject);
             string path = projectPath + name;
             if (!Directory.Exists(path))
             {
@@ -63,7 +63,7 @@ namespace AddNewManu
             string domain = model.Domain;
             IISHelp.AddHostHeader(domain);
             //写入host
-            IOHelper.AddHost(XMLHelper.GetPath(XMLPath.HostIp), domain);
+            HostHelper.AddHost(XMLHelper.GetNodeText(XMLPath.HostIp), domain);
             MessageBox.Show("创建成功");
             this.Close();
         }
@@ -82,7 +82,7 @@ namespace AddNewManu
             string domain = model.Domain;
             IISHelp.AddHostHeader(domain);
             //写入host
-            IOHelper.AddHost(XMLHelper.GetPath(XMLPath.HostIp), domain);
+            HostHelper.AddHost(XMLHelper.GetNodeText(XMLPath.HostIp), domain);
             MessageBox.Show("创建成功");
             this.Close();
         }

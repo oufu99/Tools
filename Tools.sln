@@ -27,6 +27,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenMyTools", "OpenMyTools\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CheckLog", "CheckLog\CheckLog.csproj", "{2BFBEA99-B528-4064-8B77-24B8A63F8DA6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CopyView", "CopyView\CopyView.csproj", "{ACB8A82F-CDDF-4E6A-B72F-F4B62DF38591}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -81,6 +83,10 @@ Global
 		{2BFBEA99-B528-4064-8B77-24B8A63F8DA6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2BFBEA99-B528-4064-8B77-24B8A63F8DA6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2BFBEA99-B528-4064-8B77-24B8A63F8DA6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ACB8A82F-CDDF-4E6A-B72F-F4B62DF38591}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ACB8A82F-CDDF-4E6A-B72F-F4B62DF38591}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ACB8A82F-CDDF-4E6A-B72F-F4B62DF38591}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ACB8A82F-CDDF-4E6A-B72F-F4B62DF38591}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

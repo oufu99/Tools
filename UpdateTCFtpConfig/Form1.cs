@@ -28,7 +28,7 @@ namespace UpdateTCFtpConfig
         private void Form1_Load(object sender, EventArgs e)
         {
             //加载右边的按钮
-            string listJson = XMLHelper.GetPath(XMLPath.OldFtp);
+            string listJson = XMLHelper.GetNodeText(XMLPath.OldFtp);
             list = JsonHelper.DeserializeObject<List<string>>(listJson);
             bList = new List<Button>() { btn1, btn2, btn3, btn4, btn5 };
 
@@ -68,7 +68,7 @@ namespace UpdateTCFtpConfig
             ResetFtpConfig(false);
 
             //重新设置
-            string path = XMLHelper.GetPath(XMLPath.Ftp);
+            string path = XMLHelper.GetNodeText(XMLPath.Ftp);
             List<string> lines = new List<string>(File.ReadAllLines(path, Encoding.Default));
             //可以传入manuId或者直接中文
             int outManuId = 0;
@@ -167,7 +167,7 @@ namespace UpdateTCFtpConfig
         }
         private void ResetFtpConfig(bool isShow)
         {
-            string path = XMLHelper.GetPath(XMLPath.Ftp);
+            string path = XMLHelper.GetNodeText(XMLPath.Ftp);
             List<string> lines = new List<string>(File.ReadAllLines(path, Encoding.Default));
             string newManuName = this.txt1.Text;
             for (int i = 0; i < lines.Count; i++)

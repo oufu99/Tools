@@ -28,109 +28,121 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.addManuBtn = new System.Windows.Forms.Button();
-            this.queryCodeBtn = new System.Windows.Forms.Button();
-            this.updateFtpBtn = new System.Windows.Forms.Button();
-            this.updateAllShortCodeBtn = new System.Windows.Forms.Button();
-            this.updateShortCodeBtn = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.AddNewManuExe = new System.Windows.Forms.Button();
+            this.QueryCodeExe = new System.Windows.Forms.Button();
+            this.UpdateTCFtpConfigExe = new System.Windows.Forms.Button();
+            this.UpdateShortCodeExe = new System.Windows.Forms.Button();
+            this.UpdateOneLineExe = new System.Windows.Forms.Button();
+            this.OpenMyTools = new System.Windows.Forms.Button();
+            this.CheckLogExe = new System.Windows.Forms.Button();
+            this.WsBuildExe = new System.Windows.Forms.Button();
+            this.CopyViewExe = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // addManuBtn
+            // AddNewManuExe
             // 
-            this.addManuBtn.Location = new System.Drawing.Point(698, 413);
-            this.addManuBtn.Name = "addManuBtn";
-            this.addManuBtn.Size = new System.Drawing.Size(81, 25);
-            this.addManuBtn.TabIndex = 0;
-            this.addManuBtn.Text = "添加新厂商";
-            this.addManuBtn.UseVisualStyleBackColor = true;
-            this.addManuBtn.Click += new System.EventHandler(this.addManuBtn_Click);
+            this.AddNewManuExe.Location = new System.Drawing.Point(698, 413);
+            this.AddNewManuExe.Name = "AddNewManuExe";
+            this.AddNewManuExe.Size = new System.Drawing.Size(81, 25);
+            this.AddNewManuExe.TabIndex = 0;
+            this.AddNewManuExe.Text = "添加新厂商";
+            this.AddNewManuExe.UseVisualStyleBackColor = true;
+            this.AddNewManuExe.Click += new System.EventHandler(this.Btn_Click);
             // 
-            // queryCodeBtn
+            // QueryCodeExe
             // 
-            this.queryCodeBtn.Location = new System.Drawing.Point(240, 138);
-            this.queryCodeBtn.Name = "queryCodeBtn";
-            this.queryCodeBtn.Size = new System.Drawing.Size(194, 57);
-            this.queryCodeBtn.TabIndex = 1;
-            this.queryCodeBtn.Text = "查询密码";
-            this.queryCodeBtn.UseVisualStyleBackColor = true;
-            this.queryCodeBtn.Click += new System.EventHandler(this.queryCodeBtn_Click);
+            this.QueryCodeExe.Location = new System.Drawing.Point(240, 138);
+            this.QueryCodeExe.Name = "QueryCodeExe";
+            this.QueryCodeExe.Size = new System.Drawing.Size(194, 57);
+            this.QueryCodeExe.TabIndex = 1;
+            this.QueryCodeExe.Text = "查询密码";
+            this.QueryCodeExe.UseVisualStyleBackColor = true;
+            this.QueryCodeExe.Click += new System.EventHandler(this.Btn_Click);
             // 
-            // updateFtpBtn
+            // UpdateTCFtpConfigExe
             // 
-            this.updateFtpBtn.Location = new System.Drawing.Point(81, 229);
-            this.updateFtpBtn.Name = "updateFtpBtn";
-            this.updateFtpBtn.Size = new System.Drawing.Size(125, 57);
-            this.updateFtpBtn.TabIndex = 2;
-            this.updateFtpBtn.Text = "更新Ftp路径";
-            this.updateFtpBtn.UseVisualStyleBackColor = true;
-            this.updateFtpBtn.Click += new System.EventHandler(this.updateFtpBtn_Click);
+            this.UpdateTCFtpConfigExe.Location = new System.Drawing.Point(81, 229);
+            this.UpdateTCFtpConfigExe.Name = "UpdateTCFtpConfigExe";
+            this.UpdateTCFtpConfigExe.Size = new System.Drawing.Size(125, 57);
+            this.UpdateTCFtpConfigExe.TabIndex = 2;
+            this.UpdateTCFtpConfigExe.Text = "更新Ftp路径";
+            this.UpdateTCFtpConfigExe.UseVisualStyleBackColor = true;
+            this.UpdateTCFtpConfigExe.Click += new System.EventHandler(this.Btn_Click);
             // 
-            // updateAllShortCodeBtn
+            // UpdateShortCodeExe
             // 
-            this.updateAllShortCodeBtn.Location = new System.Drawing.Point(460, 228);
-            this.updateAllShortCodeBtn.Name = "updateAllShortCodeBtn";
-            this.updateAllShortCodeBtn.Size = new System.Drawing.Size(170, 58);
-            this.updateAllShortCodeBtn.TabIndex = 3;
-            this.updateAllShortCodeBtn.Text = "更新全部SQL";
-            this.updateAllShortCodeBtn.UseVisualStyleBackColor = true;
-            this.updateAllShortCodeBtn.Click += new System.EventHandler(this.updateAllShortCodeBtn_Click);
+            this.UpdateShortCodeExe.Location = new System.Drawing.Point(460, 228);
+            this.UpdateShortCodeExe.Name = "UpdateShortCodeExe";
+            this.UpdateShortCodeExe.Size = new System.Drawing.Size(170, 58);
+            this.UpdateShortCodeExe.TabIndex = 3;
+            this.UpdateShortCodeExe.Text = "更新全部SQL";
+            this.UpdateShortCodeExe.UseVisualStyleBackColor = true;
+            this.UpdateShortCodeExe.Click += new System.EventHandler(this.Btn_Click);
             // 
-            // updateShortCodeBtn
+            // UpdateOneLineExe
             // 
-            this.updateShortCodeBtn.Location = new System.Drawing.Point(264, 228);
-            this.updateShortCodeBtn.Name = "updateShortCodeBtn";
-            this.updateShortCodeBtn.Size = new System.Drawing.Size(154, 58);
-            this.updateShortCodeBtn.TabIndex = 4;
-            this.updateShortCodeBtn.Text = "更新一行SQL";
-            this.updateShortCodeBtn.UseVisualStyleBackColor = true;
-            this.updateShortCodeBtn.Click += new System.EventHandler(this.updateShortCodeBtn_Click);
+            this.UpdateOneLineExe.Location = new System.Drawing.Point(264, 228);
+            this.UpdateOneLineExe.Name = "UpdateOneLineExe";
+            this.UpdateOneLineExe.Size = new System.Drawing.Size(154, 58);
+            this.UpdateOneLineExe.TabIndex = 4;
+            this.UpdateOneLineExe.Text = "更新一行SQL";
+            this.UpdateOneLineExe.UseVisualStyleBackColor = true;
+            this.UpdateOneLineExe.Click += new System.EventHandler(this.Btn_Click);
             // 
-            // button1
+            // OpenMyTools
             // 
-            this.button1.Location = new System.Drawing.Point(240, 327);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(194, 58);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "打开我的代码";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.OpenMyTools.Location = new System.Drawing.Point(240, 327);
+            this.OpenMyTools.Name = "OpenMyTools";
+            this.OpenMyTools.Size = new System.Drawing.Size(194, 58);
+            this.OpenMyTools.TabIndex = 5;
+            this.OpenMyTools.Text = "打开我的代码";
+            this.OpenMyTools.UseVisualStyleBackColor = true;
+            this.OpenMyTools.Click += new System.EventHandler(this.Btn_Click);
             // 
-            // button2
+            // CheckLogExe
             // 
-            this.button2.Location = new System.Drawing.Point(491, 327);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(139, 58);
-            this.button2.TabIndex = 6;
-            this.button2.Text = "查看日志";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.CheckLogExe.Location = new System.Drawing.Point(491, 327);
+            this.CheckLogExe.Name = "CheckLogExe";
+            this.CheckLogExe.Size = new System.Drawing.Size(139, 58);
+            this.CheckLogExe.TabIndex = 6;
+            this.CheckLogExe.Text = "查看日志";
+            this.CheckLogExe.UseVisualStyleBackColor = true;
+            this.CheckLogExe.Click += new System.EventHandler(this.Btn_Click);
             // 
-            // button3
+            // WsBuildExe
             // 
-            this.button3.Location = new System.Drawing.Point(525, 137);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(170, 58);
-            this.button3.TabIndex = 7;
-            this.button3.Text = "编译微商代码";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.WsBuildExe.Location = new System.Drawing.Point(525, 137);
+            this.WsBuildExe.Name = "WsBuildExe";
+            this.WsBuildExe.Size = new System.Drawing.Size(170, 58);
+            this.WsBuildExe.TabIndex = 7;
+            this.WsBuildExe.Text = "编译微商代码";
+            this.WsBuildExe.UseVisualStyleBackColor = true;
+            this.WsBuildExe.Click += new System.EventHandler(this.Btn_Click);
+            // 
+            // CopyViewExe
+            // 
+            this.CopyViewExe.Location = new System.Drawing.Point(51, 337);
+            this.CopyViewExe.Name = "CopyViewExe";
+            this.CopyViewExe.Size = new System.Drawing.Size(122, 39);
+            this.CopyViewExe.TabIndex = 8;
+            this.CopyViewExe.Text = "复制静态页面";
+            this.CopyViewExe.UseVisualStyleBackColor = true;
+            this.CopyViewExe.Click += new System.EventHandler(this.Btn_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.updateShortCodeBtn);
-            this.Controls.Add(this.updateAllShortCodeBtn);
-            this.Controls.Add(this.updateFtpBtn);
-            this.Controls.Add(this.queryCodeBtn);
-            this.Controls.Add(this.addManuBtn);
+            this.Controls.Add(this.CopyViewExe);
+            this.Controls.Add(this.WsBuildExe);
+            this.Controls.Add(this.CheckLogExe);
+            this.Controls.Add(this.OpenMyTools);
+            this.Controls.Add(this.UpdateOneLineExe);
+            this.Controls.Add(this.UpdateShortCodeExe);
+            this.Controls.Add(this.UpdateTCFtpConfigExe);
+            this.Controls.Add(this.QueryCodeExe);
+            this.Controls.Add(this.AddNewManuExe);
             this.Name = "Form1";
             this.Text = "Form1";
             this.ResumeLayout(false);
@@ -139,14 +151,15 @@
 
         #endregion
 
-        private System.Windows.Forms.Button addManuBtn;
-        private System.Windows.Forms.Button queryCodeBtn;
-        private System.Windows.Forms.Button updateFtpBtn;
-        private System.Windows.Forms.Button updateAllShortCodeBtn;
-        private System.Windows.Forms.Button updateShortCodeBtn;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button AddNewManuExe;
+        private System.Windows.Forms.Button QueryCodeExe;
+        private System.Windows.Forms.Button UpdateTCFtpConfigExe;
+        private System.Windows.Forms.Button UpdateShortCodeExe;
+        private System.Windows.Forms.Button UpdateOneLineExe;
+        private System.Windows.Forms.Button OpenMyTools;
+        private System.Windows.Forms.Button CheckLogExe;
+        private System.Windows.Forms.Button WsBuildExe;
+        private System.Windows.Forms.Button CopyViewExe;
     }
 }
 

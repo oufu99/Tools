@@ -28,7 +28,7 @@ namespace QueryCode
         public static List<Button> openList;
         private void Form1_Load(object sender, EventArgs e)
         {
-            string listJson = XMLHelper.GetPath(XMLPath.OldPwdQuery);
+            string listJson = XMLHelper.GetNodeText(XMLPath.OldPwdQuery);
             list = JsonHelper.DeserializeObject<List<string>>(listJson);
             bList = new List<Button>() { manu1Btn, manu2Btn, manu3Btn, manu4Btn, manu5Btn };
             pwdList = new List<Button>() { pwd1Btn, pwd2Btn, pwd3Btn, pwd4Btn, pwd5Btn };
@@ -90,7 +90,7 @@ namespace QueryCode
                 manuId = model.tb_manufacturerID;
             }
             GetManuPwd(manuId);
-            CommonHelper.UpdateTempList(list, manuId, XMLPath.OldPwdQuery);
+            XMLHelper.UpdateXMLList(list, manuId, XMLPath.OldPwdQuery);
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -110,7 +110,7 @@ namespace QueryCode
                 manuId = SQLHelper.Query<tb_manu>(sql).tb_manufacturerID;
             }
             GetCustomerPwd(manuId);
-            CommonHelper.UpdateTempList(list, manuId, XMLPath.OldPwdQuery);
+            XMLHelper.UpdateXMLList(list, manuId, XMLPath.OldPwdQuery);
         }
 
         private void manuBtn_Click(object sender, EventArgs e)
@@ -146,7 +146,7 @@ namespace QueryCode
 
         private void openUrlByManuId(string maunId)
         {
-            var chromePath = XMLHelper.GetPath(XMLPath.ChromePath);
+            var chromePath = XMLHelper.GetNodeText(XMLPath.ChromePath);
             string sql = string.Format($@"SELECT name FROM tb_user WHERE manufacturer_id={maunId} AND system_role_id=-10");
             var model = SQLHelper.Query<tb_manu>(sql);
             var domain = model.Name;
@@ -191,7 +191,7 @@ WHERE a.audit_status=1 AND b.status=0", manuId);
                 manuId = SQLHelper.Query<tb_manu>(sql).tb_manufacturerID;
             }
             openUrlByManuId(manuId);
-            CommonHelper.UpdateTempList(list, manuId, XMLPath.OldPwdQuery);
+            XMLHelper.UpdateXMLList(list, manuId, XMLPath.OldPwdQuery);
         }
     }
 }

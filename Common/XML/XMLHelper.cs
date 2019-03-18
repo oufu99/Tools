@@ -10,14 +10,14 @@ namespace Common
         //xml格式前面没有勾看着不爽...改成config后缀一样能被读取只要格式一样就可以了
         private static string filePath = @"D:\Tools\Common\config.config";
 
-     
-       
+
+
         /// <summary>
         /// 根据传入路径读取出XML的值  我加的
         /// </summary>
         /// <param name="xPath">遵循xPath规则可以一路查下去  范例: @"Skill/First/SkillItem"</param>
         /// <returns></returns>
-        public static string GetPath(string xPath)
+        public static string GetNodeText(string xPath)
         {
             try
             {
@@ -31,6 +31,31 @@ namespace Common
             {
                 return null;
             }
+        }
+
+        public static void UpdateXMLList(List<string> list, string listItem, string path)
+        {
+            //如果已经存在就不处理,不存在就添加
+            if (!list.Contains(listItem))
+            {
+                if (list.Count == 5)
+                {
+                    list.RemoveAt(0);
+                    list.Add(listItem);
+                }
+                else
+                {
+                    list.Add(listItem);
+                }
+            }
+            else
+            {
+                //如果存在要把他移到最后
+                list.Remove(listItem);
+                list.Add(listItem);
+            }
+            var jsonStr = JsonHelper.SerializeObject(list);
+            UpdateNodeInnerText(path, jsonStr);
         }
 
         /// <summary>
@@ -58,6 +83,9 @@ namespace Common
             return true;
         }
 
+
+
+
         public static string ReadText(string xPath)
         {
             try
@@ -84,7 +112,7 @@ namespace Common
             var ass = Activator.CreateInstance(t);
             var prop = t.GetField(name);
             var xmlpath = prop.GetValue(ass).ToString();
-            return XMLHelper.GetPath(xmlpath);
+            return XMLHelper.GetNodeText(xmlpath);
         }
 
         /// <summary>

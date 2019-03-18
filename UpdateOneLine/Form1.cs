@@ -103,7 +103,7 @@ namespace UpdateOneLine
             changeFlag = 1;
             var name = txt1.Text;
             name = string.IsNullOrEmpty(name) ? "scust" : name;
-            string path = XMLHelper.GetPath(XMLPath.SQLShortCut);
+            string path = XMLHelper.GetNodeText(XMLPath.SQLShortCut);
             var files = Directory.GetFiles(path, "*.sqlpromptsnippet");
             targetFileName = files.First(c => c.Contains(name));
             if (string.IsNullOrEmpty(targetFileName))
@@ -139,7 +139,7 @@ namespace UpdateOneLine
                 var shortCut = txt1.Text;
                 var content = richTextBox1.Text;
                 doc = new XmlDocument();
-                doc.Load(XMLHelper.GetPath(XMLPath.StandardSQLShortCut));
+                doc.Load(XMLHelper.GetNodeText(XMLPath.StandardSQLShortCut));
                 XmlElement rootElem = doc.DocumentElement;
 
                 //设置
@@ -152,7 +152,7 @@ namespace UpdateOneLine
                 codeNode.InnerText = content;
 
                 var newText = ConvertXmlToString(doc);
-                var newFileName = string.Format($@"{XMLHelper.GetPath(XMLPath.SQLShortCut)}\{shortCut}.sqlpromptsnippet");
+                var newFileName = string.Format($@"{XMLHelper.GetNodeText(XMLPath.SQLShortCut)}\{shortCut}.sqlpromptsnippet");
                 File.WriteAllText(newFileName, newText);
                 MessageBox.Show("新增成功");
             }

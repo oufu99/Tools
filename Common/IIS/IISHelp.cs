@@ -23,11 +23,11 @@ namespace Common
             //后面改成用枚举
             var bindings = sm.Sites.First(c => c.Id == (long)IISEnums.WebSitId).Bindings;
             //"*:80:test2.web.cn"
-            string bindingInformation = string.Format("{0}:{1}:{2}", "", port, domain + XMLHelper.GetPath(XMLPath.IISWebUrl));
+            string bindingInformation = string.Format("{0}:{1}:{2}", "", port, domain + XMLHelper.GetNodeText(XMLPath.IISWebUrl));
             AddBingding(bindings, bindingInformation);
             bindings = sm.Sites.First(c => c.Id == (long)IISEnums.MobileSitId).Bindings;
             //"*:80:test2.mobile.cn"
-            bindingInformation = string.Format("{0}:{1}:{2}", "", port, domain + XMLHelper.GetPath(XMLPath.IISMobileUrl));
+            bindingInformation = string.Format("{0}:{1}:{2}", "", port, domain + XMLHelper.GetNodeText(XMLPath.IISMobileUrl));
             AddBingding(bindings, bindingInformation);
             sm.CommitChanges();
         }

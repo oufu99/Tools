@@ -31,7 +31,7 @@ namespace ScreenCapture
         // static Graphics gi; 
         static Bitmap bmp;
         static string filename = "1.jpg";
-        static string saveFile = XMLHelper.GetPath(XMLPath.ErWeiMaPath);
+        static string saveFile = XMLHelper.GetNodeText(XMLPath.ErWeiMaPath);
         static bool isOneDown = true;
         static Bitmap bm;
 

@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -25,44 +26,21 @@ namespace OpenMyTools
             this.Close();
         }
 
-        private void updateFtpBtn_Click(object sender, EventArgs e)
+        /// <summary>
+        /// 通用方法,在XMLpath中和config文件中添加属性  再把btn的Name改成和xmlpath中一样,就能自动反射了
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Btn_Click(object sender, EventArgs e)
         {
-            OpenSoft(XMLHelper.GetPath(XMLPath.UpdateTCFtpConfigExe));
-        }
-
-        private void queryCodeBtn_Click(object sender, EventArgs e)
-        {
-            OpenSoft(XMLHelper.GetPath(XMLPath.QueryCodeExe));
-        }
-
-        private void addManuBtn_Click(object sender, EventArgs e)
-        {
-            OpenSoft(XMLHelper.GetPath(XMLPath.AddNewManuExe));
-        }
-
-        private void updateShortCodeBtn_Click(object sender, EventArgs e)
-        {
-            OpenSoft(XMLHelper.GetPath(XMLPath.UpdateOneLineExe));
-        }
-
-        private void updateAllShortCodeBtn_Click(object sender, EventArgs e)
-        {
-            OpenSoft(XMLHelper.GetPath(XMLPath.UpdateShortCodeExe));
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            OpenSoft(XMLHelper.GetPath(XMLPath.OpenMyTools));
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            OpenSoft(XMLHelper.GetPath(XMLPath.CheckLogExe));
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-            OpenSoft(XMLHelper.GetPath(XMLPath.WsBuildExe));
+            //通过反射来获取值,然后调用OpenSoft方法
+            var btn = (Button)sender;
+            var propertyName = btn.Name;
+            Assembly ass = Assembly.LoadFrom(AppDomain.CurrentDomain.BaseDirectory + "Common.dll");
+            string className = "Common.XMLPath";
+            Type t = ass.GetType(className);
+            var path = t.GetField(propertyName).GetValue(null).ToString();
+            OpenSoft(XMLHelper.GetNodeText(path));
         }
     }
 }

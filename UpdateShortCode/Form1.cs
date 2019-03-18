@@ -26,11 +26,12 @@ namespace UpdateShortCode
         {
             InitializeComponent();
 
-            string listJson = XMLHelper.GetPath(XMLPath.OldMadnuId);
+            string listJson = XMLHelper.GetNodeText(XMLPath.OldMadnuId);
             list = JsonHelper.DeserializeObject<List<string>>(listJson);
             bList = new List<Button>() { btn1, btn2, btn3, btn4, btn5 };
 
-            string nListJson = XMLHelper.GetPath(XMLPath.NavicatOldManuId);
+            //更新navicat的  现在改用了ahk暂时先搁置
+            string nListJson = XMLHelper.GetNodeText(XMLPath.NavicatOldManuId);
             nlist = JsonHelper.DeserializeObject<List<string>>(nListJson);
             //初始化右边五个按键的字
             string sql = string.Format($@"SELECT  a.tb_manufacturerID,a.name,b.name AS domain FROM dbo.tb_manufacturer a LEFT JOIN tb_user b ON a.tb_manufacturerID=b.manufacturer_id WHERE tb_manufacturerID in({string.Join(",", list)}) AND b.system_role_id=-10");
@@ -80,7 +81,7 @@ namespace UpdateShortCode
         private void UpdateAllShortCut(string newManuId)
         {
             var manuId = list.Last();
-            string path = XMLHelper.GetPath(XMLPath.SQLShortCut);
+            string path = XMLHelper.GetNodeText(XMLPath.SQLShortCut);
             var files = Directory.GetFiles(path, "*.sqlpromptsnippet");
             foreach (var file in files)
             {
@@ -93,7 +94,7 @@ namespace UpdateShortCode
 
             }
             //如果已经存在就不处理,不存在就添加
-            CommonHelper.UpdateTempList(list, newManuId, XMLPath.OldMadnuId);
+            XMLHelper.UpdateXMLList(list, newManuId, XMLPath.OldMadnuId);
 
 
             this.Close();
@@ -123,7 +124,7 @@ namespace UpdateShortCode
         {
             var manuId = nlist.Last();
             var newManuId = this.txt1.Text.Trim();
-            string path = XMLHelper.GetPath(XMLPath.NavicatShortPath);
+            string path = XMLHelper.GetNodeText(XMLPath.NavicatShortPath);
             var files = Directory.GetFiles(path, "*.nsnippet");
             foreach (var file in files)
             {

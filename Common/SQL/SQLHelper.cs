@@ -11,7 +11,7 @@ namespace Common
 {
     public class SQLHelper
     {
-        private static string Conn = XMLHelper.GetPath(XMLPath.SQLConnection);
+        private static string Conn = XMLHelper.GetNodeText(XMLPath.SQLConnection);
 
 
         public static string GetValue(string sql)

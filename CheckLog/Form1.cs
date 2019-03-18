@@ -15,7 +15,7 @@ namespace CheckLog
 {
     public partial class Form1 : Form
     {
-        private string chromePath = XMLHelper.GetPath(XMLPath.ChromePath);
+        private string chromePath = XMLHelper.GetNodeText(XMLPath.ChromePath);
         public Form1()
         {
             InitializeComponent();
