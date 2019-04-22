@@ -33,27 +33,32 @@ namespace Common
             }
         }
 
-        public static void UpdateXMLList(List<string> list, string listItem, string path)
+        public static void UpdateXMLList(List<string> list, string path, string listItem = "")
         {
-            //如果已经存在就不处理,不存在就添加
-            if (!list.Contains(listItem))
+            //如果为空,就说明我是想直接更新list而已
+            if (listItem != "")
             {
-                if (list.Count == 5)
+                //如果已经存在就不处理,不存在就添加
+                if (!list.Contains(listItem))
                 {
-                    list.RemoveAt(0);
-                    list.Add(listItem);
+                    if (list.Count == 5)
+                    {
+                        list.RemoveAt(0);
+                        list.Add(listItem);
+                    }
+                    else
+                    {
+                        list.Add(listItem);
+                    }
                 }
                 else
                 {
-                    list.Add(listItem);
+                    //如果存在要把他移到最后
+                    list.Remove(listItem);
+                    list.Insert(0, listItem);
                 }
             }
-            else
-            {
-                //如果存在要把他移到最后
-                list.Remove(listItem);
-                list.Add(listItem);
-            }
+            // List 转成json以后会自带一个, 
             var jsonStr = JsonHelper.SerializeObject(list);
             UpdateNodeInnerText(path, jsonStr);
         }

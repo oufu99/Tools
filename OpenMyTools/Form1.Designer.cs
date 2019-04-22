@@ -37,6 +37,7 @@
             this.CheckLogExe = new System.Windows.Forms.Button();
             this.WsBuildExe = new System.Windows.Forms.Button();
             this.CopyViewExe = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // AddNewManuExe
@@ -121,19 +122,30 @@
             // 
             // CopyViewExe
             // 
-            this.CopyViewExe.Location = new System.Drawing.Point(51, 337);
+            this.CopyViewExe.Location = new System.Drawing.Point(51, 327);
             this.CopyViewExe.Name = "CopyViewExe";
-            this.CopyViewExe.Size = new System.Drawing.Size(122, 39);
+            this.CopyViewExe.Size = new System.Drawing.Size(122, 58);
             this.CopyViewExe.TabIndex = 8;
             this.CopyViewExe.Text = "复制静态页面";
             this.CopyViewExe.UseVisualStyleBackColor = true;
             this.CopyViewExe.Click += new System.EventHandler(this.Btn_Click);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(648, 327);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(140, 58);
+            this.button1.TabIndex = 9;
+            this.button1.Text = "打开计算器";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.CopyViewExe);
             this.Controls.Add(this.WsBuildExe);
             this.Controls.Add(this.CheckLogExe);
@@ -160,6 +172,7 @@
         private System.Windows.Forms.Button CheckLogExe;
         private System.Windows.Forms.Button WsBuildExe;
         private System.Windows.Forms.Button CopyViewExe;
+        private System.Windows.Forms.Button button1;
     }
 }
 

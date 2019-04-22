@@ -8,6 +8,8 @@ namespace Common
 {
     public class XMLPath
     {
+       
+        //要能反射必须使用字段  属性的话就反射不出来
 
         //数据库连接
         public const string SQLConnection = "configuration/SQLConnection";
@@ -48,18 +50,16 @@ namespace Common
         public const string OpenMyTools = "configuration/OpenMyToolsExe";
         public const string CheckLogExe = "configuration/CheckLogExe";
         public const string WsBuildExe = "configuration/WsBuildExe";
-        //public const string CopyViewExe = "configuration/CopyViewExe";
-
-
-        public static string CopyViewExe = "configuration/CopyViewExe";
+  
 
         //程序路径结束
         public const string OldPwdQuery = "configuration/OldPwdQuery";
         public const string ChromePath = "configuration/ChromePath";
 
-
+        public const string CopyViewExe = "configuration/CopyViewExe";
         public const string CopyViewManuName = "configuration/CopyViewManuName";
         public const string CopyViewNameList = "configuration/CopyViewNameList";
+        public const string CopyViewExeCheckBox = "configuration/CopyViewExeCheckBox";
 
     }
 }

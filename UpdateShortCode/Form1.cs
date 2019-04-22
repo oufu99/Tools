@@ -47,9 +47,45 @@ namespace UpdateShortCode
             }
         }
 
+        //代码注释掉,只是为了后面参考  已经改为使用下拉框了
         private void Form1_Load(object sender, EventArgs e)
         {
+            #region 生成控件  用来后面参考
+            ////初始化两个坐标,后面生成的以这两个为基准
+            //int leftX = 0;
+            //int leftY = 0;
+            //int rigthX = 0;
+            //int rigthY = 0;
+            ////生成左边的 
+            //for (int i = 0; i < list.Count; i++)
+            //{
+            //    if (i == 0)
+            //    {
+            //        leftX = this.btnWsbgCopy.Location.X;
+            //        leftY = this.btnWsbgCopy.Location.Y - 60;
 
+            //        rigthX = this.btnMobileCopy.Location.X;
+            //        rigthY = this.btnMobileCopy.Location.Y - 60;
+            //    }
+            //    else
+            //    {
+            //        leftY = leftY - 40;
+            //        rigthY = rigthY - 40;
+            //    }
+            //    Button btnLeft = new Button();
+            //    btnLeft.Text = list[i];
+            //    btnLeft.Location = new Point(leftX, leftY);
+            //    btnLeft.Width = this.btnWsbgCopy.Width;
+            //    btnLeft.Click += LeftBtnClick;
+            //    this.Controls.Add(btnLeft);
+
+            //    Button btnRight = new Button();
+            //    btnRight.Text = list[i];
+            //    btnRight.Location = new Point(rigthX, rigthY);
+            //    btnRight.Width = this.btnWsbgCopy.Width;
+            //    btnRight.Click += RightBtnClick;
+            //    this.Controls.Add(btnRight); 
+            #endregion
         }
         private void btnUpdate_Click(object sender, EventArgs e)
         {
@@ -69,7 +105,6 @@ namespace UpdateShortCode
                 MessageBox.Show("请输入数字");
             }
         }
-
 
         private void BtnClick(object sender, EventArgs e)
         {
@@ -91,10 +126,9 @@ namespace UpdateShortCode
                     string newText = text.Replace(manuId, newManuId);
                     File.WriteAllText(file, newText, Encoding.UTF8);
                 }
-
             }
             //如果已经存在就不处理,不存在就添加
-            XMLHelper.UpdateXMLList(list, newManuId, XMLPath.OldMadnuId);
+            XMLHelper.UpdateXMLList(list, XMLPath.OldMadnuId, newManuId);
 
 
             this.Close();

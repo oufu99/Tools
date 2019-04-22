@@ -38,7 +38,8 @@ namespace QueryCode
             var models = SQLHelper.QueryList<tb_manu>(sql);
             for (int i = 0; i < list.Count; i++)
             {
-                bList[i].Text = list[i] + $"({models.First(c => c.tb_manufacturerID == list[i]).Name.Substring(0, 5)})";
+                var model = models.First(c => c.tb_manufacturerID == list[i]);
+                bList[i].Text = list[i] + $"({model.Name.Substring(0, model.Name.Length >= 5 ? 5 : model.Name.Length)})";
                 pwdList[i].Text = list[i] + $"(获取能用的代理)";
                 openList[i].Text = list[i] + $"(打开admin)";
                 //直接在这绑定事件 不用去后台一个个添加了
@@ -90,7 +91,7 @@ namespace QueryCode
                 manuId = model.tb_manufacturerID;
             }
             GetManuPwd(manuId);
-            XMLHelper.UpdateXMLList(list, manuId, XMLPath.OldPwdQuery);
+            XMLHelper.UpdateXMLList(list, XMLPath.OldPwdQuery, manuId);
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -110,7 +111,7 @@ namespace QueryCode
                 manuId = SQLHelper.Query<tb_manu>(sql).tb_manufacturerID;
             }
             GetCustomerPwd(manuId);
-            XMLHelper.UpdateXMLList(list, manuId, XMLPath.OldPwdQuery);
+            XMLHelper.UpdateXMLList(list, XMLPath.OldPwdQuery, manuId);
         }
 
         private void manuBtn_Click(object sender, EventArgs e)
@@ -191,7 +192,7 @@ WHERE a.audit_status=1 AND b.status=0", manuId);
                 manuId = SQLHelper.Query<tb_manu>(sql).tb_manufacturerID;
             }
             openUrlByManuId(manuId);
-            XMLHelper.UpdateXMLList(list, manuId, XMLPath.OldPwdQuery);
+            XMLHelper.UpdateXMLList(list, XMLPath.OldPwdQuery, manuId);
         }
     }
 }

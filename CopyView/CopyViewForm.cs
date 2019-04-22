@@ -16,56 +16,25 @@ namespace CopyView
     public partial class CopyViewForm : Form
     {
         List<string> list = new List<string>();
+        List<KeyValueModel> listManu = new List<KeyValueModel>();
+
+        bool IsMifei = true;
         public CopyViewForm()
         {
             InitializeComponent();
-        }
 
+        }
         private void CopyViewForm_Load(object sender, EventArgs e)
         {
-            //读取当前厂商
-            var manuName = XMLHelper.GetNodeText(XMLPath.CopyViewManuName);
-            this.txtManuName.Text = manuName;
+            var checkBoxHistory = XMLHelper.GetNodeText(XMLPath.CopyViewExeCheckBox);
+            IsMifei = checkBoxHistory == "1";
+            this.cboxIsMifei.Checked = IsMifei;
 
-            //初始厂商列表
+            //加载初始厂商列表
             string listJson = XMLHelper.GetNodeText(XMLPath.CopyViewNameList);
             list = JsonHelper.DeserializeObject<List<string>>(listJson);
-            //初始化两个坐标,后面生成的以这两个为基准
-            int leftX = 0;
-            int leftY = 0;
-            int rigthX = 0;
-            int rigthY = 0;
-            //生成左边的 
-            for (int i = 0; i < list.Count; i++)
-            {
-                if (i == 0)
-                {
-                    leftX = this.btnWsbgCopy.Location.X;
-                    leftY = this.btnWsbgCopy.Location.Y - 60;
-
-                    rigthX = this.btnMobileCopy.Location.X;
-                    rigthY = this.btnMobileCopy.Location.Y - 60;
-                }
-                else
-                {
-                    leftY = leftY - 40;
-                    rigthY = rigthY - 40;
-                }
-                Button btnLeft = new Button();
-                btnLeft.Text = list[i];
-                btnLeft.Location = new Point(leftX, leftY);
-                btnLeft.Width = this.btnWsbgCopy.Width;
-                btnLeft.Click += LeftBtnClick;
-                this.Controls.Add(btnLeft);
-
-                Button btnRight = new Button();
-                btnRight.Text = list[i];
-                btnRight.Location = new Point(rigthX, rigthY);
-                btnRight.Width = this.btnWsbgCopy.Width;
-                btnRight.Click += RightBtnClick;
-                this.Controls.Add(btnRight);
-
-            }
+            this.ddlManu.DataSource = list;
+            this.txtManuName.Text = list.Count == 0 ? "" : list[0];
         }
 
         //路径太多,而且基本不会变,不用配置文件了直接写死
@@ -73,11 +42,9 @@ namespace CopyView
         {
             //复制文件夹 先用米菲的youzuan来做好
             //出一个checkBox 用一个字段来绑定
-            var isMifei = true;
-
             var baseViewPath = "";
             var targetSecondPath = "";
-            if (isMifei)
+            if (IsMifei)
             {
                 //如果是米菲,根路径全部改为米菲
                 baseViewPath = @"E:\ZPCode\WsBg\MiFei.Custom";
@@ -90,6 +57,7 @@ namespace CopyView
             }
 
             var manuName = this.txtManuName.Text;
+            //要复制文件夹的 名字
             var srcPath = string.Format(@"{0}\Views\{1}", baseViewPath, manuName);
             var targetBasePath = @"E:\ZPCode\WsBg\WsBg.Web\Areas\";
             var targetPath = string.Format(@"{0}{1}\Views\{2}", targetBasePath, targetSecondPath, manuName);
@@ -99,56 +67,56 @@ namespace CopyView
             targetPath = string.Format(@"{0}{1}\PageJS\{2}", targetBasePath, targetSecondPath, manuName);
             FileHelper.CopyDirectory(srcPath, targetPath);
             MessageBox.Show("复制完毕");
+            UpdateHistory();
         }
 
 
         private void MobileCopy(object sender, EventArgs e)
         {
-            var isMifei = false;
             var baseViewPath = "";
-            if (isMifei)
+            var targetBasePath = "";
+            if (IsMifei)
             {
                 //如果是米菲,根路径全部改为米菲
                 baseViewPath = @"E:\ZPCode\Mifei_v2\MiFei.";
+                targetBasePath = @"E:\ZPCode\Mifei_v2\Mifei.Mobile\Areas\";
             }
             else
             {
                 baseViewPath = @"E:\ZPCode\SuYa_V2\SuYa.";
+                targetBasePath = @"E:\ZPCode\SuYa_V2\SuYa.Mobile\Areas\";
             }
 
             var manuName = this.txtManuName.Text;
             var srcPath = string.Format(@"{0}{1}\Views\", baseViewPath, manuName);
-            var targetBasePath = @"E:\ZPCode\SuYa_V2\SuYa.Mobile\Areas\";
+
             var targetPath = string.Format(@"{0}{1}\Views\", targetBasePath, manuName);
             FileHelper.CopyDirectory(srcPath, targetPath);
             //复制js 重置复制路径
             srcPath = string.Format(@"{0}{1}\PageJS\", baseViewPath, manuName);
             targetPath = string.Format(@"{0}{1}\PageJS\", targetBasePath, manuName);
             FileHelper.CopyDirectory(srcPath, targetPath);
+            MessageBox.Show("复制完毕");
+            UpdateHistory();
         }
 
-        /// <summary>
-        /// 点击左边按钮触发
-        /// </summary>
-        private void LeftBtnClick(object sender, EventArgs e)
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            var btn = (Button)sender;
-            var maunName = btn.Text.GetFirstInt().Trim();
-            WsbgCopy(sender, e);
-            XMLHelper.UpdateXMLList(list, maunName, XMLPath.CopyViewManuName);
+            var manuName = this.ddlManu.SelectedValue.ToString();
+            this.txtManuName.Text = manuName;
         }
 
-        /// <summary>
-        /// 点击按钮触发
-        /// </summary>
-        private void RightBtnClick(object sender, EventArgs e)
+
+        public void UpdateHistory()
         {
-            var btn = (Button)sender;
-            var maunName = btn.Text.GetFirstInt().Trim();
-            MobileCopy(sender, e);
-            XMLHelper.UpdateXMLList(list, maunName, XMLPath.CopyViewManuName);
+            XMLHelper.UpdateXMLList(list, XMLPath.CopyViewNameList, this.txtManuName.Text);
+            IsMifei = this.cboxIsMifei.Checked;
+            XMLHelper.UpdateNodeInnerText(XMLPath.CopyViewExeCheckBox, IsMifei ? "1" : "0");
         }
 
-
+        private void button1_Click(object sender, EventArgs e)
+        {
+            XMLHelper.UpdateXMLList(list, XMLPath.CopyViewNameList, "mifei");
+        }
     }
 }
