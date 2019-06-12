@@ -92,7 +92,7 @@
             // 
             // OpenMyTools
             // 
-            this.OpenMyTools.Location = new System.Drawing.Point(240, 327);
+            this.OpenMyTools.Location = new System.Drawing.Point(70, 317);
             this.OpenMyTools.Name = "OpenMyTools";
             this.OpenMyTools.Size = new System.Drawing.Size(194, 58);
             this.OpenMyTools.TabIndex = 5;
@@ -102,7 +102,7 @@
             // 
             // CheckLogExe
             // 
-            this.CheckLogExe.Location = new System.Drawing.Point(491, 327);
+            this.CheckLogExe.Location = new System.Drawing.Point(22, 396);
             this.CheckLogExe.Name = "CheckLogExe";
             this.CheckLogExe.Size = new System.Drawing.Size(139, 58);
             this.CheckLogExe.TabIndex = 6;
@@ -122,7 +122,7 @@
             // 
             // CopyViewExe
             // 
-            this.CopyViewExe.Location = new System.Drawing.Point(51, 327);
+            this.CopyViewExe.Location = new System.Drawing.Point(644, 317);
             this.CopyViewExe.Name = "CopyViewExe";
             this.CopyViewExe.Size = new System.Drawing.Size(122, 58);
             this.CopyViewExe.TabIndex = 8;
@@ -132,7 +132,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(648, 327);
+            this.button1.Location = new System.Drawing.Point(360, 317);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(140, 58);
             this.button1.TabIndex = 9;

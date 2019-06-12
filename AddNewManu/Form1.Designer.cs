@@ -36,11 +36,11 @@
             // 
             // btn1
             // 
-            this.btn1.Location = new System.Drawing.Point(94, 104);
+            this.btn1.Location = new System.Drawing.Point(64, 104);
             this.btn1.Name = "btn1";
-            this.btn1.Size = new System.Drawing.Size(75, 23);
+            this.btn1.Size = new System.Drawing.Size(149, 23);
             this.btn1.TabIndex = 0;
-            this.btn1.Text = "新建厂商";
+            this.btn1.Text = "新建厂商(ManuId)";
             this.btn1.UseVisualStyleBackColor = true;
             this.btn1.Click += new System.EventHandler(this.btn1_Click);
             // 
@@ -62,11 +62,11 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(94, 195);
+            this.button1.Location = new System.Drawing.Point(64, 194);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.Size = new System.Drawing.Size(149, 23);
             this.button1.TabIndex = 3;
-            this.button1.Text = "只添加IIS";
+            this.button1.Text = "只添加IIS(ManuId)";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
