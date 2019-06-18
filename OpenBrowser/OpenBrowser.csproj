@@ -4,14 +4,14 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{ACB8A82F-CDDF-4E6A-B72F-F4B62DF38591}</ProjectGuid>
+    <ProjectGuid>{EC1C4EB4-8291-4D36-89AE-A2F037BC7FB1}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>CopyView</RootNamespace>
-    <AssemblyName>CopyView</AssemblyName>
+    <RootNamespace>OpenBrowser</RootNamespace>
+    <AssemblyName>OpenBrowser</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
-    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -33,8 +33,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Aaron.Common">
+      <HintPath>..\..\Mirror\lib\Aaron.Common.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
-    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -47,16 +49,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CopyViewForm.cs">
+    <Compile Include="OpenBrowser.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CopyViewForm.Designer.cs">
-      <DependentUpon>CopyViewForm.cs</DependentUpon>
+    <Compile Include="OpenBrowser.Designer.cs">
+      <DependentUpon>OpenBrowser.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="CopyViewForm.resx">
-      <DependentUpon>CopyViewForm.cs</DependentUpon>
+    <EmbeddedResource Include="OpenBrowser.resx">
+      <DependentUpon>OpenBrowser.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -66,7 +68,6 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -80,12 +81,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Common\Common.csproj">
-      <Project>{948e00e0-ad2d-4f36-861c-c653933872ed}</Project>
-      <Name>Common</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

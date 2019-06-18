@@ -1,6 +1,6 @@
-﻿namespace CopyView
+﻿namespace OpenBrowser
 {
-    partial class CopyViewForm
+    partial class OpenBrowser
     {
         /// <summary>
         /// 必需的设计器变量。
@@ -29,33 +29,46 @@
         private void InitializeComponent()
         {
             this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(76, 32);
+            this.button1.Location = new System.Drawing.Point(256, 83);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(135, 64);
-            this.button1.TabIndex = 6;
-            this.button1.Text = "复制View";
+            this.button1.Size = new System.Drawing.Size(120, 68);
+            this.button1.TabIndex = 0;
+            this.button1.Text = "4.0活动调试页面";
             this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.CopyViews);
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // CopyViewForm
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(12, 22);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(92, 27);
+            this.button2.TabIndex = 1;
+            this.button2.Text = "奖项设置";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // OpenBrowser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(296, 136);
+            this.ClientSize = new System.Drawing.Size(470, 226);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
-            this.Name = "CopyViewForm";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "复制静态页面";
+            this.Name = "OpenBrowser";
+            this.Text = "打开浏览器";
             this.ResumeLayout(false);
 
         }
 
         #endregion
+
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
     }
 }
 

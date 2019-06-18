@@ -50,7 +50,8 @@ namespace Common
         public const string OpenMyTools = "configuration/OpenMyToolsExe";
         public const string CheckLogExe = "configuration/CheckLogExe";
         public const string WsBuildExe = "configuration/WsBuildExe";
-  
+        public const string OpenBrowserExe = "configuration/OpenBrowserExe";
+
 
         //程序路径结束
         public const string OldPwdQuery = "configuration/OldPwdQuery";

@@ -1,9 +1,12 @@
 ﻿using Common;
 using Common.IO;
+using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -21,7 +24,8 @@ namespace CopyView
             //View文件
             { @"E:\ZPCode\zp.ymt\ZP.YMT.ActivityAdmin.Basics\Views\ActivityBaseSetting",@"E:\ZPCode\zp.ymt\ZP.YMT.Admin\Views\ActivityBaseSetting"},
             //{ @"E:\ZPCode\zp.ymt\ZP.YMT.ActivityAdmin.Basics\Views\ActivityRange", @"E:\ZPCode\zp.ymt\ZP.YMT.Admin\Views\ActivityRange"},
-            { @"E:\ZPCode\zp.ymt\ZP.YMT.Activity.Framework\Views\Shared", @"E:\ZPCode\zp.ymt\ZP.YMT.Admin\Views\Shared"}
+            { @"E:\ZPCode\zp.ymt\ZP.YMT.Activity.Framework\Views\Shared", @"E:\ZPCode\zp.ymt\ZP.YMT.Admin\Views\Shared"},
+            { @"E:\ZPCode\zp.ymt\ZP.YMT.ActivityAdmin.LuckDraw\Views\ActivityPrize",@"E:\ZPCode\zp.ymt\ZP.YMT.Admin\Views\ActivityPrize"}
 
         };
 
@@ -31,29 +35,15 @@ namespace CopyView
             InitializeComponent();
 
         }
-        private void CopyViewForm_Load(object sender, EventArgs e)
-        {
-        }
 
-        //路径太多,而且基本不会变,不用配置文件了直接写死
-        private void WsbgCopy()
-        {
 
+        private void CopyViews(object sender, EventArgs e)
+        {
             foreach (var key in dic.Keys)
             {
                 FileHelper.CopyDirectory(key, dic[key]);
             }
-
             MessageBox.Show("复制完毕");
         }
-
-
-
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            WsbgCopy();
-        }
-
     }
 }
