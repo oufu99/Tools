@@ -18,6 +18,7 @@ namespace OpenBrowser
             InitializeComponent();
         }
 
+        string baseUrl = @"http://localhost:63476/Drive/Index?ActivityId=1&IndexId=%index%&activityFormId=1&ActivityTypeId=1";
         private void button1_Click(object sender, EventArgs e)
         {
             string ApiUrl = ConfigHelper.GetAppConfig("ApiUrl");
@@ -28,7 +29,21 @@ namespace OpenBrowser
 
         private void button2_Click(object sender, EventArgs e)
         {
-            BrowserHelper.OpenBrowserUrl(@"http://localhost:63476/Drive/Index?ActivityId=1&IndexId=2&activityFormId=1&ActivityTypeId=1");
+            OpenIndexUrl("2");
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            var index = this.txtIndex.Text;
+            OpenIndexUrl(index);
+
+        }
+
+
+        private void OpenIndexUrl(string index)
+        {
+            var newUrl = baseUrl.Replace("%index%", index);
+            BrowserHelper.OpenBrowserUrl(newUrl);
         }
     }
 }
