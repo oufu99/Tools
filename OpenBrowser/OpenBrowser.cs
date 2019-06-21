@@ -27,9 +27,10 @@ namespace OpenBrowser
             BrowserHelper.OpenBrowserUrl(AdminUrl);
         }
 
+
         private void button2_Click(object sender, EventArgs e)
         {
-            OpenIndexUrl("2");
+          
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -44,6 +45,16 @@ namespace OpenBrowser
         {
             var newUrl = baseUrl.Replace("%index%", index);
             BrowserHelper.OpenBrowserUrl(newUrl);
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            string ApiUrl = ConfigHelper.GetAppConfig("ApiUrl");
+            string AdminUrl = ConfigHelper.GetAppConfig("AdminUrl");
+            //改为用HttpClient求请求
+            var res = HttpHelper.GetHttpResponse(ApiUrl);
+            var res2 = HttpHelper.GetHttpResponse(AdminUrl);
+            OpenIndexUrl("2");
         }
     }
 }

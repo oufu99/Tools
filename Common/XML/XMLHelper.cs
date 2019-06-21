@@ -53,7 +53,7 @@ namespace Common
                 }
                 else
                 {
-                    //如果存在要把他移到最后
+                    //如果存在要把他提到最前,按钮也会生成到第一个  可能会造成有些是 .last的报错,直接改成frist就可以了
                     list.Remove(listItem);
                     list.Insert(0, listItem);
                 }

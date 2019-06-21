@@ -99,6 +99,7 @@ namespace UpdateShortCode
             if (int.TryParse(newManuId, out test))
             {
                 UpdateAllShortCut(newManuId);
+
             }
             else
             {
@@ -115,17 +116,26 @@ namespace UpdateShortCode
 
         private void UpdateAllShortCut(string newManuId)
         {
-            var manuId = list.Last();
+            var manuId = list.First();
+
             string path = XMLHelper.GetNodeText(XMLPath.SQLShortCut);
             var files = Directory.GetFiles(path, "*.sqlpromptsnippet");
+
+            var updates = false;
             foreach (var file in files)
             {
                 string text = File.ReadAllText(file);
                 if (text.Contains(manuId))
                 {
+                    //用来判断更新是否成功,如果不成功很有可能是最后一次更新的厂商有误,直接提示出来
+                    updates = true;
                     string newText = text.Replace(manuId, newManuId);
                     File.WriteAllText(file, newText, Encoding.UTF8);
                 }
+            }
+            if (!updates)
+            {
+                MessageBox.Show("没有任何一行记录被更新,最后一次更新的厂商是" + manuId + "请查看snippet中的manuId是否正确!");
             }
             //如果已经存在就不处理,不存在就添加
             XMLHelper.UpdateXMLList(list, XMLPath.OldMadnuId, newManuId);
