@@ -1,0 +1,4 @@
+﻿ZP.YMT.Activity.Framework/Views/Shared/_ActivityLayout.cshtml
+ZP.YMT.Activity.Framework/Website/ActivityDriveBaseController.cs
+	ZP.YMT.Activity.Framework/Website/ActivityWebsiteBaseController.cs
+	ZP.YMT.Admin/Views/ActivityForm/ActivityList.cshtml

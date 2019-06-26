@@ -18,9 +18,10 @@ namespace OpenBrowser
             InitializeComponent();
         }
 
-        string baseUrl = @"http://localhost:63476/Drive/Index?ActivityId=1&IndexId=%index%&activityFormId=1&ActivityTypeId=1";
+        string baseUrl = @"http://localhost:5000/Drive/Index?ActivityId=1&IndexId=%index%&activityFormId=1&ActivityTypeId=1";
         private void button1_Click(object sender, EventArgs e)
         {
+            //admin只是热加载活动控制器的Url  baseUrl是具体的活动设置的Url
             string ApiUrl = ConfigHelper.GetAppConfig("ApiUrl");
             string AdminUrl = ConfigHelper.GetAppConfig("AdminUrl");
             BrowserHelper.OpenBrowserUrl(ApiUrl);
@@ -30,7 +31,7 @@ namespace OpenBrowser
 
         private void button2_Click(object sender, EventArgs e)
         {
-          
+
         }
 
         private void button3_Click(object sender, EventArgs e)
