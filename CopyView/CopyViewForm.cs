@@ -1,5 +1,5 @@
-﻿using Common;
-using Common.IO;
+﻿using Aaron.Common;
+using Common;
 using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
@@ -19,20 +19,19 @@ namespace CopyView
     public partial class CopyViewForm : Form
     {
 
-        Dictionary<string, string> dic = new Dictionary<string, string>()
-        {
-            //View文件
-            { @"E:\ZPCode\zp.ymt\ZP.YMT.ActivityAdmin.Basics\Views\ActivityBaseSetting",@"E:\ZPCode\zp.ymt\ZP.YMT.Admin\Views\ActivityBaseSetting"},
-            //{ @"E:\ZPCode\zp.ymt\ZP.YMT.ActivityAdmin.Basics\Views\ActivityRange", @"E:\ZPCode\zp.ymt\ZP.YMT.Admin\Views\ActivityRange"},
-            { @"E:\ZPCode\zp.ymt\ZP.YMT.Activity.Framework\Views\Shared", @"E:\ZPCode\zp.ymt\ZP.YMT.Admin\Views\Shared"},
-            { @"E:\ZPCode\zp.ymt\ZP.YMT.ActivityAdmin.LuckDraw\Views\ActivityPrize",@"E:\ZPCode\zp.ymt\ZP.YMT.Admin\Views\ActivityPrize"}
-
-        };
-
+        Dictionary<string, string> dic = new Dictionary<string, string>();
 
         public CopyViewForm()
         {
             InitializeComponent();
+            var filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "CopyPath.txt");
+            //要更新的项目
+            var fileStr = File.ReadAllLines(filePath);
+            foreach (var item in fileStr)
+            {
+                var arr = item.Split(new string[] { @"," }, StringSplitOptions.RemoveEmptyEntries);
+                dic.Add(arr[0], arr[1]);
+            }
 
         }
 
