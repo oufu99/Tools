@@ -51,9 +51,9 @@ namespace AddNewManu
             if (!Directory.Exists(path))
             {
                 Directory.CreateDirectory(path);
-                string file1 = $@"{path}\{name}.sql";
+                string file1 = $@"{path}\.sql";
                 File.Create(file1);
-                string file2 = $@"{path}\{name}url.txt";
+                string file2 = $@"{path}\url.txt";
                 File.Create(file2);
                 string file3 = $@"{path}\{fileName}";
                 File.Move(filePath, file3);
