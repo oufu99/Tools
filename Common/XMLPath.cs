@@ -52,10 +52,9 @@ namespace Common
         public const string WsBuildExe = "configuration/WsBuildExe";
         public const string OpenBrowserExe = "configuration/OpenBrowserExe";
         public const string OpenBatchSoftwareExe = "configuration/OpenBatchSoftwareExe";
+        //所有程序路径结束
 
 
-
-        //程序路径结束
         public const string OldPwdQuery = "configuration/OldPwdQuery";
         public const string ChromePath = "configuration/ChromePath";
 
@@ -64,7 +63,7 @@ namespace Common
         public const string CopyViewNameList = "configuration/CopyViewNameList";
         public const string CopyViewExeCheckBox = "configuration/CopyViewExeCheckBox";
 
-        //End
+       
 
 
 

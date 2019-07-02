@@ -29,7 +29,7 @@ namespace CopyView
             var fileStr = File.ReadAllLines(filePath);
             foreach (var item in fileStr)
             {
-                var arr = item.Split(new string[] { @"," }, StringSplitOptions.RemoveEmptyEntries);
+                var arr = item.Split(new string[] { @";" }, StringSplitOptions.RemoveEmptyEntries);
                 dic.Add(arr[0], arr[1]);
             }
 

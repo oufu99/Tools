@@ -1,0 +1,10 @@
+﻿编译微商代码;WsBuildExe
+复制静态页面;CopyViewExe
+添加新厂商;AddNewManuExe
+查询密码;QueryCodeExe
+更新全部SQL;UpdateShortCodeExe
+更新一行SQL;UpdateOneLineExe
+打开我的代码;OpenMyTools
+查看日志;CheckLogExe
+打开浏览器;WsBuildExe
+批量打开软件;OpenBatchSoftwareExe
