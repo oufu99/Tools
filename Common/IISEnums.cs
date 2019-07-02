@@ -10,6 +10,5 @@ namespace Common
     {
         WebSitId = 1,
         MobileSitId = 2
-
     }
 }

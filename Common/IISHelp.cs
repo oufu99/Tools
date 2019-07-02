@@ -97,7 +97,6 @@ namespace Common
                     pool.ManagedRuntimeVersion = "v4.0";
                     site.Applications["/"].ApplicationPoolName = pool.Name;
                 }
-
                 serverManager.CommitChanges();
             }
         }

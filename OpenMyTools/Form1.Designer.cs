@@ -39,11 +39,12 @@
             this.CopyViewExe = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.OpenBrowserExe = new System.Windows.Forms.Button();
+            this.OpenBatchSoftwareExe = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // AddNewManuExe
             // 
-            this.AddNewManuExe.Location = new System.Drawing.Point(700, 330);
+            this.AddNewManuExe.Location = new System.Drawing.Point(12, 12);
             this.AddNewManuExe.Name = "AddNewManuExe";
             this.AddNewManuExe.Size = new System.Drawing.Size(81, 25);
             this.AddNewManuExe.TabIndex = 0;
@@ -53,9 +54,9 @@
             // 
             // QueryCodeExe
             // 
-            this.QueryCodeExe.Location = new System.Drawing.Point(242, 55);
+            this.QueryCodeExe.Location = new System.Drawing.Point(25, 299);
             this.QueryCodeExe.Name = "QueryCodeExe";
-            this.QueryCodeExe.Size = new System.Drawing.Size(194, 57);
+            this.QueryCodeExe.Size = new System.Drawing.Size(131, 57);
             this.QueryCodeExe.TabIndex = 1;
             this.QueryCodeExe.Text = "查询密码";
             this.QueryCodeExe.UseVisualStyleBackColor = true;
@@ -63,7 +64,7 @@
             // 
             // UpdateTCFtpConfigExe
             // 
-            this.UpdateTCFtpConfigExe.Location = new System.Drawing.Point(83, 146);
+            this.UpdateTCFtpConfigExe.Location = new System.Drawing.Point(25, 146);
             this.UpdateTCFtpConfigExe.Name = "UpdateTCFtpConfigExe";
             this.UpdateTCFtpConfigExe.Size = new System.Drawing.Size(125, 57);
             this.UpdateTCFtpConfigExe.TabIndex = 2;
@@ -73,7 +74,7 @@
             // 
             // UpdateShortCodeExe
             // 
-            this.UpdateShortCodeExe.Location = new System.Drawing.Point(462, 145);
+            this.UpdateShortCodeExe.Location = new System.Drawing.Point(411, 145);
             this.UpdateShortCodeExe.Name = "UpdateShortCodeExe";
             this.UpdateShortCodeExe.Size = new System.Drawing.Size(170, 58);
             this.UpdateShortCodeExe.TabIndex = 3;
@@ -83,7 +84,7 @@
             // 
             // UpdateOneLineExe
             // 
-            this.UpdateOneLineExe.Location = new System.Drawing.Point(266, 145);
+            this.UpdateOneLineExe.Location = new System.Drawing.Point(202, 145);
             this.UpdateOneLineExe.Name = "UpdateOneLineExe";
             this.UpdateOneLineExe.Size = new System.Drawing.Size(154, 58);
             this.UpdateOneLineExe.TabIndex = 4;
@@ -103,7 +104,7 @@
             // 
             // CheckLogExe
             // 
-            this.CheckLogExe.Location = new System.Drawing.Point(14, 298);
+            this.CheckLogExe.Location = new System.Drawing.Point(638, 145);
             this.CheckLogExe.Name = "CheckLogExe";
             this.CheckLogExe.Size = new System.Drawing.Size(139, 58);
             this.CheckLogExe.TabIndex = 6;
@@ -113,7 +114,7 @@
             // 
             // WsBuildExe
             // 
-            this.WsBuildExe.Location = new System.Drawing.Point(527, 54);
+            this.WsBuildExe.Location = new System.Drawing.Point(25, 47);
             this.WsBuildExe.Name = "WsBuildExe";
             this.WsBuildExe.Size = new System.Drawing.Size(170, 58);
             this.WsBuildExe.TabIndex = 7;
@@ -123,7 +124,7 @@
             // 
             // CopyViewExe
             // 
-            this.CopyViewExe.Location = new System.Drawing.Point(646, 234);
+            this.CopyViewExe.Location = new System.Drawing.Point(559, 234);
             this.CopyViewExe.Name = "CopyViewExe";
             this.CopyViewExe.Size = new System.Drawing.Size(122, 58);
             this.CopyViewExe.TabIndex = 8;
@@ -143,7 +144,7 @@
             // 
             // OpenBrowserExe
             // 
-            this.OpenBrowserExe.Location = new System.Drawing.Point(202, 298);
+            this.OpenBrowserExe.Location = new System.Drawing.Point(559, 302);
             this.OpenBrowserExe.Name = "OpenBrowserExe";
             this.OpenBrowserExe.Size = new System.Drawing.Size(122, 58);
             this.OpenBrowserExe.TabIndex = 10;
@@ -151,11 +152,22 @@
             this.OpenBrowserExe.UseVisualStyleBackColor = true;
             this.OpenBrowserExe.Click += new System.EventHandler(this.Btn_Click);
             // 
+            // OpenBatchSoftwareExe
+            // 
+            this.OpenBatchSoftwareExe.Location = new System.Drawing.Point(342, 302);
+            this.OpenBatchSoftwareExe.Name = "OpenBatchSoftwareExe";
+            this.OpenBatchSoftwareExe.Size = new System.Drawing.Size(140, 58);
+            this.OpenBatchSoftwareExe.TabIndex = 11;
+            this.OpenBatchSoftwareExe.Text = "批量打开软件";
+            this.OpenBatchSoftwareExe.UseVisualStyleBackColor = true;
+            this.OpenBatchSoftwareExe.Click += new System.EventHandler(this.Btn_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 372);
+            this.Controls.Add(this.OpenBatchSoftwareExe);
             this.Controls.Add(this.OpenBrowserExe);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.CopyViewExe);
@@ -169,6 +181,7 @@
             this.Controls.Add(this.AddNewManuExe);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
 
         }
@@ -186,6 +199,7 @@
         private System.Windows.Forms.Button CopyViewExe;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button OpenBrowserExe;
+        private System.Windows.Forms.Button OpenBatchSoftwareExe;
     }
 }
 

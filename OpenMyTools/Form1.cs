@@ -52,5 +52,20 @@ namespace OpenMyTools
         {
             Process.Start("calc.exe");
         }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            //添加一个dic  用来遍历添加按钮
+            var dic = new Dictionary<string, string>();
+            dic.Add("编译微商代码", "WsBuildExe");
+
+
+
+
+            //对应的路径自动添加   直接IO操作, 打好标识,加在标识中间
+
+
+            //重新编译生成一遍Common
+        }
     }
 }

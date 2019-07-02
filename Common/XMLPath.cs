@@ -8,7 +8,7 @@ namespace Common
 {
     public class XMLPath
     {
-       
+
         //要能反射必须使用字段  属性的话就反射不出来
 
         //数据库连接
@@ -51,6 +51,8 @@ namespace Common
         public const string CheckLogExe = "configuration/CheckLogExe";
         public const string WsBuildExe = "configuration/WsBuildExe";
         public const string OpenBrowserExe = "configuration/OpenBrowserExe";
+        public const string OpenBatchSoftwareExe = "configuration/OpenBatchSoftwareExe";
+
 
 
         //程序路径结束
@@ -61,6 +63,12 @@ namespace Common
         public const string CopyViewManuName = "configuration/CopyViewManuName";
         public const string CopyViewNameList = "configuration/CopyViewNameList";
         public const string CopyViewExeCheckBox = "configuration/CopyViewExeCheckBox";
+
+        //End
+
+
+
+
 
     }
 }
