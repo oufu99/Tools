@@ -15,13 +15,17 @@ using System.Windows.Forms;
 
 namespace OpenMyTools
 {
-    public partial class Form2 : Form
+    public partial class Open : Form
     {
 
         Dictionary<string, string> ProgramDic = new Dictionary<string, string>();
         string filePath = "";
         List<Button> BtnList = new List<Button>();
-        public Form2()
+        string xmlPath = @"D:\Tools\Common\config.config";
+        string classPath = @"D:\Tools\Common\XMLPath.cs";
+
+
+        public Open()
         {
             InitializeComponent();
             filePath = GetProjectPathByBasePath(AppDomain.CurrentDomain.BaseDirectory);
@@ -29,13 +33,14 @@ namespace OpenMyTools
 
         private void Form2_Load(object sender, EventArgs e)
         {
-            //添加一个dic  用来遍历添加按钮
-
-
             //要更新的项目
             var fileStr = File.ReadAllLines(filePath);
             foreach (var item in fileStr)
             {
+                if (string.IsNullOrEmpty(item))
+                {
+                    break;
+                }
                 var arr = item.Split(new string[] { @";" }, StringSplitOptions.RemoveEmptyEntries);
                 ProgramDic.Add(arr[0], arr[1]);
             }
@@ -78,7 +83,7 @@ namespace OpenMyTools
                     hangCount++;
                 }
             }
-           // button1_Click(null, null);
+            button1_Click(null, null);
         }
         private string GetProjectPathByBasePath(string path)
         {
@@ -90,17 +95,15 @@ namespace OpenMyTools
             var text = "批量打开软件2;PpenBatchSoftwareExe";
             var basePath = GetParentPath(filePath, 3);
             var trueFile = GetProjectPathByBasePath(basePath);
-            //保存到打开Tool的里面去
-            //System.IO.File.AppendAllText(filePath, text);
-            //FileHelper.MoveFile(filePath, trueFile, true);
+            //更新主目录的ProjectPath  这里要换行是因为没有用List来载入,所以要换行才会开始重新一行
+            File.AppendAllText(trueFile, "\n" + text);
 
-            var xmlPath = @"D:\Tools\Common\config.config";
-            var strList = System.IO.File.ReadAllLines(xmlPath).ToList();
+            //更新XML
+            var strList = File.ReadAllLines(xmlPath).ToList();
             for (int i = 0; i < strList.Count; i++)
             {
                 if (strList[i].Contains(@"<!--快捷程序路径结束-->"))
                 {
-
                     var str = text.Split(new string[] { @";" }, StringSplitOptions.RemoveEmptyEntries);
                     var key = str[1];
                     var itemPath = key.Substring(0, key.Count() - 3);
@@ -109,28 +112,28 @@ namespace OpenMyTools
                     i++;
                 }
             }
-            //更新类
+            File.WriteAllLines(filePath, strList);
 
-            string classPath = @"D:\Tools\Common\XMLPath.cs";
-            var classList = System.IO.File.ReadAllLines(classPath).ToList();
+            //更新类
+            var classList = File.ReadAllLines(classPath).ToList();
             for (int i = 0; i < classList.Count; i++)
             {
-                if (classList[i].Contains(@"<!--快捷程序路径结束-->"))
+                if (classList[i].Contains(@"//所有程序路径结束"))
                 {
-
                     var str = text.Split(new string[] { @";" }, StringSplitOptions.RemoveEmptyEntries);
                     var key = str[1];
+                    //Count-3 是为了去掉Exe这三个字母
                     var itemPath = key.Substring(0, key.Count() - 3);
-                    var classLine = $"public const string {key} = \"configuration/{key}\";";
+                    //有空格用来占位  相当于格式化代码
+                    var classLine = $"        public const string {key} = \"configuration/{key}\";";
                     classList.Insert(i, classLine);
                     i++;
                 }
             }
+            File.WriteAllLines(classPath, classList);
 
-            //重新编译Common
-
-
-
+            //把编译的代码写在Common中  再弄一个单独的项目来重新编译这个项目并重新启动
+            //弄一个重新编辑的按钮
             return;
             //上面放到保存的位置就可以了
 
@@ -177,7 +180,7 @@ namespace OpenMyTools
         private string FormaterXMLLine(string key, string dir)
         {
             //<OpenBatchSoftwareExe><![CDATA[D:\Tools\OpenBatchSoftware\bin\Debug\OpenBatchSoftware.exe]]></OpenBatchSoftwareExe>
-            var res = $@"<{key}><![CDATA[D:\Tools\{dir}\bin\Debug\{dir}.exe]]></{key}>";
+            var res = $@"  <{key}><![CDATA[D:\Tools\{dir}\bin\Debug\{dir}.exe]]></{key}>";
             return res;
         }
 
@@ -240,6 +243,11 @@ namespace OpenMyTools
             //如果这个解决方案是重新拉取的  要先整个解决方案生成一遍
             Process.Start(path);
             this.Close();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

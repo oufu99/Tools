@@ -6,5 +6,6 @@
 更新一行SQL;UpdateOneLineExe
 打开我的代码;OpenMyTools
 查看日志;CheckLogExe
-打开浏览器;OpenBrowserExe
+打开浏览器;WsBuildExe
 批量打开软件;OpenBatchSoftwareExe
+批量打开软件2;PpenBatchSoftwareExe
