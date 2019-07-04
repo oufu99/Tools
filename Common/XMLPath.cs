@@ -54,7 +54,6 @@ namespace Common
         public const string OpenBatchSoftwareExe = "configuration/OpenBatchSoftwareExe";
         //所有程序路径结束
 
-
         public const string OldPwdQuery = "configuration/OldPwdQuery";
         public const string ChromePath = "configuration/ChromePath";
 

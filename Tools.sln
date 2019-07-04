@@ -35,6 +35,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CopyGitItem", "CopyGitItem\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenBatchSoftware", "OpenBatchSoftware\OpenBatchSoftware.csproj", "{D4598FA7-EE9E-4229-99E2-E233A1298FAB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReLoadProject", "ReLoadProject\ReLoadProject.csproj", "{78752D16-28E6-4F36-9A09-11698A27F6A6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -105,6 +107,10 @@ Global
 		{D4598FA7-EE9E-4229-99E2-E233A1298FAB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D4598FA7-EE9E-4229-99E2-E233A1298FAB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D4598FA7-EE9E-4229-99E2-E233A1298FAB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{78752D16-28E6-4F36-9A09-11698A27F6A6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{78752D16-28E6-4F36-9A09-11698A27F6A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{78752D16-28E6-4F36-9A09-11698A27F6A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{78752D16-28E6-4F36-9A09-11698A27F6A6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

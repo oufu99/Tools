@@ -23,7 +23,7 @@ namespace OpenMyTools
         List<Button> BtnList = new List<Button>();
         string xmlPath = @"D:\Tools\Common\config.config";
         string classPath = @"D:\Tools\Common\XMLPath.cs";
-
+        string classProjectPath = @"D:\Tools\Common\Common.csproj";
 
         public Open()
         {
@@ -83,7 +83,6 @@ namespace OpenMyTools
                     hangCount++;
                 }
             }
-            button1_Click(null, null);
         }
         private string GetProjectPathByBasePath(string path)
         {
@@ -92,51 +91,8 @@ namespace OpenMyTools
         }
         private void button1_Click(object sender, EventArgs e)
         {
-            var text = "批量打开软件2;PpenBatchSoftwareExe";
-            var basePath = GetParentPath(filePath, 3);
-            var trueFile = GetProjectPathByBasePath(basePath);
-            //更新主目录的ProjectPath  这里要换行是因为没有用List来载入,所以要换行才会开始重新一行
-            File.AppendAllText(trueFile, "\n" + text);
 
-            //更新XML
-            var strList = File.ReadAllLines(xmlPath).ToList();
-            for (int i = 0; i < strList.Count; i++)
-            {
-                if (strList[i].Contains(@"<!--快捷程序路径结束-->"))
-                {
-                    var str = text.Split(new string[] { @";" }, StringSplitOptions.RemoveEmptyEntries);
-                    var key = str[1];
-                    var itemPath = key.Substring(0, key.Count() - 3);
-                    var xmlLine = FormaterXMLLine(key, itemPath);
-                    strList.Insert(i, xmlLine);
-                    i++;
-                }
-            }
-            File.WriteAllLines(filePath, strList);
-
-            //更新类
-            var classList = File.ReadAllLines(classPath).ToList();
-            for (int i = 0; i < classList.Count; i++)
-            {
-                if (classList[i].Contains(@"//所有程序路径结束"))
-                {
-                    var str = text.Split(new string[] { @";" }, StringSplitOptions.RemoveEmptyEntries);
-                    var key = str[1];
-                    //Count-3 是为了去掉Exe这三个字母
-                    var itemPath = key.Substring(0, key.Count() - 3);
-                    //有空格用来占位  相当于格式化代码
-                    var classLine = $"        public const string {key} = \"configuration/{key}\";";
-                    classList.Insert(i, classLine);
-                    i++;
-                }
-            }
-            File.WriteAllLines(classPath, classList);
-
-            //把编译的代码写在Common中  再弄一个单独的项目来重新编译这个项目并重新启动
-            //弄一个重新编辑的按钮
-            return;
             //上面放到保存的位置就可以了
-
             if (!this.textBox1.Visible)
             {
                 this.textBox1.Visible = true;
@@ -147,15 +103,50 @@ namespace OpenMyTools
             //添加新项目
             else
             {
-                var newItem = this.textBox1.Text;
-                if (!string.IsNullOrEmpty(newItem))
+                var text = this.textBox1.Text;
+                if (!string.IsNullOrEmpty(text))
                 {
                     //保存
+                    var basePath = FileHelper.GetParentPath(filePath, 3);
+                    var trueFile = GetProjectPathByBasePath(basePath);
+                    //更新bin目录和主目录的ProjectPath  这里要换行是因为没有用List来载入,所以要换行才会开始重新一行
+                    //File.AppendAllText(filePath, "\n" + text);
+                    File.AppendAllText(trueFile, "\n" + text);
 
+                    //更新XML
+                    var strList = File.ReadAllLines(xmlPath).ToList();
+                    for (int i = 0; i < strList.Count; i++)
+                    {
+                        if (strList[i].Contains(@"<!--快捷程序路径结束-->"))
+                        {
+                            var str = text.Split(new string[] { @";" }, StringSplitOptions.RemoveEmptyEntries);
+                            var key = str[1];
+                            var itemPath = key.Substring(0, key.Count() - 3);
+                            var xmlLine = FormaterXMLLine(key, itemPath);
+                            strList.Insert(i, xmlLine);
+                            i++;
+                        }
+                    }
+                    File.WriteAllLines(filePath, strList);
 
-
-
-
+                    //更新类
+                    var classList = File.ReadAllLines(classPath).ToList();
+                    for (int i = 0; i < classList.Count; i++)
+                    {
+                        if (classList[i].Contains(@"//所有程序路径结束"))
+                        {
+                            var str = text.Split(new string[] { @";" }, StringSplitOptions.RemoveEmptyEntries);
+                            var key = str[1];
+                            //Count-3 是为了去掉Exe这三个字母
+                            var itemPath = key.Substring(0, key.Count() - 3);
+                            //有空格用来占位  相当于格式化代码
+                            var classLine = $"        public const string {key} = \"configuration/{key}\";";
+                            classList.Insert(i, classLine);
+                            i++;
+                        }
+                    }
+                    File.WriteAllLines(classPath, classList);
+                    AutoBuildHelper.BuildOutBin(classProjectPath);
                 }
 
                 //把按钮还原回去
@@ -164,15 +155,6 @@ namespace OpenMyTools
                 BtnList.ForEach(c => c.Visible = true);
             }
 
-
-
-            //打开bin目录的txt 更新以后覆盖原来的
-
-
-            //然后找到占位符,在结束的上面添加一行数据
-
-
-            //文件里面只管相对路径,  基础路径写在Helper里面
         }
 
 
@@ -184,33 +166,6 @@ namespace OpenMyTools
             return res;
         }
 
-        /// <summary>
-        /// 根据传入的路径 获取向前几层
-        /// </summary>
-        /// <param name="path"></param>
-        /// <param name="dirCount"></param>
-        /// <returns></returns>
-        public static string GetParentPath(string path, int dirCount)
-        {
-            if (string.IsNullOrEmpty(path))
-            {
-                return "";
-            }
-            var temp = path.Replace(@"/", @"\");
-            var list = new List<int>();
-            var index = 0;
-            while (index != -1)
-            {
-                var tempIndex = index + 1;
-                index = temp.IndexOf(@"\", tempIndex);
-                if (index > 0)
-                {
-                    list.Add(index);
-                }
-            }
-            var res = temp.Substring(0, list[list.Count - dirCount]);
-            return res;
-        }
 
 
         /// <summary>
@@ -228,26 +183,20 @@ namespace OpenMyTools
             string className = "Common.XMLPath";
             Type t = ass.GetType(className);
             var path = t.GetField(propertyName).GetValue(null).ToString().Trim();
-            OpenSoft(XMLHelper.GetNodeText(path).Trim());
+            FileHelper.OpenSoft(XMLHelper.GetNodeText(path).Trim());
         }
 
-        //打开系统的计算器
 
-        private void OpenCalc(object sender, EventArgs e)
-        {
-            Process.Start("calc.exe");
-        }
-
-        private void OpenSoft(string path)
-        {
-            //如果这个解决方案是重新拉取的  要先整个解决方案生成一遍
-            Process.Start(path);
-            this.Close();
-        }
-
+        /// <summary>
+        /// 重启项目
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button2_Click(object sender, EventArgs e)
         {
-
+            //打开新项目,用来重启这个项目
+            FileHelper.ReloadSoft("OpenMyTools");
+            this.Close();
         }
     }
 }
