@@ -44,11 +44,11 @@ namespace Common
                     if (list.Count == 5)
                     {
                         list.RemoveAt(0);
-                        list.Add(listItem);
+                        list.Insert(0, listItem);
                     }
                     else
                     {
-                        list.Add(listItem);
+                        list.Insert(0, listItem);
                     }
                 }
                 else

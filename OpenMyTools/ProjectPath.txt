@@ -4,7 +4,7 @@
 更新全部SQL;UpdateShortCodeExe
 查询密码;QueryCodeExe
 更新一行SQL;UpdateOneLineExe
-打开我的代码;OpenMyTools
+批量打开我的代码;OpenBatchSoftwareExe
 查看日志;CheckLogExe
 打开浏览器;WsBuildExe
 批量打开软件;OpenBatchSoftwareExe
