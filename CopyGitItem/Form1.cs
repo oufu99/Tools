@@ -25,7 +25,7 @@ namespace CopyGitItem
         {
             var filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "GitItem.txt");
             //要更新的项目
-            FileHelper.OpenFile(filePath);
+            FileHelper.OpenSoft(filePath);
         }
 
         private void CopyGit(bool isCopy)

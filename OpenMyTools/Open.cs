@@ -91,7 +91,7 @@ namespace OpenMyTools
         }
         private void button1_Click(object sender, EventArgs e)
         {
-
+            // 打开浏览器; OpenBrowserExe
             //上面放到保存的位置就可以了
             if (!this.textBox1.Visible)
             {
@@ -103,7 +103,14 @@ namespace OpenMyTools
             //添加新项目
             else
             {
-                var text = this.textBox1.Text;
+                var text = this.textBox1.Text.Trim() + "Exe";
+                if (text.Contains("Example:"))
+                {
+                    MessageBox.Show("请不要使用示例,请输入文件名和项目名,用分号;分隔");
+                    return;
+                }
+                //处理一下 后面加上Exe 就不用我每次都加了
+
                 if (!string.IsNullOrEmpty(text))
                 {
                     //保存
@@ -127,7 +134,7 @@ namespace OpenMyTools
                             i++;
                         }
                     }
-                    File.WriteAllLines(filePath, strList);
+                    File.WriteAllLines(xmlPath, strList);
 
                     //更新类
                     var classList = File.ReadAllLines(classPath).ToList();
@@ -146,7 +153,6 @@ namespace OpenMyTools
                         }
                     }
                     File.WriteAllLines(classPath, classList);
-                    AutoBuildHelper.BuildOutBin(classProjectPath);
                 }
 
                 //把按钮还原回去
@@ -154,7 +160,6 @@ namespace OpenMyTools
                 this.postionButton.Text = "添加子项目";
                 BtnList.ForEach(c => c.Visible = true);
             }
-
         }
 
 
@@ -195,7 +200,7 @@ namespace OpenMyTools
         private void button2_Click(object sender, EventArgs e)
         {
             //打开新项目,用来重启这个项目
-            FileHelper.ReloadSoft("OpenMyTools");
+            FileHelper.ReloadSoft(Application.ProductName);
             this.Close();
         }
     }

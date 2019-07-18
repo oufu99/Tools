@@ -34,8 +34,9 @@ namespace OpenBatchSoftware
             };
             foreach (var item in list)
             {
-                FileHelper.OpenFile(item);
+                FileHelper.OpenSoft(item);
             }
+            this.Close();
         }
     }
 }

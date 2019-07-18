@@ -52,12 +52,13 @@ namespace Common
         public const string WsBuildExe = "configuration/WsBuildExe";
         public const string OpenBrowserExe = "configuration/OpenBrowserExe";
         public const string OpenBatchSoftwareExe = "configuration/OpenBatchSoftwareExe";
+        public const string CopyViewExe = "configuration/CopyViewExe";
+        public const string CreateSQLExe = "configuration/CreateSQLExe";
         //所有程序路径结束
 
         public const string OldPwdQuery = "configuration/OldPwdQuery";
         public const string ChromePath = "configuration/ChromePath";
 
-        public const string CopyViewExe = "configuration/CopyViewExe";
         public const string CopyViewManuName = "configuration/CopyViewManuName";
         public const string CopyViewNameList = "configuration/CopyViewNameList";
         public const string CopyViewExeCheckBox = "configuration/CopyViewExeCheckBox";

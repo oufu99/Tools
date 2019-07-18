@@ -49,7 +49,7 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(192, 21);
             this.textBox1.TabIndex = 2;
-            this.textBox1.Text = "批量打开软件;PpenBatchSoftwareExe";
+            this.textBox1.Text = "Example:拼接SQL语句;CreateSQL";
             this.textBox1.Visible = false;
             // 
             // button2
