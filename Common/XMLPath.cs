@@ -54,6 +54,7 @@ namespace Common
         public const string OpenBatchSoftwareExe = "configuration/OpenBatchSoftwareExe";
         public const string CopyViewExe = "configuration/CopyViewExe";
         public const string CreateSQLExe = "configuration/CreateSQLExe";
+        public const string CopyGitItemExe = "configuration/CopyGitItemExe";
         //所有程序路径结束
 
         public const string OldPwdQuery = "configuration/OldPwdQuery";

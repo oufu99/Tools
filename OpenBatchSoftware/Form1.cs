@@ -30,7 +30,21 @@ namespace OpenBatchSoftware
                 @"E:\ZP4.0\ZP.Framework\ZP.Framework.sln",
                 @"E:\ZP4.0\ZP.Payment\ZP.Payment.sln",
                 @"E:\ZP4.0\ZP.PayType\ZP.PayType.sln"
+            };
+            foreach (var item in list)
+            {
+                FileHelper.OpenSoft(item);
+            }
+            this.Close();
+        }
 
+        private void button2_Click(object sender, EventArgs e)
+        {
+            var list = new List<string>()
+            {
+                @"E:\ZPCode\Mifei_Common_v2\Mifei_Common_v2.sln",
+                @"E:\ZPCode\Mifei_v2\Mifei_v2.sln",
+                @"E:\ZPCode\WsBg\WsBg.sln"
             };
             foreach (var item in list)
             {
