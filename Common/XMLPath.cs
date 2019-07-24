@@ -64,10 +64,7 @@ namespace Common
         public const string CopyViewNameList = "configuration/CopyViewNameList";
         public const string CopyViewExeCheckBox = "configuration/CopyViewExeCheckBox";
 
-       
-
-
-
+        public const string NavicatExe = "configuration/NavicatExe";
 
 
     }

@@ -1,9 +1,11 @@
-﻿using Common;
+﻿using Aaron.Common;
+using Common;
 using Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -172,17 +174,33 @@ namespace UpdateShortCode
             var files = Directory.GetFiles(path, "*.nsnippet");
             foreach (var file in files)
             {
+                var isModify = false;
                 //改成读取Json
-                string text = File.ReadAllText(file);
-                NavicatModel model = JsonHelper.DeserializeObject<NavicatModel>(text);
-                if (model.text.Contains(manuId))
+                var texts = File.ReadAllLines(file);
+                for (int i = 0; i < texts.Count(); i++)
                 {
-                    model.text = model.text.Replace(manuId, newManuId);
-                    var newText = JsonHelper.SerializeObject(model);
-                    File.WriteAllText(file, newText, Encoding.UTF8);
+                    if (texts[i].Contains(manuId))
+                    {
+                        isModify = true;
+                        texts[i] = texts[i].Replace(manuId, newManuId);
+                    }
                 }
+                if (isModify)
+                {
+                    //没改的就不要修改了
+                    File.WriteAllLines(file, texts);
+                }
+                //文件重命名
+                NavicatModel model = JsonHelper.DeserializeObject<NavicatModel>(File.ReadAllText(file));
+                var fileName = model.name;
+
             }
-            //CommonHelper.UpdateTempList(nlist, newManuId, XMLPath.NavicatOldManuId);
+            XMLHelper.UpdateXMLList(nlist, XMLPath.NavicatOldManuId, newManuId);
+
+            //关闭并重启项目
+            var pros = Process.GetProcessesByName("navicat");
+            pros.First().Kill();
+            FileHelper.ReloadSoft("", XMLHelper.GetNodeText(XMLPath.NavicatExe));
             MessageBox.Show("修改成功");
         }
     }

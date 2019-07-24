@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Aaron.Common;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Xml;
