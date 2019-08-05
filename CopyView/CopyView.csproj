@@ -86,12 +86,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Common\Common.csproj">
-      <Project>{948e00e0-ad2d-4f36-861c-c653933872ed}</Project>
-      <Name>Common</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="CopyPath.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

@@ -9,7 +9,7 @@ using System.Windows.Forms;
 using System.IO;
 using System.Drawing.Imaging;
 using ZXing;
-using Common;
+using Aaron.Common;
 
 namespace ScreenCapture
 {

@@ -8,6 +8,9 @@ using System.Threading.Tasks;
 
 namespace CleanAudio
 {
+    /// <summary>
+    /// 专门用来洗网易云上显示错误的那种音频
+    /// </summary>
     class Program
     {
         static void Main(string[] args)
