@@ -19,9 +19,15 @@ namespace CopyGitItem
         public Form1()
         {
             InitializeComponent();
+            OpenGitTxt();
         }
 
         private void button1_Click(object sender, EventArgs e)
+        {
+            OpenGitTxt();
+        }
+
+        private void OpenGitTxt()
         {
             var filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "GitItem.txt");
             //要更新的项目

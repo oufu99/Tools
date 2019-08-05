@@ -194,6 +194,13 @@ namespace UpdateShortCode
                 NavicatModel model = JsonHelper.DeserializeObject<NavicatModel>(File.ReadAllText(file));
                 var fileName = model.name;
 
+                var tempDir = (path + "/temp").Replace(@"//", @"/");
+                FileHelper.CreateDirectory(tempDir);
+                //新建一个临时文件夹 用来保存文件  后面再删除
+                if (!file.Contains(fileName))
+                {
+                    FileHelper.MoveFile(file, tempDir + "/" + fileName + ".nsnippet");
+                }
             }
             XMLHelper.UpdateXMLList(nlist, XMLPath.NavicatOldManuId, newManuId);
 

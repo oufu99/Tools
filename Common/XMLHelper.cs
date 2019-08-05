@@ -89,9 +89,6 @@ namespace Common
             return true;
         }
 
-
-
-
         public static string ReadText(string xPath)
         {
             try
@@ -100,7 +97,6 @@ namespace Common
                 doc.Load(filePath);
                 XmlNode xn = doc.SelectSingleNode(xPath);
                 return xn.FirstChild.InnerText; //得到该节点的子节点
-
             }
             catch
             {

@@ -13,7 +13,6 @@ namespace Common
     {
         private static string Conn = XMLHelper.GetNodeText(XMLPath.SQLConnection);
 
-
         public static string GetValue(string sql)
         {
             using (SqlConnection conn = new SqlConnection(Conn))
@@ -23,7 +22,6 @@ namespace Common
 
                 }, null, 30, CommandType.Text);
                 return conn.ExecuteScalar<string>(cmd);
-
             }
         }
 

@@ -31,21 +31,22 @@
             this.button1 = new System.Windows.Forms.Button();
             this.txt1 = new System.Windows.Forms.TextBox();
             this.txtResult = new System.Windows.Forms.TextBox();
+            this.button2 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(110, 118);
+            this.button1.Location = new System.Drawing.Point(106, 126);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(124, 23);
+            this.button1.Size = new System.Drawing.Size(110, 23);
             this.button1.TabIndex = 0;
-            this.button1.Text = "生成";
+            this.button1.Text = "删除代理商信息";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // txt1
             // 
-            this.txt1.Location = new System.Drawing.Point(87, 49);
+            this.txt1.Location = new System.Drawing.Point(164, 48);
             this.txt1.Multiline = true;
             this.txt1.Name = "txt1";
             this.txt1.Size = new System.Drawing.Size(165, 53);
@@ -59,16 +60,28 @@
             this.txtResult.Size = new System.Drawing.Size(294, 94);
             this.txtResult.TabIndex = 2;
             // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(245, 126);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(110, 23);
+            this.button2.TabIndex = 3;
+            this.button2.Text = "获取签到记录";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(457, 276);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.txtResult);
             this.Controls.Add(this.txt1);
             this.Controls.Add(this.button1);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -79,6 +92,7 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TextBox txt1;
         private System.Windows.Forms.TextBox txtResult;
+        private System.Windows.Forms.Button button2;
     }
 }
 

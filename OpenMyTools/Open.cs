@@ -189,6 +189,7 @@ namespace OpenMyTools
             Type t = ass.GetType(className);
             var path = t.GetField(propertyName).GetValue(null).ToString().Trim();
             FileHelper.OpenSoft(XMLHelper.GetNodeText(path).Trim());
+            this.Close();
         }
 
 

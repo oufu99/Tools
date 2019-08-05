@@ -41,10 +41,22 @@ select * from   tb_customer where  Manufacturer_id=10052 and Mobile in ({mobiles
 
 
 delete from tb_user where manufacturer_id = 10052 and CustId in (select tb_customerID from tb_customer where  Manufacturer_id = 10052 and Mobile in ({ mobiles}));
-delete from   tb_customer where  Manufacturer_id = 10052 and Mobile in ({ mobiles})
+delete from   tb_customer where  Manufacturer_id = 10052 and Mobile in ({mobiles})
 ";
             this.txtResult.Text = sql;
 
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            var mobile = this.txt1.Text;
+            var sql = $@"select * from tb_integralsignin_10052 where custid=(select  tb_customerId from tb_customer where mobile='{mobile}')";
+            this.txtResult.Text = sql;
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            this.txt1.Select();
         }
     }
 }
