@@ -16,6 +16,7 @@ namespace OpenBrowser
         public OpenBrowser()
         {
             InitializeComponent();
+            this.txtUrl.Select();
         }
 
         string baseUrl = @"http://localhost:5000/Drive/Index?ActivityId=1&IndexId=%index%&activityFormId=1&ActivityTypeId=1";
@@ -56,6 +57,17 @@ namespace OpenBrowser
             var res = HttpHelper.GetHttpResponse(ApiUrl);
             var res2 = HttpHelper.GetHttpResponse(AdminUrl);
             OpenIndexUrl("2");
+        }
+
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+            string ApiUrl = ConfigHelper.GetAppConfig("ApiUrl");
+            string AdminUrl = ConfigHelper.GetAppConfig("AdminUrl");
+            //改为用HttpClient求请求
+            var res = HttpHelper.GetHttpResponse(ApiUrl);
+            var res2 = HttpHelper.GetHttpResponse(AdminUrl);
+            var url = this.txtUrl.Text;
+            BrowserHelper.OpenBrowserUrl(url);
         }
     }
 }

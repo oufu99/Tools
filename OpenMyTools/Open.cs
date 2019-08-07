@@ -17,17 +17,25 @@ namespace OpenMyTools
     public partial class Open : Form
     {
 
+        string baseDomainPath = AppDomain.CurrentDomain.BaseDirectory;
+        string aaronCommonDomainPath = "";
         Dictionary<string, string> ProgramDic = new Dictionary<string, string>();
         string filePath = "";
         List<Button> BtnList = new List<Button>();
-        string xmlPath = @"D:\Tools\Common\config.config";
-        string classPath = @"D:\Tools\Common\XMLPath.cs";
-        string classProjectPath = @"D:\Tools\Common\Common.csproj";
+        string xmlPath = @"Mirror\Aaron.Common\Aaron.Common\XML和配置文件\config.config";
+        string classPath = @"Mirror\Aaron.Common\Aaron.Common\XML和配置文件\XMLPath.cs";
+        string classProjectPath = @"Mirror\Aaron.Common\Aaron.Common\Aaron.Common.csproj";
 
         public Open()
         {
             InitializeComponent();
-            filePath = GetProjectPathByBasePath(AppDomain.CurrentDomain.BaseDirectory);
+            InitialAaronCommonPath();
+
+            //初始化 配置文件和xml的路径,不写死根据项目位置自动变换
+            filePath = GetCombineProjectPathText(baseDomainPath);
+            xmlPath = GetCombineAaronCommonPath(xmlPath);
+            classPath = GetCombineAaronCommonPath(classPath);
+            classProjectPath = GetCombineAaronCommonPath(classProjectPath);
         }
 
         private void Form2_Load(object sender, EventArgs e)
@@ -83,11 +91,22 @@ namespace OpenMyTools
                 }
             }
         }
-        private string GetProjectPathByBasePath(string path)
+        private string GetCombineProjectPathText(string targetPath)
         {
-            return Path.Combine(path, "ProjectPath.txt");
-
+            return Path.Combine(targetPath, "ProjectPath.txt");
         }
+
+        private void InitialAaronCommonPath()
+        {
+            var arr = baseDomainPath.Replace("/", @"\").Split(new string[] { @"\Tools\" }, StringSplitOptions.RemoveEmptyEntries);
+            aaronCommonDomainPath = arr[0] + @"\";
+        }
+
+        private string GetCombineAaronCommonPath(string filePath)
+        {
+            return Path.Combine(aaronCommonDomainPath, filePath);
+        }
+
         private void button1_Click(object sender, EventArgs e)
         {
             // 打开浏览器; OpenBrowserExe
@@ -114,7 +133,7 @@ namespace OpenMyTools
                 {
                     //保存
                     var basePath = FileHelper.GetParentPath(filePath, 3);
-                    var trueFile = GetProjectPathByBasePath(basePath);
+                    var trueFile = GetCombineProjectPathText(basePath);
                     //更新bin目录和主目录的ProjectPath  这里要换行是因为没有用List来载入,所以要换行才会开始重新一行
                     //File.AppendAllText(filePath, "\n" + text);
                     File.AppendAllText(trueFile, "\n" + text);
@@ -183,8 +202,8 @@ namespace OpenMyTools
             //通过反射来获取值,然后调用OpenSoft方法
             var btn = (Button)sender;
             var propertyName = btn.Name;
-            Assembly ass = Assembly.LoadFrom(AppDomain.CurrentDomain.BaseDirectory + "Common.dll");
-            string className = "Common.XMLPath";
+            Assembly ass = Assembly.LoadFrom(AppDomain.CurrentDomain.BaseDirectory + "Aaron.Common.dll");
+            string className = "Aaron.Common.XMLPath";
             Type t = ass.GetType(className);
             var path = t.GetField(propertyName).GetValue(null).ToString().Trim();
             FileHelper.OpenSoft(XMLHelper.GetNodeText(path).Trim());

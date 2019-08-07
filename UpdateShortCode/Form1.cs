@@ -91,6 +91,7 @@ namespace UpdateShortCode
         private void btnUpdate_Click(object sender, EventArgs e)
         {
             btnUpdate_Click();
+            MessageBox.Show("更新成功");
         }
 
         private void btnUpdate_Click()

@@ -33,6 +33,8 @@
             this.txtIndex = new System.Windows.Forms.TextBox();
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
+            this.txtUrl = new System.Windows.Forms.TextBox();
+            this.button2 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // button1
@@ -82,11 +84,31 @@
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
+            // txtUrl
+            // 
+            this.txtUrl.Location = new System.Drawing.Point(49, 23);
+            this.txtUrl.Multiline = true;
+            this.txtUrl.Name = "txtUrl";
+            this.txtUrl.Size = new System.Drawing.Size(249, 39);
+            this.txtUrl.TabIndex = 6;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(304, 32);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(92, 27);
+            this.button2.TabIndex = 7;
+            this.button2.Text = "打开";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click_1);
+            // 
             // OpenBrowser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(470, 226);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.txtUrl);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.txtIndex);
@@ -106,6 +128,8 @@
         private System.Windows.Forms.TextBox txtIndex;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.TextBox txtUrl;
+        private System.Windows.Forms.Button button2;
     }
 }
 

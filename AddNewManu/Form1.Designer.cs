@@ -54,11 +54,11 @@
             // 
             // txtName
             // 
-            this.txtName.Location = new System.Drawing.Point(83, 143);
+            this.txtName.Location = new System.Drawing.Point(37, 143);
             this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(183, 21);
+            this.txtName.Size = new System.Drawing.Size(229, 21);
             this.txtName.TabIndex = 2;
-            this.txtName.Text = "厂商的中文用于命名文件夹";
+            this.txtName.Text = "厂商的中文用于命名文件夹(可以不输)";
             // 
             // button1
             // 

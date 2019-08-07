@@ -38,7 +38,7 @@ namespace AddNewManu
             }
             string manuId = this.txtId.Text.Trim();
             string name = this.txtName.Text.Trim();
-            if (name == "厂商的中文用于命名文件夹")
+            if (name == "厂商的中文用于命名文件夹(可以不输)")
             {
                 name = "";
             }
