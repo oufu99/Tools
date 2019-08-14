@@ -17,10 +17,8 @@ namespace ReLoadProject
             var projectName = args[0];
             if (projectName == "HaveFullPath")
             {
-                Console.WriteLine("进入分支");
                 path = args[1];
                 Console.WriteLine(path);
-                Console.WriteLine("进入分支2");
             }
             else
             {
@@ -40,7 +38,6 @@ namespace ReLoadProject
                 path = $@"D:\Tools\{projectName}\bin\Debug\{projectName}.exe";
             }
             Process.Start(path);
-            Console.ReadLine();
         }
     }
 }

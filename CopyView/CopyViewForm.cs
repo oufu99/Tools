@@ -43,5 +43,36 @@ namespace CopyView
             }
             MessageBox.Show("复制完毕");
         }
+
+        private void CopyViewForm_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void OpenConfigText()
+        {
+            FileHelper.OpenSoft(@"D:\Tools\CopyView\CopyPath.txt");
+        }
+
+        private void Reload()
+        { }
+
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+        {
+            if (keyData == Keys.F9)
+            {
+                OpenConfigText();
+                return true;
+            }
+
+            //重启软件
+            if (keyData == Keys.F5)
+            {
+                FileHelper.ReloadSoftByProjectName(Application.ProductName);
+                this.Close();
+                return true;
+            }
+            return false;
+        }
     }
 }

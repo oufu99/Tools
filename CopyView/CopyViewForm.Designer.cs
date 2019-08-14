@@ -50,6 +50,7 @@
             this.Name = "CopyViewForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "复制静态页面";
+            this.Load += new System.EventHandler(this.CopyViewForm_Load);
             this.ResumeLayout(false);
 
         }

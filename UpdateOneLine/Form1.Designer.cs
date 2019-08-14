@@ -81,7 +81,8 @@
             this.Controls.Add(this.txt1);
             this.Controls.Add(this.btn1);
             this.Name = "Form1";
-            this.Text = "A";
+            this.Text = "设置SqlSnippt";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

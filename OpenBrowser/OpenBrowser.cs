@@ -49,6 +49,7 @@ namespace OpenBrowser
             BrowserHelper.OpenBrowserUrl(newUrl);
         }
 
+     
         private void button4_Click(object sender, EventArgs e)
         {
             string ApiUrl = ConfigHelper.GetAppConfig("ApiUrl");
@@ -68,6 +69,17 @@ namespace OpenBrowser
             var res2 = HttpHelper.GetHttpResponse(AdminUrl);
             var url = this.txtUrl.Text;
             BrowserHelper.OpenBrowserUrl(url);
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            string ApiUrl = ConfigHelper.GetAppConfig("ApiUrl");
+            string AdminUrl = ConfigHelper.GetAppConfig("AdminUrl");
+            //改为用HttpClient求请求
+            var res = HttpHelper.GetHttpResponse(ApiUrl);
+            var res2 = HttpHelper.GetHttpResponse(AdminUrl);
+            var url = this.txtUrl.Text;
+            BrowserHelper.OpenBrowserUrl("http://localhost:5000/ActivityHistory/Index?activityId=1");
         }
     }
 }

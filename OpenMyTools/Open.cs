@@ -219,7 +219,7 @@ namespace OpenMyTools
         private void button2_Click(object sender, EventArgs e)
         {
             //打开新项目,用来重启这个项目
-            FileHelper.ReloadSoft(Application.ProductName);
+            FileHelper.ReloadSoftByProjectName(Application.ProductName);
             this.Close();
         }
     }

@@ -207,7 +207,7 @@ namespace UpdateShortCode
             //关闭并重启项目
             var pros = Process.GetProcessesByName("navicat");
             pros.First().Kill();
-            FileHelper.ReloadSoft("", XMLHelper.GetNodeText(XMLPath.NavicatExe));
+            FileHelper.ReloadSoftByFullPath(XMLHelper.GetNodeText(XMLPath.NavicatExe));
             MessageBox.Show("修改成功");
         }
     }
