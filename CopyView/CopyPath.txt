@@ -2,3 +2,4 @@
 E:\ZPCode\zp.ymt\ZP.YMT.Activity.Framework\Views\Shared;E:\ZPCode\zp.ymt\ZP.YMT.Admin\Views\Shared
 E:\ZPCode\zp.ymt\ZP.YMT.ActivityAdmin.LuckDraw\Views\ActivityPrize;E:\ZPCode\zp.ymt\ZP.YMT.Admin\Views\ActivityPrize
 E:\ZPCode\zp.ymt\ZP.YMT.ActivityAdmin\Views\ActivityHistory;E:\ZPCode\zp.ymt\ZP.YMT.Admin\Views\ActivityHistory
+E:\ZPCode\zp.ymt\ZP.YMT.ActivityAdmin\Views\ActivityCard;E:\ZPCode\zp.ymt\ZP.YMT.Admin\Views\ActivityCard

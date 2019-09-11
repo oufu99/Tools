@@ -21,7 +21,7 @@ namespace CleanAudio
             //f.Tag.Album = "认知方法论";
             //f.Save();
 
-            string dirPath = @"E:\心学";
+            string dirPath = @"E:\完结 41 阿里全球销冠的20堂销售进阶课";
 
             string targetBasePath = dirPath + @"\temp\";
             FileHelper.CreateDirectory(targetBasePath);

@@ -19,14 +19,24 @@ namespace OpenBrowser
             this.txtUrl.Select();
         }
 
-        string baseUrl = @"http://localhost:5000/Drive/Index?ActivityId=1&IndexId=%index%&activityFormId=1&ActivityTypeId=1";
+        string baseUrl = @"http://localhost:5000/Drive/Index?ActivityId=1&IndexId=%index%&activityFormId=1&ActivityTypeId=1&IsEdit=1";
         private void button1_Click(object sender, EventArgs e)
         {
             //admin只是热加载活动控制器的Url  baseUrl是具体的活动设置的Url
-            string ApiUrl = ConfigHelper.GetAppConfig("ApiUrl");
-            string AdminUrl = ConfigHelper.GetAppConfig("AdminUrl");
-            BrowserHelper.OpenBrowserUrl(ApiUrl);
-            BrowserHelper.OpenBrowserUrl(AdminUrl);
+            GetHttpResponse("http://47.107.102.50:6016/HotUpdate");
+            GetHttpResponse("http://47.107.102.50:5013/HotUpdate/UpdateController");
+            GetHttpResponse("http://47.107.102.50:5013/HotUpdate/UpdateDLL");
+
+            BrowserHelper.OpenBrowserUrl("http://47.107.102.50:6016/");
+        }
+
+        /// <summary>
+        /// 只是请求一下热更新 让系统重新装载一下dll
+        /// </summary>
+        /// <param name="url"></param>
+        private void GetHttpResponse(string url)
+        {
+            HttpHelper.GetHttpResponse(url);
         }
 
 
@@ -49,7 +59,7 @@ namespace OpenBrowser
             BrowserHelper.OpenBrowserUrl(newUrl);
         }
 
-     
+
         private void button4_Click(object sender, EventArgs e)
         {
             string ApiUrl = ConfigHelper.GetAppConfig("ApiUrl");
@@ -79,7 +89,7 @@ namespace OpenBrowser
             var res = HttpHelper.GetHttpResponse(ApiUrl);
             var res2 = HttpHelper.GetHttpResponse(AdminUrl);
             var url = this.txtUrl.Text;
-            BrowserHelper.OpenBrowserUrl("http://localhost:5000/ActivityHistory/Index?activityId=1");
+            BrowserHelper.OpenBrowserUrl("http://localhost:5000/ActivityHistory/Index?activityId=40");
         }
     }
 }
