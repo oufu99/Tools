@@ -127,6 +127,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button1);
             this.Name = "OpenBrowser";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "打开浏览器";
             this.ResumeLayout(false);
             this.PerformLayout();

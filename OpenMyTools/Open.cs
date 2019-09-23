@@ -202,6 +202,17 @@ namespace OpenMyTools
             //通过反射来获取值,然后调用OpenSoft方法
             var btn = (Button)sender;
             var propertyName = btn.Name;
+
+            //自定义拦截  可以单独做成一个方法,但是自己一个人用就这样行了
+            if (propertyName == "CopyViewExe")
+            {
+                //拷贝View的同时也打开调试浏览器
+                FileHelper.OpenSoft(XMLHelper.GetNodeText(XMLPath.CopyViewExe).Trim());
+                FileHelper.OpenSoft(XMLHelper.GetNodeText(XMLPath.OpenBrowserExe).Trim());
+                this.Close();
+                return;
+            }
+
             Assembly ass = Assembly.LoadFrom(AppDomain.CurrentDomain.BaseDirectory + "Aaron.Common.dll");
             string className = "Aaron.Common.XMLPath";
             Type t = ass.GetType(className);

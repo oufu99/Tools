@@ -18,7 +18,8 @@ namespace OpenBrowser
             InitializeComponent();
             this.txtUrl.Select();
         }
-
+	//<add key="ApiUrl" value="http://localhost:5008/HotUpdate/UpdateController"/>
+   // <add key="AdminUrl" value="http://localhost:5000/Activity/Index"/>
         string baseUrl = @"http://localhost:5000/Drive/Index?ActivityId=1&IndexId=%index%&activityFormId=1&ActivityTypeId=1&IsEdit=1";
         private void button1_Click(object sender, EventArgs e)
         {

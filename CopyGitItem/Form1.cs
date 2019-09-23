@@ -63,8 +63,10 @@ namespace CopyGitItem
                 var combinPath = targetBasePath;
                 foreach (var dirItem in dicList)
                 {
+                    //清除格式
+                    var formatterItem = dirItem.Replace("\t", "").Replace("\n", "").Trim();
                     //按文件夹单独放置
-                    combinPath = Path.Combine(combinPath, dirItem);
+                    combinPath = Path.Combine(combinPath, formatterItem);
                     FileHelper.CreateDirectory(combinPath);
                 }
                 fileName = Path.Combine(combinPath, fileName);
