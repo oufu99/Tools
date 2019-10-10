@@ -204,7 +204,7 @@ namespace OpenMyTools
             var propertyName = btn.Name;
 
             //自定义拦截  可以单独做成一个方法,但是自己一个人用就这样行了
-            if (propertyName == "CopyViewExe")
+            if (propertyName == "OpenBrowserExe")
             {
                 //拷贝View的同时也打开调试浏览器
                 FileHelper.OpenSoft(XMLHelper.GetNodeText(XMLPath.CopyViewExe).Trim());

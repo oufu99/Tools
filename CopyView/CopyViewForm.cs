@@ -22,7 +22,19 @@ namespace CopyView
 
         public CopyViewForm()
         {
+
             InitializeComponent();
+
+            Rectangle s = Screen.GetWorkingArea(this);
+            var sx = s.Width;
+            var sy = s.Height;
+
+            var hight = this.Height;
+            var width = this.Width;
+            //获取中间坐标  这个控件放在左边   然后高度还要再减去自己的一半才是在中间
+            this.Location = new Point((sx / 2) - width - 50, (sy / 2) - (hight / 2));
+
+
             var filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "CopyPath.txt");
             //要更新的项目
             var fileStr = File.ReadAllLines(filePath);

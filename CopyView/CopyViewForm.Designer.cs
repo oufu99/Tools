@@ -48,7 +48,7 @@
             this.ClientSize = new System.Drawing.Size(296, 136);
             this.Controls.Add(this.button1);
             this.Name = "CopyViewForm";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "复制静态页面";
             this.Load += new System.EventHandler(this.CopyViewForm_Load);
             this.ResumeLayout(false);
