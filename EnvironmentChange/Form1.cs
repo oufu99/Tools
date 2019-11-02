@@ -14,8 +14,31 @@ namespace EnvironmentChange
 {
     public partial class Form1 : Form
     {
+        public class EnvironmentConfig
+        {
+            public static List<string> OpenAHKList = new List<string>()
+            {
+                @"D:\MyLoove\VimD\vimd.exe",
+                @"D:\MyLoove\VimD\userPlugins\InitProgram.ahk"
+            };
+            public static List<string> CloseAHKList = new List<string>()
+            {
+               "autohotkey",
+                "vimd"
+            };
 
-        
+            public static string yaoyaoPath { get; set; } = @"F:\Game\5211game\11Loader.exe";
+            public static string GuanFangPath { get; set; } = @"F:\Game\dzclient\Platform.exe";
+
+            /// <summary>
+            /// 关闭软件时用的,全部小写因为我用了toLower
+            /// </summary>
+            public static List<string> CloseSoftList = new List<string>()
+                {
+                    "11client","11gameim","11homepage","platform","platform helper"
+                };
+        }
+
         public Form1()
         {
             InitializeComponent();
@@ -23,36 +46,27 @@ namespace EnvironmentChange
 
         private void button1_Click(object sender, EventArgs e)
         {
-            OpenSoft();
+            CloseSoft();
+            CloseAHK();
+            OpenAHK();
         }
 
-        private void OpenSoft()
+        private void OpenAHK()
         {
-            var openList = new List<string>()
-            {
-                @"D:\MyLoove\TotalCommand\VimD\vimd.exe",
-                @"D:\MyLoove\TotalCommand\VimD\userPlugins\InitProgram.ahk"
-            };
-
-            foreach (var item in openList)
+            foreach (var item in EnvironmentConfig.OpenAHKList)
             {
                 FileHelper.OpenSoft(item);
             }
 
         }
 
-        private void CloseSoft()
+        private void CloseAHK()
         {
-            var delList = new List<string>()
-            {
-                "autohotkey",
-                "vimd"
-            };
             //关闭ahk
             var ps = Process.GetProcesses();
             foreach (Process p in ps)
             {
-                if (delList.Contains(p.ProcessName.ToLower()))
+                if (EnvironmentConfig.CloseAHKList.Contains(p.ProcessName.ToLower()))
                 {
                     p.Kill();
                     p.WaitForExit();
@@ -60,21 +74,35 @@ namespace EnvironmentChange
             }
         }
 
+        private void CloseSoft()
+        {
+            var ps = Process.GetProcesses();
+            foreach (Process p in ps)
+            {
+                if (EnvironmentConfig.CloseSoftList.Contains(p.ProcessName.ToLower()))
+                {
+                    p.Kill();
+                    p.WaitForExit();
+                }
+            }
+
+        }
+        
         private void button2_Click(object sender, EventArgs e)
         {
-            CloseSoft();
+            CloseAHK();
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            CloseSoft();
-            FileHelper.OpenSoft(@"F:\Game\5211game\11Loader.exe");
+            CloseAHK();
+            FileHelper.OpenSoft(EnvironmentConfig.yaoyaoPath);
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
-            CloseSoft();
-            FileHelper.OpenSoft(@"F:\Game\dzclient\Platform.exe");
+            CloseAHK();
+            FileHelper.OpenSoft(EnvironmentConfig.GuanFangPath);
         }
     }
 }
