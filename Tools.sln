@@ -41,6 +41,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CleanAudio", "CleanAudio\Cl
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EnvironmentChange", "EnvironmentChange\EnvironmentChange.csproj", "{2E77A812-66D9-4A65-B268-DB6ECFE68BD6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RenameProject", "RenameProject\RenameProject.csproj", "{03ABEC9C-A2B2-49EA-972C-CE2A79815818}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -123,6 +125,10 @@ Global
 		{2E77A812-66D9-4A65-B268-DB6ECFE68BD6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2E77A812-66D9-4A65-B268-DB6ECFE68BD6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2E77A812-66D9-4A65-B268-DB6ECFE68BD6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{03ABEC9C-A2B2-49EA-972C-CE2A79815818}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{03ABEC9C-A2B2-49EA-972C-CE2A79815818}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{03ABEC9C-A2B2-49EA-972C-CE2A79815818}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{03ABEC9C-A2B2-49EA-972C-CE2A79815818}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
