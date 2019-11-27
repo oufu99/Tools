@@ -90,6 +90,9 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="ProjectPath - 复制.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="ProjectPath.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
