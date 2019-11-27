@@ -106,5 +106,16 @@ namespace EnvironmentChange
             CloseAHK();
             FileHelper.OpenSoft(EnvironmentConfig.GuanFangPath);
         }
+
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+            CloseAHK();
+            OpenAHK();
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            CloseAHK();
+        }
     }
 }
