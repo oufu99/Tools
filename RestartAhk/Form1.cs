@@ -28,9 +28,9 @@ namespace RestartAhk
         {
             var ahkPath = ConfigHelper.GetAppConfig("AhkPath");
             var list = ahkPath.Split(new string[] { @";" }, StringSplitOptions.RemoveEmptyEntries);
-            var killList = new List<string>() { "AutoHotkey", "Vimd" };
+            var killList = new List<string>() { "AutoHotkey" };
 
-            ProcessHelper.KillProgramByList(killList);
+            //ProcessHelper.KillProgramByList(killList);
             foreach (var item in list)
             {
                 FileHelper.OpenSoft(item);
