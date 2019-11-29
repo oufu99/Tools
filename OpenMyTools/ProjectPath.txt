@@ -1,12 +1,1 @@
-﻿编译微商代码;WsBuildExe
-添加新厂商;AddNewManuExe
-查看日志;CheckLogExe
-更新全部SQL;UpdateShortCodeExe
-查询密码;QueryCodeExe
-更新一行SQL;UpdateOneLineExe
-解决Git冲突;CopyGitItemExe
-拼接SQL语句;CreateSQLExe
-批量打开我的代码;OpenBatchSoftwareExe
-批量打开软件;OpenBatchSoftwareExe
-复制静态页面;CopyViewExe
-打开浏览器;OpenBrowserExe
+﻿重启Ahk;RestartAhkExe
