@@ -35,11 +35,10 @@ namespace UpdateShortCode
             string nListJson = XMLHelper.GetNodeText(XMLPath.NavicatOldManuId);
             nlist = JsonHelper.DeserializeObject<List<string>>(nListJson);
             //初始化右边五个按键的字
-            string sql = string.Format($@"SELECT  a.tb_manufacturerID,a.name,b.name AS domain FROM dbo.tb_manufacturer a LEFT JOIN tb_user b ON a.tb_manufacturerID=b.manufacturer_id WHERE tb_manufacturerID in({string.Join(",", list)}) AND b.system_role_id=-10");
-            var models = SQLHelper.QueryList<tb_manu>(sql);
+
             for (int i = 0; i < list.Count; i++)
             {
-                bList[i].Text = list[i] + $"({models.First(c => c.tb_manufacturerID == list[i]).Name})";
+                bList[i].Text = list[i] + $"(按键1)";
                 bList[i].Click += BtnClick;
             }
             for (int i = list.Count; i < bList.Count; i++)

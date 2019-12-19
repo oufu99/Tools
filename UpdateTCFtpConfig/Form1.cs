@@ -34,10 +34,10 @@ namespace UpdateTCFtpConfig
 
             //初始化右边五个按键的字
             string sql = string.Format($@"SELECT  a.tb_manufacturerID,a.name,b.name AS domain FROM dbo.tb_manufacturer a LEFT JOIN tb_user b ON a.tb_manufacturerID=b.manufacturer_id WHERE tb_manufacturerID in({string.Join(",", list)}) AND b.system_role_id=-10");
-            models = SQLHelper.QueryList<tb_manu>(sql);
+
             for (int i = 0; i < list.Count; i++)
             {
-                bList[i].Text = list[i] + $"({models.First(c => c.tb_manufacturerID == list[i]).Name})";
+                bList[i].Text = list[i] + $"(临时按键名称)";
             }
         }
         private void BtnClick(object sender, EventArgs e)
@@ -52,7 +52,7 @@ namespace UpdateTCFtpConfig
         {
             string newManuName = this.txt1.Text.Trim();
             SetFtp(newManuName);
-           
+
 
         }
 
@@ -72,30 +72,7 @@ namespace UpdateTCFtpConfig
             List<string> lines = new List<string>(File.ReadAllLines(path, Encoding.Default));
             //可以传入manuId或者直接中文
             int outManuId = 0;
-            string manuId;
-            if (int.TryParse(newManuName, out outManuId))
-            {
-                string sql = string.Format($@"SELECT a.tb_manufacturerID, a.name,b.name AS domain FROM dbo.tb_manufacturer a LEFT JOIN tb_user b ON a.tb_manufacturerID=b.manufacturer_id WHERE tb_manufacturerID='{outManuId}' AND b.system_role_id=-10");
-                var model = SQLHelper.Query<tb_manu>(sql);
-                if (model == null)
-                {
-                    MessageBox.Show("厂商不存在!");
-                    return;
-                }
-                newManuName = model.Domain;
-                manuId = outManuId.ToString();
-            }
-            else
-            {
-                string sql = string.Format($@"SELECT a.tb_manufacturerID, a.name,b.name AS domain FROM dbo.tb_manufacturer a LEFT JOIN tb_user b ON a.tb_manufacturerID=b.manufacturer_id WHERE b.name='{newManuName}' AND b.system_role_id=-10");
-                var model = SQLHelper.Query<tb_manu>(sql);
-                if (model == null)
-                {
-                    MessageBox.Show("厂商不存在!");
-                    return;
-                }
-                manuId = model.tb_manufacturerID;
-            }
+            string manuId = "10086"; ;
 
             for (int i = 0; i < lines.Count; i++)
             {
@@ -145,8 +122,7 @@ namespace UpdateTCFtpConfig
             File.WriteAllLines(path, lines.ToArray(), Encoding.Default);
 
             //插入历史记录
-            //如果已经存在
-
+            //如果已经存在            
             if (list.Contains(manuId))
             {
                 var indexAt = list.Remove(manuId);
