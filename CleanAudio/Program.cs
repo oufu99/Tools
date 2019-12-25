@@ -21,7 +21,7 @@ namespace CleanAudio
             //f.Tag.Album = "认知方法论";
             //f.Save();
 
-            string dirPath = @"E:\认知方法论\音频归类\";
+            string dirPath = @"F:\洗音乐专用\完结 华杉讲透孙子30讲";
 
             string targetBasePath = dirPath + @"\temp\";
             FileHelper.CreateDirectory(targetBasePath);
