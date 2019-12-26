@@ -15,21 +15,12 @@ namespace CleanAudio
     {
         static void Main(string[] args)
         {
-
-            //string path = @"E:\Test\59《卷上·徐爱录》心即理，天下无心外之事，无心外之理.mp3";
-            //TagLib.File f = TagLib.File.Create(path);
-            //f.Tag.Album = "认知方法论";
-            //f.Save();
-
-
-
+  
             //新增外层是父目录
             var basePath = @"D:\MyLove";
             var paths = Directory.GetDirectories(basePath).ToList();
-            if (paths.Count() == 0)
-            {
-                paths.Add(basePath);
-            }
+            //包含父目录
+            paths.Add(basePath);
             foreach (var item in paths)
             {
                 var dirPath = item;
