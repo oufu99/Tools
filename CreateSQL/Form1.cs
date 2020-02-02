@@ -32,7 +32,7 @@ namespace CreateSQL
             }
             if (arr.Length > 0)
             {
-                mobiles = StringHelper.RemoveLastChar(mobiles);
+                mobiles = mobiles.RemoveLastChar();
             }
 
             var sql = $@"

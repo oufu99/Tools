@@ -19,7 +19,7 @@ namespace EnvironmentChange
             public static List<string> OpenAHKList = new List<string>()
             {
                 @"D:\Common\VimD\vimd.exe",
-                @"D:\MyLoove\AHK\StartAllMyLooveAhk.ahk"
+                @"D:\MyLoove\AHK\打开Vimd和Ahk.bat"
             };
             public static List<string> CloseAHKList = new List<string>()
             {
@@ -27,7 +27,6 @@ namespace EnvironmentChange
                 "vimd"
             };
 
-            public static string YaoYaoPath { get; set; } = @"F:\Game\5211game\11Loader.exe";
             public static string GuanFangPath { get; set; } = @"F:\Game\dzclient\Platform.exe";
 
             /// <summary>
@@ -35,7 +34,7 @@ namespace EnvironmentChange
             /// </summary>
             public static List<string> CloseSoftList = new List<string>()
                 {
-                    "11client","11gameim","11homepage","platform","platform helper"
+                    "platform","platform helper"
                 };
         }
 
@@ -47,7 +46,6 @@ namespace EnvironmentChange
 
         private void button1_Click(object sender, EventArgs e)
         {
-
             CloseSoft();
             CloseAHK();
             OpenAHK();
@@ -95,11 +93,6 @@ namespace EnvironmentChange
             CloseAHK();
         }
 
-        private void button3_Click(object sender, EventArgs e)
-        {
-            CloseAHK();
-            FileHelper.OpenSoft(EnvironmentConfig.YaoYaoPath);
-        }
 
         private void button4_Click(object sender, EventArgs e)
         {
