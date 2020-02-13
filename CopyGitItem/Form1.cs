@@ -12,24 +12,27 @@ using System.Windows.Forms;
 
 namespace CopyGitItem
 {
+    /// <summary>
+    /// 此工具在文件FileNames.txt 中添加路径或文件夹,可以复制到target的路径中去 也可以直接还原
+    /// </summary>
     public partial class Form1 : Form
     {
-        string targetBasePath = @"D:\CopyGitItem";
-        string sourceBasePath = @"E:\ZPCode\zp.ymt";
+        string targetBasePath = ConfigHelper.GetAppConfig("TargetDic");
+
         public Form1()
         {
             InitializeComponent();
-            OpenGitTxt();
+            //OpenConfigText();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            OpenGitTxt();
+            OpenConfigText();
         }
 
-        private void OpenGitTxt()
+        private void OpenConfigText()
         {
-            var filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "GitItem.txt");
+            var filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "FileNames.txt");
             //要更新的项目
             FileHelper.OpenSoft(filePath);
         }
@@ -38,48 +41,67 @@ namespace CopyGitItem
         {
 
             //创建目标文件夹
-            if (isCopy)
-            {
-                FileHelper.CleanDirectory(targetBasePath);
-            }
-            var list = new List<string>();
+            FileHelper.CreateDirectory(targetBasePath);
+
             //复制
-            var filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "GitItem.txt");
+            var filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "FileNames.txt");
             var fileStr = File.ReadAllLines(filePath);
             foreach (var item in fileStr)
             {
-                if (string.IsNullOrEmpty(item))
+                if (string.IsNullOrEmpty(item.Trim()))
                 {
-                    break;
+                    continue;
                 }
                 var forString = item;
                 var itemFilePath = forString.Trim();
-                itemFilePath = Path.Combine(sourceBasePath, itemFilePath);
-                var fileName = FileHelper.GetFileNameByFullPath(itemFilePath);
-                //分开不同的文件夹保存
-                var dicList = forString.Split(new string[] { @"/" }, StringSplitOptions.RemoveEmptyEntries).ToList();
-                //因为最后一个是文件名   所以移除最后一个 
-                dicList.Remove(dicList.Last());
-                var combinPath = targetBasePath;
-                foreach (var dirItem in dicList)
+                //如果是文件夹
+                if (FileHelper.CheckIsFolder(itemFilePath))
                 {
-                    //清除格式
-                    var formatterItem = dirItem.Replace("\t", "").Replace("\n", "").Trim();
-                    //按文件夹单独放置
-                    combinPath = Path.Combine(combinPath, formatterItem);
-                    FileHelper.CreateDirectory(combinPath);
+                    //目标文件夹
+                    var targetFolderPath = GetFolderTargetPath(itemFilePath);
+                    if (isCopy)
+                    {
+                        FileHelper.CopyDirectory(itemFilePath, targetFolderPath);
+                    }
+                    else
+                    {
+                        //如果是还原直接把位置换一下就可以了
+                        FileHelper.CopyDirectory(targetFolderPath, itemFilePath);
+                    }
+                    continue;
                 }
-                fileName = Path.Combine(combinPath, fileName);
+
+                //判断要复制过去的位置文件夹
+                var targetFileFolderPath = GetFileTargetPath(itemFilePath);
+                FileHelper.CreateDirectory(targetFileFolderPath);
+                var fileName = FileHelper.GetFileNameByFullPath(itemFilePath);
+                var targetFilePath = Path.Combine(targetFileFolderPath, fileName);
+
                 if (isCopy)
                 {
-                    FileHelper.MoveFile(itemFilePath, fileName, true);
+                    FileHelper.CopyFile(itemFilePath, targetFilePath, true);
                 }
                 else
                 {
                     //还原,直接把两个路径改一下就还原回去了
-                    FileHelper.MoveFile(fileName, itemFilePath, true);
+                    FileHelper.CopyFile(targetFilePath, itemFilePath, true);
                 }
             }
+
+        }
+
+        private string GetFolderTargetPath(string fullPath)
+        {
+            var sourceTarget = FileHelper.GetFullNamenNotDiskByFullPath(fullPath);
+            var targetFinallyPath = Path.Combine(targetBasePath, sourceTarget);
+            return targetFinallyPath;
+        }
+
+        private string GetFileTargetPath(string fullPath)
+        {
+            var middleName = FileHelper.GetMiddleNameByFullPath(fullPath);
+            var targetFinallyPath = Path.Combine(targetBasePath, middleName);
+            return targetFinallyPath;
 
         }
 
@@ -94,6 +116,15 @@ namespace CopyGitItem
             //还原
             CopyGit(false);
             MessageBox.Show("还原完成");
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            var binFolder = AppDomain.CurrentDomain.BaseDirectory;
+            var tempfilePath = Path.Combine(binFolder, "FileNames.txt");
+            //正式环境的路径
+            var targetPath = FileHelper.GetParentPath(tempfilePath, 3,true);
+            FileHelper.CopyFile(tempfilePath, targetPath);
         }
     }
 }

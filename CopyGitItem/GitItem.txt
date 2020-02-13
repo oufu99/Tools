@@ -1,3 +1,0 @@
-﻿ZP.YMT.Admin/Views/Shared/_ActivityLayout.cshtml
-
-	

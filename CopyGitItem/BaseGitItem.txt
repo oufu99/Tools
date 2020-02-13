@@ -1,3 +1,0 @@
-﻿ZP.YMT.Admin\Controllers\BaseController.cs
-ZP.YMT.Admin\appsettings.json
-ZP.YMT.Api\appsettings.json
