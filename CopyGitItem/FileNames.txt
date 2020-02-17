@@ -1,4 +1,3 @@
-﻿ 22
-D:\Dossen/代码\EC-ELong\EC.App\Configs
-D:\Dossen\代码\EC-OTARoomState\EC.App\Configs\Test\Unity.config
-D:\test.ahk
+﻿E:\Dossen\EC-OTARoomState\EC.Interface\Configs\Test
+E:\Dossen\EC-AutoHotelMapping\EC.App\Configs\Test
+E:\Dossen\EC-AutoHotelMapping\EC.Interface\Configs\Test
