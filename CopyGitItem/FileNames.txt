@@ -1,3 +1,6 @@
-﻿E:\Dossen\EC-OTARoomState\EC.Interface\Configs\Test
+﻿
+E:\Dossen\EC-AutoHotelMapping\EC.App\App.config
 E:\Dossen\EC-AutoHotelMapping\EC.App\Configs\Test
+E:\Dossen\EC-OTARoomState\EC.Interface\Configs\Test
 E:\Dossen\EC-AutoHotelMapping\EC.Interface\Configs\Test
+E:\Dossen\EC-AutoHotelMapping\EC.Interface\Web.config
