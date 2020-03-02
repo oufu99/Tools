@@ -34,7 +34,7 @@ namespace EnvironmentChange
             /// </summary>
             public static List<string> CloseSoftList = new List<string>()
                 {
-                    "platform","platform helper"
+                    "platform"
                 };
         }
 
